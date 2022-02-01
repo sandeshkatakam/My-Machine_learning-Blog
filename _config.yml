@@ -6,7 +6,7 @@
 # https://learn-the-web.algonquindesign.ca/topics/markdown-yaml-cheat-sheet/#yaml
 # https://learnxinyminutes.com/docs/yaml/
 
-title: My Scientific Machine learning Blog
+title: "Sandesh's Machine learning Journal"
 description: Blog related to Machine learning and Deep learning.
 github_username: sandeshkatakam
 # you can comment the below line out if your repo name is not different than your baseurl
