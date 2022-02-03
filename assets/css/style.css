@@ -429,13 +429,13 @@ pre code { font-size: 15px !important; }
 
 /*-----------------------------------*/
 /*----- ADD YOUR STYLES BELOW -------*/
-html, body, input, textarea, select, button { color: rgba(255, 255, 255, 0.87) !important; background-color: #c8c8c8 !important; }
+html, body, input, textarea, select, button { color: #151317 !important; background-color: #c8c8c8 !important; }
 
 a { color: #4bbaff !important; }
 
-a:hover { color: rgba(255, 255, 255, 0.87) !important; }
+a:hover { color: #151317 !important; }
 
-.site-title, .site-title:visited, .site-nav, .page-link { color: rgba(255, 255, 255, 0.87) !important; }
+.site-title, .site-title:visited, .site-nav, .page-link { color: #151317 !important; }
 
 .site-nav { background-color: #c8c8c8; border-color: #d0d0d0; }
 
@@ -449,11 +449,11 @@ pre, code { border-color: #d0d0d0; background-color: #cbcbcb; }
 
 .post-content p, .post-content li { color: rgba(255, 255, 255, 0.69); }
 
-.btn { background-color: #cbcbcb !important; color: rgba(255, 255, 255, 0.87) !important; border-color: #d0d0d0 !important; }
+.btn { background-color: #cbcbcb !important; color: #151317 !important; border-color: #d0d0d0 !important; }
 
 .btn:hover { background-color: #c8c8c8 !important; }
 
-table th { background-color: #cbcbcb; border-color: #d0d0d0; color: rgba(255, 255, 255, 0.87); }
+table th { background-color: #cbcbcb; border-color: #d0d0d0; color: #151317; }
 
 table td { background-color: #c8c8c8; border-color: #d0d0d0; color: rgba(255, 255, 255, 0.69); }
 
