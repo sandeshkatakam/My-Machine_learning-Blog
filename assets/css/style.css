@@ -429,5 +429,40 @@ pre code { font-size: 15px !important; }
 
 /*-----------------------------------*/
 /*----- ADD YOUR STYLES BELOW -------*/
+html, body, input, textarea, select, button { color: rgba(255, 255, 255, 0.87) !important; background-color: #fafafa !important; }
+
+a { color: #4bbaff !important; }
+
+a:hover { color: rgba(255, 255, 255, 0.87) !important; }
+
+.site-title, .site-title:visited, .site-nav, .page-link { color: rgba(255, 255, 255, 0.87) !important; }
+
+.site-nav { background-color: #fafafa; border-color: #d7d7d7; }
+
+* { scrollbar-color: #fafafa #d7d7d7; }
+
+pre, code { border-color: #d7d7d7; background-color: #eeeeee; }
+
+.page-description { color: rgba(255, 255, 255, 0.69); }
+
+.post-meta { color: rgba(255, 255, 255, 0.38); }
+
+.post-content p, .post-content li { color: rgba(255, 255, 255, 0.69); }
+
+.btn { background-color: #eeeeee !important; color: rgba(255, 255, 255, 0.87) !important; border-color: #d7d7d7 !important; }
+
+.btn:hover { background-color: #fafafa !important; }
+
+table th { background-color: #eeeeee; border-color: #d7d7d7; color: rgba(255, 255, 255, 0.87); }
+
+table td { background-color: #fafafa; border-color: #d7d7d7; color: rgba(255, 255, 255, 0.69); }
+
+.flash { color: #fafafa !important; filter: brightness(80%); }
+
+canvas { filter: invert(100%); }
+
+.post-list > li > div { box-shadow: none !important; background-color: #eeeeee; border: none !important; }
+
+li .post-meta-description { color: rgba(255, 255, 255, 0.69) !important; }
 
 /*# sourceMappingURL=style.css.map */
