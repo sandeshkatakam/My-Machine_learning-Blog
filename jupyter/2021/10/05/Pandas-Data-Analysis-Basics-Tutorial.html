@@ -1,0 +1,2913 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Pandas Data Analysis Basics Tutorial | Sandesh’s Machine learning Journal</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="Pandas Data Analysis Basics Tutorial" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="short tutorial on basic pandas operations using python" />
+<meta property="og:description" content="short tutorial on basic pandas operations using python" />
+<link rel="canonical" href="https://sandeshkatakam.github.io/My-Machine_learning-Blog/jupyter/2021/10/05/Pandas-Data-Analysis-Basics-Tutorial.html" />
+<meta property="og:url" content="https://sandeshkatakam.github.io/My-Machine_learning-Blog/jupyter/2021/10/05/Pandas-Data-Analysis-Basics-Tutorial.html" />
+<meta property="og:site_name" content="Sandesh’s Machine learning Journal" />
+<meta property="og:image" content="https://sandeshkatakam.github.io/My-Machine_learning-Blog/images/pandaslogo.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-10-05T00:00:00-05:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://sandeshkatakam.github.io/My-Machine_learning-Blog/images/pandaslogo.png" />
+<meta property="twitter:title" content="Pandas Data Analysis Basics Tutorial" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2021-10-05T00:00:00-05:00","datePublished":"2021-10-05T00:00:00-05:00","description":"short tutorial on basic pandas operations using python","headline":"Pandas Data Analysis Basics Tutorial","image":"https://sandeshkatakam.github.io/My-Machine_learning-Blog/images/pandaslogo.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://sandeshkatakam.github.io/My-Machine_learning-Blog/jupyter/2021/10/05/Pandas-Data-Analysis-Basics-Tutorial.html"},"url":"https://sandeshkatakam.github.io/My-Machine_learning-Blog/jupyter/2021/10/05/Pandas-Data-Analysis-Basics-Tutorial.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/My-Machine_learning-Blog/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://sandeshkatakam.github.io/My-Machine_learning-Blog/feed.xml" title="Sandesh's Machine learning Journal" /><link rel="shortcut icon" type="image/x-icon" href="/My-Machine_learning-Blog/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" /><script src="https://hypothes.is/embed.js" async></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.css" integrity="sha512-h7nl+xz8wgDlNM4NqKEM4F1NkIRS17M9+uJwIGwuo8vGqIl4BhuCKdxjWEINm+xyrUjNCnK5dCrhM0sj+wTIXw==" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.js" integrity="sha512-/CMIhXiDA3m2c9kzRyd97MTb3MC6OVnx4TElQ7fkkoRghwDf6gi41gaT1PwF270W6+J60uTmwgeRpNpJdRV6sg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/contrib/auto-render.min.js" integrity="sha512-Do7uJAaHZm5OLrIv/yN4w0iG1dbu01kzdMNnFfu/mAqgUk6Nniv2JYHcwH+cNwjqgLcqcuBBk+JRvprLVI8azg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha512-0doc9hKxR3PYwso42RD1p5ySZpzzuDiOwMrdCEh2WdJZCjcmFKc/wEnL+z8fBQrnHoiNWbo+3fiGkOYXBdQp4A==" crossorigin="anonymous"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement( document.body, {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "[%", right: "%]", display: true},
+            {left: "$", right: "$", display: false}
+        ]}
+        );
+    });
+    </script>
+
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/My-Machine_learning-Blog/">Sandesh&#39;s Machine learning Journal</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/My-Machine_learning-Blog/about/">About Me</a><a class="page-link" href="/My-Machine_learning-Blog/search/">Search</a><a class="page-link" href="/My-Machine_learning-Blog/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Pandas Data Analysis Basics Tutorial</h1><p class="page-description">short tutorial on basic pandas operations using python</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2021-10-05T00:00:00-05:00" itemprop="datePublished">
+        Oct 5, 2021
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      9 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/My-Machine_learning-Blog/categories/#jupyter">jupyter</a>
+        
+      
+      </p>
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-justify-center">
+          <div class="px-2">
+
+    <a href="https://github.com/sandeshkatakam/My-Machine_learning-Blog/tree/master/_notebooks/2021-10-05-Pandas-Data-Analysis-Basics-Tutorial.ipynb" role="button" target="_blank">
+<img class="notebook-badge-image" src="/My-Machine_learning-Blog/assets/badges/github.svg" alt="View On GitHub">
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://mybinder.org/v2/gh/sandeshkatakam/My-Machine_learning-Blog/master?filepath=_notebooks%2F2021-10-05-Pandas-Data-Analysis-Basics-Tutorial.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/My-Machine_learning-Blog/assets/badges/binder.svg" alt="Open In Binder"/>
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://colab.research.google.com/github/sandeshkatakam/My-Machine_learning-Blog/blob/master/_notebooks/2021-10-05-Pandas-Data-Analysis-Basics-Tutorial.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/My-Machine_learning-Blog/assets/badges/colab.svg" alt="Open In Colab"/>
+    </a>
+</div>
+          <div class="px-2">
+  <a href="https://deepnote.com/launch?url=https%3A%2F%2Fgithub.com%2Fsandeshkatakam%2FMy-Machine_learning-Blog%2Fblob%2Fmaster%2F_notebooks%2F2021-10-05-Pandas-Data-Analysis-Basics-Tutorial.ipynb" target="_blank">
+      <img class="notebook-badge-image" src="/My-Machine_learning-Blog/assets/badges/deepnote.svg" alt="Launch in Deepnote"/>
+  </a>
+</div>
+
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul id="toc" class="section-nav">
+<li class="toc-entry toc-h1"><a href="#Pandas-Data-Analysis-short-tutorial:">Pandas Data Analysis short tutorial: </a></li>
+</ul><!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2021-10-05-Pandas-Data-Analysis-Basics-Tutorial.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Pandas-Data-Analysis-short-tutorial:">
+<a class="anchor" href="#Pandas-Data-Analysis-short-tutorial:" aria-hidden="true"><span class="octicon octicon-link"></span></a>Pandas Data Analysis short tutorial:<a class="anchor-link" href="#Pandas-Data-Analysis-short-tutorial:"> </a>
+</h1>
+<p><em>This is an assignment, a part of the course <a href="https://jovian.ml/learn/data-analysis-with-python-zero-to-pandas">"Data Analysis with Python: Zero to Pandas"</a></em></p>
+<p>This tutorial demonstrates data analysis using example from two data sets using the Pandas Library. All the important operations are described in markdown cells.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>pip install pandas --upgrade
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Requirement already satisfied: pandas in /opt/conda/lib/python3.9/site-packages (1.3.4)
+Requirement already satisfied: numpy&gt;=1.17.3 in /opt/conda/lib/python3.9/site-packages (from pandas) (1.20.3)
+Requirement already satisfied: pytz&gt;=2017.3 in /opt/conda/lib/python3.9/site-packages (from pandas) (2021.1)
+Requirement already satisfied: python-dateutil&gt;=2.7.3 in /opt/conda/lib/python3.9/site-packages (from pandas) (2.8.2)
+Requirement already satisfied: six&gt;=1.5 in /opt/conda/lib/python3.9/site-packages (from python-dateutil&gt;=2.7.3-&gt;pandas) (1.16.0)
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In this tutorial, we're going to analyze an operate on data from a CSV file. Let's begin by downloading the CSV file.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">urllib.request</span> <span class="kn">import</span> <span class="n">urlretrieve</span>
+
+<span class="n">urlretrieve</span><span class="p">(</span><span class="s1">'https://hub.jovian.ml/wp-content/uploads/2020/09/countries.csv'</span><span class="p">,</span> 
+            <span class="s1">'countries.csv'</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>('countries.csv', &lt;http.client.HTTPMessage at 0x7ff1c18db130&gt;)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Let's load the data from the CSV file into a Pandas data frame.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">countries_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">'countries.csv'</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">countries_df</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>location</th>
+      <th>continent</th>
+      <th>population</th>
+      <th>life_expectancy</th>
+      <th>hospital_beds_per_thousand</th>
+      <th>gdp_per_capita</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Afghanistan</td>
+      <td>Asia</td>
+      <td>38928341.0</td>
+      <td>64.83</td>
+      <td>0.50</td>
+      <td>1803.987</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Albania</td>
+      <td>Europe</td>
+      <td>2877800.0</td>
+      <td>78.57</td>
+      <td>2.89</td>
+      <td>11803.431</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Algeria</td>
+      <td>Africa</td>
+      <td>43851043.0</td>
+      <td>76.88</td>
+      <td>1.90</td>
+      <td>13913.839</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Andorra</td>
+      <td>Europe</td>
+      <td>77265.0</td>
+      <td>83.73</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Angola</td>
+      <td>Africa</td>
+      <td>32866268.0</td>
+      <td>61.15</td>
+      <td>NaN</td>
+      <td>5819.495</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>205</th>
+      <td>Vietnam</td>
+      <td>Asia</td>
+      <td>97338583.0</td>
+      <td>75.40</td>
+      <td>2.60</td>
+      <td>6171.884</td>
+    </tr>
+    <tr>
+      <th>206</th>
+      <td>Western Sahara</td>
+      <td>Africa</td>
+      <td>597330.0</td>
+      <td>70.26</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>207</th>
+      <td>Yemen</td>
+      <td>Asia</td>
+      <td>29825968.0</td>
+      <td>66.12</td>
+      <td>0.70</td>
+      <td>1479.147</td>
+    </tr>
+    <tr>
+      <th>208</th>
+      <td>Zambia</td>
+      <td>Africa</td>
+      <td>18383956.0</td>
+      <td>63.89</td>
+      <td>2.00</td>
+      <td>3689.251</td>
+    </tr>
+    <tr>
+      <th>209</th>
+      <td>Zimbabwe</td>
+      <td>Africa</td>
+      <td>14862927.0</td>
+      <td>61.49</td>
+      <td>1.70</td>
+      <td>1899.775</td>
+    </tr>
+  </tbody>
+</table>
+<p>210 rows × 6 columns</p>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Q1: How many countries does the dataframe contain?</strong></p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">num_countries</span><span class="p">,</span><span class="n">colparameters</span> <span class="o">=</span> <span class="n">countries_df</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">'There are </span><span class="si">{}</span><span class="s1"> countries in the dataset'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">num_countries</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>There are 210 countries in the dataset
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Q2: Retrieve a list of continents from the dataframe?</strong></p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">continents</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">countries_df</span><span class="o">.</span><span class="n">continent</span><span class="p">)</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>    
+
+    
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">continents</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>array(['Asia', 'Europe', 'Africa', 'North America', 'South America',
+       'Oceania'], dtype=object)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Q3: What is the total population of all the countries listed in this dataset?</strong></p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">total_population</span> <span class="o">=</span> <span class="n">countries_df</span><span class="o">.</span><span class="n">population</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">'The total population is </span><span class="si">{}</span><span class="s1">.'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">total_population</span><span class="p">)))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>The total population is 7757980095.
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Q: What is the overall life expectancy across in the world?</strong></p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">((</span><span class="n">countries_df</span><span class="o">.</span><span class="n">population</span><span class="o">*</span><span class="n">countries_df</span><span class="o">.</span><span class="n">life_expectancy</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">/</span><span class="n">countries_df</span><span class="o">.</span><span class="n">population</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>72.72165193409664
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">overall_life</span> <span class="o">=</span> <span class="n">countries_df</span><span class="p">[</span><span class="s1">'life_expectancy'</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">overall_life</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>73.52985507246376</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Q4: Create a dataframe containing 10 countries with the highest population.</strong></p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">most_populous_df</span> <span class="o">=</span> <span class="p">(</span><span class="n">countries_df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s1">'population'</span><span class="p">],</span><span class="n">ascending</span> <span class="o">=</span> <span class="kc">False</span><span class="p">))</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">most_populous_df</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>location</th>
+      <th>continent</th>
+      <th>population</th>
+      <th>life_expectancy</th>
+      <th>hospital_beds_per_thousand</th>
+      <th>gdp_per_capita</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>41</th>
+      <td>China</td>
+      <td>Asia</td>
+      <td>1.439324e+09</td>
+      <td>76.91</td>
+      <td>4.34</td>
+      <td>15308.712</td>
+    </tr>
+    <tr>
+      <th>90</th>
+      <td>India</td>
+      <td>Asia</td>
+      <td>1.380004e+09</td>
+      <td>69.66</td>
+      <td>0.53</td>
+      <td>6426.674</td>
+    </tr>
+    <tr>
+      <th>199</th>
+      <td>United States</td>
+      <td>North America</td>
+      <td>3.310026e+08</td>
+      <td>78.86</td>
+      <td>2.77</td>
+      <td>54225.446</td>
+    </tr>
+    <tr>
+      <th>91</th>
+      <td>Indonesia</td>
+      <td>Asia</td>
+      <td>2.735236e+08</td>
+      <td>71.72</td>
+      <td>1.04</td>
+      <td>11188.744</td>
+    </tr>
+    <tr>
+      <th>145</th>
+      <td>Pakistan</td>
+      <td>Asia</td>
+      <td>2.208923e+08</td>
+      <td>67.27</td>
+      <td>0.60</td>
+      <td>5034.708</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>Brazil</td>
+      <td>South America</td>
+      <td>2.125594e+08</td>
+      <td>75.88</td>
+      <td>2.20</td>
+      <td>14103.452</td>
+    </tr>
+    <tr>
+      <th>141</th>
+      <td>Nigeria</td>
+      <td>Africa</td>
+      <td>2.061396e+08</td>
+      <td>54.69</td>
+      <td>NaN</td>
+      <td>5338.454</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>Bangladesh</td>
+      <td>Asia</td>
+      <td>1.646894e+08</td>
+      <td>72.59</td>
+      <td>0.80</td>
+      <td>3523.984</td>
+    </tr>
+    <tr>
+      <th>157</th>
+      <td>Russia</td>
+      <td>Europe</td>
+      <td>1.459345e+08</td>
+      <td>72.58</td>
+      <td>8.05</td>
+      <td>24765.954</td>
+    </tr>
+    <tr>
+      <th>125</th>
+      <td>Mexico</td>
+      <td>North America</td>
+      <td>1.289328e+08</td>
+      <td>75.05</td>
+      <td>1.38</td>
+      <td>17336.469</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Q5: Add a new column in <code>countries_df</code> to record the overall GDP per country (product of population &amp; per capita GDP).</strong></p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">countries_df</span><span class="p">[</span><span class="s1">'gdp'</span><span class="p">]</span> <span class="o">=</span> <span class="n">countries_df</span><span class="o">.</span><span class="n">population</span> <span class="o">*</span> <span class="n">countries_df</span><span class="o">.</span><span class="n">gdp_per_capita</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">countries_df</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>location</th>
+      <th>continent</th>
+      <th>population</th>
+      <th>life_expectancy</th>
+      <th>hospital_beds_per_thousand</th>
+      <th>gdp_per_capita</th>
+      <th>gdp</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Afghanistan</td>
+      <td>Asia</td>
+      <td>38928341.0</td>
+      <td>64.83</td>
+      <td>0.50</td>
+      <td>1803.987</td>
+      <td>7.022622e+10</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Albania</td>
+      <td>Europe</td>
+      <td>2877800.0</td>
+      <td>78.57</td>
+      <td>2.89</td>
+      <td>11803.431</td>
+      <td>3.396791e+10</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Algeria</td>
+      <td>Africa</td>
+      <td>43851043.0</td>
+      <td>76.88</td>
+      <td>1.90</td>
+      <td>13913.839</td>
+      <td>6.101364e+11</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Andorra</td>
+      <td>Europe</td>
+      <td>77265.0</td>
+      <td>83.73</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Angola</td>
+      <td>Africa</td>
+      <td>32866268.0</td>
+      <td>61.15</td>
+      <td>NaN</td>
+      <td>5819.495</td>
+      <td>1.912651e+11</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>205</th>
+      <td>Vietnam</td>
+      <td>Asia</td>
+      <td>97338583.0</td>
+      <td>75.40</td>
+      <td>2.60</td>
+      <td>6171.884</td>
+      <td>6.007624e+11</td>
+    </tr>
+    <tr>
+      <th>206</th>
+      <td>Western Sahara</td>
+      <td>Africa</td>
+      <td>597330.0</td>
+      <td>70.26</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>207</th>
+      <td>Yemen</td>
+      <td>Asia</td>
+      <td>29825968.0</td>
+      <td>66.12</td>
+      <td>0.70</td>
+      <td>1479.147</td>
+      <td>4.411699e+10</td>
+    </tr>
+    <tr>
+      <th>208</th>
+      <td>Zambia</td>
+      <td>Africa</td>
+      <td>18383956.0</td>
+      <td>63.89</td>
+      <td>2.00</td>
+      <td>3689.251</td>
+      <td>6.782303e+10</td>
+    </tr>
+    <tr>
+      <th>209</th>
+      <td>Zimbabwe</td>
+      <td>Africa</td>
+      <td>14862927.0</td>
+      <td>61.49</td>
+      <td>1.70</td>
+      <td>1899.775</td>
+      <td>2.823622e+10</td>
+    </tr>
+  </tbody>
+</table>
+<p>210 rows × 7 columns</p>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Q6: Create a data frame that counts the number countries in each continent?</strong></p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">country_counts_df</span> <span class="o">=</span> <span class="n">countries_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'continent'</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">country_counts_df</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>location</th>
+      <th>population</th>
+      <th>life_expectancy</th>
+      <th>hospital_beds_per_thousand</th>
+      <th>gdp_per_capita</th>
+      <th>gdp</th>
+    </tr>
+    <tr>
+      <th>continent</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Africa</th>
+      <td>55</td>
+      <td>55</td>
+      <td>55</td>
+      <td>40</td>
+      <td>53</td>
+      <td>53</td>
+    </tr>
+    <tr>
+      <th>Asia</th>
+      <td>47</td>
+      <td>47</td>
+      <td>47</td>
+      <td>43</td>
+      <td>45</td>
+      <td>45</td>
+    </tr>
+    <tr>
+      <th>Europe</th>
+      <td>51</td>
+      <td>51</td>
+      <td>48</td>
+      <td>43</td>
+      <td>42</td>
+      <td>42</td>
+    </tr>
+    <tr>
+      <th>North America</th>
+      <td>36</td>
+      <td>36</td>
+      <td>36</td>
+      <td>23</td>
+      <td>27</td>
+      <td>27</td>
+    </tr>
+    <tr>
+      <th>Oceania</th>
+      <td>8</td>
+      <td>8</td>
+      <td>8</td>
+      <td>3</td>
+      <td>4</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>South America</th>
+      <td>13</td>
+      <td>13</td>
+      <td>13</td>
+      <td>12</td>
+      <td>12</td>
+      <td>12</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Q7: Create a data frame showing the total population of each continent.</strong></p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">continent_populations_df</span> <span class="o">=</span> <span class="n">countries_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'continent'</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">continent_populations_df</span> <span class="o">=</span> <span class="n">continent_populations_df</span><span class="p">[</span><span class="s1">'population'</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">continent_populations_df</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>continent
+Africa           1.339424e+09
+Asia             4.607388e+09
+Europe           7.485062e+08
+North America    5.912425e+08
+Oceania          4.095832e+07
+South America    4.304611e+08
+Name: population, dtype: float64</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Let's download another CSV file containing overall Covid-19 stats for various countires, and read the data into another Pandas data frame.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">urlretrieve</span><span class="p">(</span><span class="s1">'https://hub.jovian.ml/wp-content/uploads/2020/09/covid-countries-data.csv'</span><span class="p">,</span> 
+            <span class="s1">'covid-countries-data.csv'</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>('covid-countries-data.csv', &lt;http.client.HTTPMessage at 0x7ff1789d6c10&gt;)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">covid_data_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">'covid-countries-data.csv'</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">covid_data_df</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>location</th>
+      <th>total_cases</th>
+      <th>total_deaths</th>
+      <th>total_tests</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Afghanistan</td>
+      <td>38243.0</td>
+      <td>1409.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Albania</td>
+      <td>9728.0</td>
+      <td>296.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Algeria</td>
+      <td>45158.0</td>
+      <td>1525.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Andorra</td>
+      <td>1199.0</td>
+      <td>53.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Angola</td>
+      <td>2729.0</td>
+      <td>109.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>207</th>
+      <td>Western Sahara</td>
+      <td>766.0</td>
+      <td>1.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>208</th>
+      <td>World</td>
+      <td>26059065.0</td>
+      <td>863535.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>209</th>
+      <td>Yemen</td>
+      <td>1976.0</td>
+      <td>571.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>210</th>
+      <td>Zambia</td>
+      <td>12415.0</td>
+      <td>292.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>211</th>
+      <td>Zimbabwe</td>
+      <td>6638.0</td>
+      <td>206.0</td>
+      <td>97272.0</td>
+    </tr>
+  </tbody>
+</table>
+<p>212 rows × 4 columns</p>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Q8: Count the number of countries for which the <code>total_tests</code> data is missing.</strong></p>
+<p><em>Hint: Use the <code>.isna</code> method.</em></p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">total_tests_miss</span> <span class="o">=</span> <span class="n">covid_data_df</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span>
+<span class="c1">#total_tests_missing = (total_tests_miss[total_tests_miss.total_tests == True]).count()</span>
+<span class="n">total_tests_missing</span> <span class="o">=</span> <span class="n">total_tests_miss</span><span class="p">[</span><span class="s1">'total_tests'</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">"The data for total tests is missing for </span><span class="si">{}</span><span class="s2"> countries."</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">total_tests_missing</span><span class="p">)))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>The data for total tests is missing for 122 countries.
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Let's merge the two data frames, and compute some more metrics.</p>
+<p><strong>Q9: Merge <code>countries_df</code> with <code>covid_data_df</code> on the <code>location</code> column.</strong></p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">combined_df</span> <span class="o">=</span> <span class="n">countries_df</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">covid_data_df</span><span class="p">,</span><span class="n">on</span><span class="o">=</span><span class="s1">'location'</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">combined_df</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>location</th>
+      <th>continent</th>
+      <th>population</th>
+      <th>life_expectancy</th>
+      <th>hospital_beds_per_thousand</th>
+      <th>gdp_per_capita</th>
+      <th>gdp</th>
+      <th>total_cases</th>
+      <th>total_deaths</th>
+      <th>total_tests</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Afghanistan</td>
+      <td>Asia</td>
+      <td>38928341.0</td>
+      <td>64.83</td>
+      <td>0.50</td>
+      <td>1803.987</td>
+      <td>7.022622e+10</td>
+      <td>38243.0</td>
+      <td>1409.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Albania</td>
+      <td>Europe</td>
+      <td>2877800.0</td>
+      <td>78.57</td>
+      <td>2.89</td>
+      <td>11803.431</td>
+      <td>3.396791e+10</td>
+      <td>9728.0</td>
+      <td>296.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Algeria</td>
+      <td>Africa</td>
+      <td>43851043.0</td>
+      <td>76.88</td>
+      <td>1.90</td>
+      <td>13913.839</td>
+      <td>6.101364e+11</td>
+      <td>45158.0</td>
+      <td>1525.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Andorra</td>
+      <td>Europe</td>
+      <td>77265.0</td>
+      <td>83.73</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1199.0</td>
+      <td>53.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Angola</td>
+      <td>Africa</td>
+      <td>32866268.0</td>
+      <td>61.15</td>
+      <td>NaN</td>
+      <td>5819.495</td>
+      <td>1.912651e+11</td>
+      <td>2729.0</td>
+      <td>109.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>205</th>
+      <td>Vietnam</td>
+      <td>Asia</td>
+      <td>97338583.0</td>
+      <td>75.40</td>
+      <td>2.60</td>
+      <td>6171.884</td>
+      <td>6.007624e+11</td>
+      <td>1046.0</td>
+      <td>35.0</td>
+      <td>261004.0</td>
+    </tr>
+    <tr>
+      <th>206</th>
+      <td>Western Sahara</td>
+      <td>Africa</td>
+      <td>597330.0</td>
+      <td>70.26</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>766.0</td>
+      <td>1.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>207</th>
+      <td>Yemen</td>
+      <td>Asia</td>
+      <td>29825968.0</td>
+      <td>66.12</td>
+      <td>0.70</td>
+      <td>1479.147</td>
+      <td>4.411699e+10</td>
+      <td>1976.0</td>
+      <td>571.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>208</th>
+      <td>Zambia</td>
+      <td>Africa</td>
+      <td>18383956.0</td>
+      <td>63.89</td>
+      <td>2.00</td>
+      <td>3689.251</td>
+      <td>6.782303e+10</td>
+      <td>12415.0</td>
+      <td>292.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>209</th>
+      <td>Zimbabwe</td>
+      <td>Africa</td>
+      <td>14862927.0</td>
+      <td>61.49</td>
+      <td>1.70</td>
+      <td>1899.775</td>
+      <td>2.823622e+10</td>
+      <td>6638.0</td>
+      <td>206.0</td>
+      <td>97272.0</td>
+    </tr>
+  </tbody>
+</table>
+<p>210 rows × 10 columns</p>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Q10: Add columns <code>tests_per_million</code>, <code>cases_per_million</code> and <code>deaths_per_million</code> into <code>combined_df</code>.</strong></p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">combined_df</span><span class="p">[</span><span class="s1">'tests_per_million'</span><span class="p">]</span> <span class="o">=</span> <span class="n">combined_df</span><span class="p">[</span><span class="s1">'total_tests'</span><span class="p">]</span> <span class="o">*</span> <span class="mf">1e6</span> <span class="o">/</span> <span class="n">combined_df</span><span class="p">[</span><span class="s1">'population'</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">combined_df</span><span class="p">[</span><span class="s1">'cases_per_million'</span><span class="p">]</span> <span class="o">=</span> <span class="n">combined_df</span><span class="p">[</span><span class="s1">'total_cases'</span><span class="p">]</span> <span class="o">*</span> <span class="mf">1e6</span> <span class="o">/</span> <span class="n">combined_df</span><span class="p">[</span><span class="s1">'population'</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">combined_df</span><span class="p">[</span><span class="s1">'deaths_per_million'</span><span class="p">]</span> <span class="o">=</span> <span class="n">combined_df</span><span class="p">[</span><span class="s1">'total_deaths'</span><span class="p">]</span> <span class="o">*</span> <span class="mf">1e6</span> <span class="o">/</span> <span class="n">combined_df</span><span class="p">[</span><span class="s1">'population'</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">combined_df</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>location</th>
+      <th>continent</th>
+      <th>population</th>
+      <th>life_expectancy</th>
+      <th>hospital_beds_per_thousand</th>
+      <th>gdp_per_capita</th>
+      <th>gdp</th>
+      <th>total_cases</th>
+      <th>total_deaths</th>
+      <th>total_tests</th>
+      <th>tests_per_million</th>
+      <th>cases_per_million</th>
+      <th>deaths_per_million</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Afghanistan</td>
+      <td>Asia</td>
+      <td>38928341.0</td>
+      <td>64.83</td>
+      <td>0.50</td>
+      <td>1803.987</td>
+      <td>7.022622e+10</td>
+      <td>38243.0</td>
+      <td>1409.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>982.394806</td>
+      <td>36.194710</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Albania</td>
+      <td>Europe</td>
+      <td>2877800.0</td>
+      <td>78.57</td>
+      <td>2.89</td>
+      <td>11803.431</td>
+      <td>3.396791e+10</td>
+      <td>9728.0</td>
+      <td>296.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>3380.359997</td>
+      <td>102.856349</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Algeria</td>
+      <td>Africa</td>
+      <td>43851043.0</td>
+      <td>76.88</td>
+      <td>1.90</td>
+      <td>13913.839</td>
+      <td>6.101364e+11</td>
+      <td>45158.0</td>
+      <td>1525.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1029.804468</td>
+      <td>34.776824</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Andorra</td>
+      <td>Europe</td>
+      <td>77265.0</td>
+      <td>83.73</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1199.0</td>
+      <td>53.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>15518.022390</td>
+      <td>685.950948</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Angola</td>
+      <td>Africa</td>
+      <td>32866268.0</td>
+      <td>61.15</td>
+      <td>NaN</td>
+      <td>5819.495</td>
+      <td>1.912651e+11</td>
+      <td>2729.0</td>
+      <td>109.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>83.033462</td>
+      <td>3.316470</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>205</th>
+      <td>Vietnam</td>
+      <td>Asia</td>
+      <td>97338583.0</td>
+      <td>75.40</td>
+      <td>2.60</td>
+      <td>6171.884</td>
+      <td>6.007624e+11</td>
+      <td>1046.0</td>
+      <td>35.0</td>
+      <td>261004.0</td>
+      <td>2681.403324</td>
+      <td>10.745996</td>
+      <td>0.359570</td>
+    </tr>
+    <tr>
+      <th>206</th>
+      <td>Western Sahara</td>
+      <td>Africa</td>
+      <td>597330.0</td>
+      <td>70.26</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>766.0</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1282.373228</td>
+      <td>1.674116</td>
+    </tr>
+    <tr>
+      <th>207</th>
+      <td>Yemen</td>
+      <td>Asia</td>
+      <td>29825968.0</td>
+      <td>66.12</td>
+      <td>0.70</td>
+      <td>1479.147</td>
+      <td>4.411699e+10</td>
+      <td>1976.0</td>
+      <td>571.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>66.250993</td>
+      <td>19.144391</td>
+    </tr>
+    <tr>
+      <th>208</th>
+      <td>Zambia</td>
+      <td>Africa</td>
+      <td>18383956.0</td>
+      <td>63.89</td>
+      <td>2.00</td>
+      <td>3689.251</td>
+      <td>6.782303e+10</td>
+      <td>12415.0</td>
+      <td>292.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>675.317108</td>
+      <td>15.883415</td>
+    </tr>
+    <tr>
+      <th>209</th>
+      <td>Zimbabwe</td>
+      <td>Africa</td>
+      <td>14862927.0</td>
+      <td>61.49</td>
+      <td>1.70</td>
+      <td>1899.775</td>
+      <td>2.823622e+10</td>
+      <td>6638.0</td>
+      <td>206.0</td>
+      <td>97272.0</td>
+      <td>6544.605918</td>
+      <td>446.614587</td>
+      <td>13.859989</td>
+    </tr>
+  </tbody>
+</table>
+<p>210 rows × 13 columns</p>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Q11: Create a dataframe with 10 countires that have highest number of tests per million people.</strong></p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">highest_tests_df</span> <span class="o">=</span> <span class="n">combined_df</span><span class="o">.</span><span class="n">nlargest</span><span class="p">(</span><span class="mi">10</span><span class="p">,[</span><span class="s2">"tests_per_million"</span><span class="p">])</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">highest_tests_df</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>location</th>
+      <th>continent</th>
+      <th>population</th>
+      <th>life_expectancy</th>
+      <th>hospital_beds_per_thousand</th>
+      <th>gdp_per_capita</th>
+      <th>gdp</th>
+      <th>total_cases</th>
+      <th>total_deaths</th>
+      <th>total_tests</th>
+      <th>tests_per_million</th>
+      <th>cases_per_million</th>
+      <th>deaths_per_million</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>197</th>
+      <td>United Arab Emirates</td>
+      <td>Asia</td>
+      <td>9890400.0</td>
+      <td>77.97</td>
+      <td>1.200</td>
+      <td>67293.483</td>
+      <td>6.655595e+11</td>
+      <td>71540.0</td>
+      <td>387.0</td>
+      <td>7177430.0</td>
+      <td>725696.635121</td>
+      <td>7233.276713</td>
+      <td>39.128852</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>Bahrain</td>
+      <td>Asia</td>
+      <td>1701583.0</td>
+      <td>77.29</td>
+      <td>2.000</td>
+      <td>43290.705</td>
+      <td>7.366273e+10</td>
+      <td>52440.0</td>
+      <td>190.0</td>
+      <td>1118837.0</td>
+      <td>657527.137965</td>
+      <td>30818.361490</td>
+      <td>111.660730</td>
+    </tr>
+    <tr>
+      <th>115</th>
+      <td>Luxembourg</td>
+      <td>Europe</td>
+      <td>625976.0</td>
+      <td>82.25</td>
+      <td>4.510</td>
+      <td>94277.965</td>
+      <td>5.901574e+10</td>
+      <td>7928.0</td>
+      <td>124.0</td>
+      <td>385820.0</td>
+      <td>616349.508607</td>
+      <td>12665.022301</td>
+      <td>198.090662</td>
+    </tr>
+    <tr>
+      <th>122</th>
+      <td>Malta</td>
+      <td>Europe</td>
+      <td>441539.0</td>
+      <td>82.53</td>
+      <td>4.485</td>
+      <td>36513.323</td>
+      <td>1.612206e+10</td>
+      <td>1931.0</td>
+      <td>13.0</td>
+      <td>188539.0</td>
+      <td>427004.183096</td>
+      <td>4373.339614</td>
+      <td>29.442473</td>
+    </tr>
+    <tr>
+      <th>53</th>
+      <td>Denmark</td>
+      <td>Europe</td>
+      <td>5792203.0</td>
+      <td>80.90</td>
+      <td>2.500</td>
+      <td>46682.515</td>
+      <td>2.703946e+11</td>
+      <td>17195.0</td>
+      <td>626.0</td>
+      <td>2447911.0</td>
+      <td>422621.755488</td>
+      <td>2968.645954</td>
+      <td>108.076323</td>
+    </tr>
+    <tr>
+      <th>96</th>
+      <td>Israel</td>
+      <td>Asia</td>
+      <td>8655541.0</td>
+      <td>82.97</td>
+      <td>2.990</td>
+      <td>33132.320</td>
+      <td>2.867782e+11</td>
+      <td>122539.0</td>
+      <td>969.0</td>
+      <td>2353984.0</td>
+      <td>271962.665303</td>
+      <td>14157.289533</td>
+      <td>111.951408</td>
+    </tr>
+    <tr>
+      <th>89</th>
+      <td>Iceland</td>
+      <td>Europe</td>
+      <td>341250.0</td>
+      <td>82.99</td>
+      <td>2.910</td>
+      <td>46482.958</td>
+      <td>1.586231e+10</td>
+      <td>2121.0</td>
+      <td>10.0</td>
+      <td>88829.0</td>
+      <td>260304.761905</td>
+      <td>6215.384615</td>
+      <td>29.304029</td>
+    </tr>
+    <tr>
+      <th>157</th>
+      <td>Russia</td>
+      <td>Europe</td>
+      <td>145934460.0</td>
+      <td>72.58</td>
+      <td>8.050</td>
+      <td>24765.954</td>
+      <td>3.614206e+12</td>
+      <td>1005000.0</td>
+      <td>17414.0</td>
+      <td>37176827.0</td>
+      <td>254750.159763</td>
+      <td>6886.653091</td>
+      <td>119.327539</td>
+    </tr>
+    <tr>
+      <th>199</th>
+      <td>United States</td>
+      <td>North America</td>
+      <td>331002647.0</td>
+      <td>78.86</td>
+      <td>2.770</td>
+      <td>54225.446</td>
+      <td>1.794877e+13</td>
+      <td>6114406.0</td>
+      <td>185744.0</td>
+      <td>83898416.0</td>
+      <td>253467.507769</td>
+      <td>18472.377957</td>
+      <td>561.155633</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>Australia</td>
+      <td>Oceania</td>
+      <td>25499881.0</td>
+      <td>83.44</td>
+      <td>3.840</td>
+      <td>44648.710</td>
+      <td>1.138537e+12</td>
+      <td>25923.0</td>
+      <td>663.0</td>
+      <td>6255797.0</td>
+      <td>245326.517406</td>
+      <td>1016.592979</td>
+      <td>26.000121</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Q12: Create a dataframe with 10 countires that have highest number of positive cases per million people.</strong></p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">highest_cases_df</span> <span class="o">=</span>  <span class="n">combined_df</span><span class="o">.</span><span class="n">nlargest</span><span class="p">(</span><span class="mi">10</span><span class="p">,[</span><span class="s2">"cases_per_million"</span><span class="p">])</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">highest_cases_df</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>location</th>
+      <th>continent</th>
+      <th>population</th>
+      <th>life_expectancy</th>
+      <th>hospital_beds_per_thousand</th>
+      <th>gdp_per_capita</th>
+      <th>gdp</th>
+      <th>total_cases</th>
+      <th>total_deaths</th>
+      <th>total_tests</th>
+      <th>tests_per_million</th>
+      <th>cases_per_million</th>
+      <th>deaths_per_million</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>155</th>
+      <td>Qatar</td>
+      <td>Asia</td>
+      <td>2881060.0</td>
+      <td>80.23</td>
+      <td>1.20</td>
+      <td>116935.600</td>
+      <td>3.368985e+11</td>
+      <td>119206.0</td>
+      <td>199.0</td>
+      <td>634745.0</td>
+      <td>220316.480740</td>
+      <td>41375.743650</td>
+      <td>69.071800</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>Bahrain</td>
+      <td>Asia</td>
+      <td>1701583.0</td>
+      <td>77.29</td>
+      <td>2.00</td>
+      <td>43290.705</td>
+      <td>7.366273e+10</td>
+      <td>52440.0</td>
+      <td>190.0</td>
+      <td>1118837.0</td>
+      <td>657527.137965</td>
+      <td>30818.361490</td>
+      <td>111.660730</td>
+    </tr>
+    <tr>
+      <th>147</th>
+      <td>Panama</td>
+      <td>North America</td>
+      <td>4314768.0</td>
+      <td>78.51</td>
+      <td>2.30</td>
+      <td>22267.037</td>
+      <td>9.607710e+10</td>
+      <td>94084.0</td>
+      <td>2030.0</td>
+      <td>336345.0</td>
+      <td>77952.047480</td>
+      <td>21805.112117</td>
+      <td>470.477208</td>
+    </tr>
+    <tr>
+      <th>40</th>
+      <td>Chile</td>
+      <td>South America</td>
+      <td>19116209.0</td>
+      <td>80.18</td>
+      <td>2.11</td>
+      <td>22767.037</td>
+      <td>4.352194e+11</td>
+      <td>414739.0</td>
+      <td>11344.0</td>
+      <td>2458762.0</td>
+      <td>128621.841287</td>
+      <td>21695.671982</td>
+      <td>593.423100</td>
+    </tr>
+    <tr>
+      <th>162</th>
+      <td>San Marino</td>
+      <td>Europe</td>
+      <td>33938.0</td>
+      <td>84.97</td>
+      <td>3.80</td>
+      <td>56861.470</td>
+      <td>1.929765e+09</td>
+      <td>735.0</td>
+      <td>42.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>21657.139490</td>
+      <td>1237.550828</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>Aruba</td>
+      <td>North America</td>
+      <td>106766.0</td>
+      <td>76.29</td>
+      <td>NaN</td>
+      <td>35973.781</td>
+      <td>3.840777e+09</td>
+      <td>2211.0</td>
+      <td>12.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>20708.839893</td>
+      <td>112.395332</td>
+    </tr>
+    <tr>
+      <th>105</th>
+      <td>Kuwait</td>
+      <td>Asia</td>
+      <td>4270563.0</td>
+      <td>75.49</td>
+      <td>2.00</td>
+      <td>65530.537</td>
+      <td>2.798523e+11</td>
+      <td>86478.0</td>
+      <td>535.0</td>
+      <td>621616.0</td>
+      <td>145558.325682</td>
+      <td>20249.789079</td>
+      <td>125.276222</td>
+    </tr>
+    <tr>
+      <th>150</th>
+      <td>Peru</td>
+      <td>South America</td>
+      <td>32971846.0</td>
+      <td>76.74</td>
+      <td>1.60</td>
+      <td>12236.706</td>
+      <td>4.034668e+11</td>
+      <td>663437.0</td>
+      <td>29259.0</td>
+      <td>584232.0</td>
+      <td>17719.117092</td>
+      <td>20121.318048</td>
+      <td>887.393445</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>Brazil</td>
+      <td>South America</td>
+      <td>212559409.0</td>
+      <td>75.88</td>
+      <td>2.20</td>
+      <td>14103.452</td>
+      <td>2.997821e+12</td>
+      <td>3997865.0</td>
+      <td>123780.0</td>
+      <td>4797948.0</td>
+      <td>22572.268255</td>
+      <td>18808.224105</td>
+      <td>582.331314</td>
+    </tr>
+    <tr>
+      <th>199</th>
+      <td>United States</td>
+      <td>North America</td>
+      <td>331002647.0</td>
+      <td>78.86</td>
+      <td>2.77</td>
+      <td>54225.446</td>
+      <td>1.794877e+13</td>
+      <td>6114406.0</td>
+      <td>185744.0</td>
+      <td>83898416.0</td>
+      <td>253467.507769</td>
+      <td>18472.377957</td>
+      <td>561.155633</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Q13: Create a dataframe with 10 countires that have highest number of deaths cases per million people?</strong></p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">highest_deaths_df</span> <span class="o">=</span> <span class="n">combined_df</span><span class="o">.</span><span class="n">nlargest</span><span class="p">(</span><span class="mi">10</span><span class="p">,[</span><span class="s2">"deaths_per_million"</span><span class="p">])</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">highest_deaths_df</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>location</th>
+      <th>continent</th>
+      <th>population</th>
+      <th>life_expectancy</th>
+      <th>hospital_beds_per_thousand</th>
+      <th>gdp_per_capita</th>
+      <th>gdp</th>
+      <th>total_cases</th>
+      <th>total_deaths</th>
+      <th>total_tests</th>
+      <th>tests_per_million</th>
+      <th>cases_per_million</th>
+      <th>deaths_per_million</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>162</th>
+      <td>San Marino</td>
+      <td>Europe</td>
+      <td>33938.0</td>
+      <td>84.97</td>
+      <td>3.80</td>
+      <td>56861.470</td>
+      <td>1.929765e+09</td>
+      <td>735.0</td>
+      <td>42.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>21657.139490</td>
+      <td>1237.550828</td>
+    </tr>
+    <tr>
+      <th>150</th>
+      <td>Peru</td>
+      <td>South America</td>
+      <td>32971846.0</td>
+      <td>76.74</td>
+      <td>1.60</td>
+      <td>12236.706</td>
+      <td>4.034668e+11</td>
+      <td>663437.0</td>
+      <td>29259.0</td>
+      <td>584232.0</td>
+      <td>17719.117092</td>
+      <td>20121.318048</td>
+      <td>887.393445</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>Belgium</td>
+      <td>Europe</td>
+      <td>11589616.0</td>
+      <td>81.63</td>
+      <td>5.64</td>
+      <td>42658.576</td>
+      <td>4.943965e+11</td>
+      <td>85817.0</td>
+      <td>9898.0</td>
+      <td>2281853.0</td>
+      <td>196887.713967</td>
+      <td>7404.645676</td>
+      <td>854.040375</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Andorra</td>
+      <td>Europe</td>
+      <td>77265.0</td>
+      <td>83.73</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1199.0</td>
+      <td>53.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>15518.022390</td>
+      <td>685.950948</td>
+    </tr>
+    <tr>
+      <th>177</th>
+      <td>Spain</td>
+      <td>Europe</td>
+      <td>46754783.0</td>
+      <td>83.56</td>
+      <td>2.97</td>
+      <td>34272.360</td>
+      <td>1.602397e+12</td>
+      <td>479554.0</td>
+      <td>29194.0</td>
+      <td>6416533.0</td>
+      <td>137238.001939</td>
+      <td>10256.790198</td>
+      <td>624.406705</td>
+    </tr>
+    <tr>
+      <th>198</th>
+      <td>United Kingdom</td>
+      <td>Europe</td>
+      <td>67886004.0</td>
+      <td>81.32</td>
+      <td>2.54</td>
+      <td>39753.244</td>
+      <td>2.698689e+12</td>
+      <td>338676.0</td>
+      <td>41514.0</td>
+      <td>13447568.0</td>
+      <td>198090.434075</td>
+      <td>4988.892850</td>
+      <td>611.525168</td>
+    </tr>
+    <tr>
+      <th>40</th>
+      <td>Chile</td>
+      <td>South America</td>
+      <td>19116209.0</td>
+      <td>80.18</td>
+      <td>2.11</td>
+      <td>22767.037</td>
+      <td>4.352194e+11</td>
+      <td>414739.0</td>
+      <td>11344.0</td>
+      <td>2458762.0</td>
+      <td>128621.841287</td>
+      <td>21695.671982</td>
+      <td>593.423100</td>
+    </tr>
+    <tr>
+      <th>97</th>
+      <td>Italy</td>
+      <td>Europe</td>
+      <td>60461828.0</td>
+      <td>83.51</td>
+      <td>3.18</td>
+      <td>35220.084</td>
+      <td>2.129471e+12</td>
+      <td>271515.0</td>
+      <td>35497.0</td>
+      <td>5214766.0</td>
+      <td>86248.897403</td>
+      <td>4490.684602</td>
+      <td>587.097697</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>Brazil</td>
+      <td>South America</td>
+      <td>212559409.0</td>
+      <td>75.88</td>
+      <td>2.20</td>
+      <td>14103.452</td>
+      <td>2.997821e+12</td>
+      <td>3997865.0</td>
+      <td>123780.0</td>
+      <td>4797948.0</td>
+      <td>22572.268255</td>
+      <td>18808.224105</td>
+      <td>582.331314</td>
+    </tr>
+    <tr>
+      <th>182</th>
+      <td>Sweden</td>
+      <td>Europe</td>
+      <td>10099270.0</td>
+      <td>82.80</td>
+      <td>2.22</td>
+      <td>46949.283</td>
+      <td>4.741535e+11</td>
+      <td>84532.0</td>
+      <td>5820.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>8370.109919</td>
+      <td>576.279276</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+</div>
+
+
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="sandeshkatakam/My-Machine_learning-Blog"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/My-Machine_learning-Blog/jupyter/2021/10/05/Pandas-Data-Analysis-Basics-Tutorial.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/My-Machine_learning-Blog/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/My-Machine_learning-Blog/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/My-Machine_learning-Blog/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>Blog related to Machine learning and Deep learning.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/sandeshkatakam" target="_blank" title="sandeshkatakam"><svg class="svg-icon grey"><use xlink:href="/My-Machine_learning-Blog/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/sandeshkatakam" target="_blank" title="sandeshkatakam"><svg class="svg-icon grey"><use xlink:href="/My-Machine_learning-Blog/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
