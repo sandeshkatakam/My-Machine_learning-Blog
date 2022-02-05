@@ -4,21 +4,23 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>A Short Guide to Numpy Array operations. | Sandesh’s Machine learning Journal</title>
+<title>Guide to Numpy Operations | Sandesh’s Machine learning Journal</title>
 <meta name="generator" content="Jekyll v4.1.1" />
-<meta property="og:title" content="A Short Guide to Numpy Array operations." />
+<meta property="og:title" content="Guide to Numpy Operations" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Blog related to Machine learning and Deep learning." />
-<meta property="og:description" content="Blog related to Machine learning and Deep learning." />
-<link rel="canonical" href="https://sandeshkatakam.github.io/My-Machine_learning-Blog/2021/10/03/Guide-to-Numpy-Operations.html" />
-<meta property="og:url" content="https://sandeshkatakam.github.io/My-Machine_learning-Blog/2021/10/03/Guide-to-Numpy-Operations.html" />
+<meta name="description" content="short tutorial on standard Numpy linear algebra operations" />
+<meta property="og:description" content="short tutorial on standard Numpy linear algebra operations" />
+<link rel="canonical" href="https://sandeshkatakam.github.io/My-Machine_learning-Blog/jupyter/2021/10/03/Guide-to-Numpy-Operations.html" />
+<meta property="og:url" content="https://sandeshkatakam.github.io/My-Machine_learning-Blog/jupyter/2021/10/03/Guide-to-Numpy-Operations.html" />
 <meta property="og:site_name" content="Sandesh’s Machine learning Journal" />
+<meta property="og:image" content="https://sandeshkatakam.github.io/My-Machine_learning-Blog/images/numpylogo.png" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2021-10-03T00:00:00-05:00" />
-<meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="A Short Guide to Numpy Array operations." />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://sandeshkatakam.github.io/My-Machine_learning-Blog/images/numpylogo.png" />
+<meta property="twitter:title" content="Guide to Numpy Operations" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2021-10-03T00:00:00-05:00","datePublished":"2021-10-03T00:00:00-05:00","description":"Blog related to Machine learning and Deep learning.","headline":"A Short Guide to Numpy Array operations.","mainEntityOfPage":{"@type":"WebPage","@id":"https://sandeshkatakam.github.io/My-Machine_learning-Blog/2021/10/03/Guide-to-Numpy-Operations.html"},"url":"https://sandeshkatakam.github.io/My-Machine_learning-Blog/2021/10/03/Guide-to-Numpy-Operations.html"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2021-10-03T00:00:00-05:00","datePublished":"2021-10-03T00:00:00-05:00","description":"short tutorial on standard Numpy linear algebra operations","headline":"Guide to Numpy Operations","image":"https://sandeshkatakam.github.io/My-Machine_learning-Blog/images/numpylogo.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://sandeshkatakam.github.io/My-Machine_learning-Blog/jupyter/2021/10/03/Guide-to-Numpy-Operations.html"},"url":"https://sandeshkatakam.github.io/My-Machine_learning-Blog/jupyter/2021/10/03/Guide-to-Numpy-Operations.html"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/My-Machine_learning-Blog/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://sandeshkatakam.github.io/My-Machine_learning-Blog/feed.xml" title="Sandesh's Machine learning Journal" /><link rel="shortcut icon" type="image/x-icon" href="/My-Machine_learning-Blog/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" /><script src="https://hypothes.is/embed.js" async></script>
@@ -89,16 +91,23 @@ window.onload = wrap_img;
         <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">A Short Guide to Numpy Array operations.</h1><p class="post-meta post-meta-title"><time class="dt-published" datetime="2021-10-03T00:00:00-05:00" itemprop="datePublished">
+    <h1 class="post-title p-name" itemprop="name headline">Guide to Numpy Operations</h1><p class="page-description">short tutorial on standard Numpy linear algebra operations</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2021-10-03T00:00:00-05:00" itemprop="datePublished">
         Oct 3, 2021
       </time>
        • <span class="read-time" title="Estimated read time">
     
     
-      10 min read
+      11 min read
     
 </span></p>
 
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/My-Machine_learning-Blog/categories/#jupyter">jupyter</a>
+        
+      
+      </p>
     
 
     
@@ -132,7 +141,24 @@ window.onload = wrap_img;
       </header>
 
   <div class="post-content e-content" itemprop="articleBody">
-    <!--
+    <ul id="toc" class="section-nav">
+<li class="toc-entry toc-h1"><a href="#A-Short-Guide-to-Numpy-Array-operations.">A Short Guide to Numpy Array operations. </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#Introducing-Numpy-Arrays:">Introducing Numpy Arrays: </a></li>
+<li class="toc-entry toc-h2"><a href="#Function-1---np.matmul">Function 1 - np.matmul </a></li>
+<li class="toc-entry toc-h2"><a href="#Function-2---np.linalg.solve">Function 2 - np.linalg.solve </a>
+<ul>
+<li class="toc-entry toc-h5"><a href="#Example-2---working">Example 2 - working </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#Function-3---np.column_stack">Function 3 - np.column_stack </a></li>
+<li class="toc-entry toc-h2"><a href="#Function-4---np.bmat">Function 4 - np.bmat </a></li>
+<li class="toc-entry toc-h2"><a href="#Function-5---np.log">Function 5 - np.log </a></li>
+<li class="toc-entry toc-h2"><a href="#Conclusion">Conclusion </a></li>
+<li class="toc-entry toc-h2"><a href="#Reference-Links">Reference Links </a></li>
+</ul>
+</li>
+</ul><!--
 #################################################
 ### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
 #################################################
@@ -141,7 +167,30 @@ window.onload = wrap_img;
 
 <div class="container" id="notebook-container">
         
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="A-Short-Guide-to-Numpy-Array-operations.">
+<a class="anchor" href="#A-Short-Guide-to-Numpy-Array-operations." aria-hidden="true"><span class="octicon octicon-link"></span></a>A Short Guide to Numpy Array operations.<a class="anchor-link" href="#A-Short-Guide-to-Numpy-Array-operations."> </a>
+</h1>
+<h3 id="Introducing-Numpy-Arrays:">
+<a class="anchor" href="#Introducing-Numpy-Arrays:" aria-hidden="true"><span class="octicon octicon-link"></span></a>Introducing Numpy Arrays:<a class="anchor-link" href="#Introducing-Numpy-Arrays:"> </a>
+</h3>
+<p>Numpy is a python library used to create, modify and interact with Arrays. It is a very vast and powerful library which is very essential for data analysis tasks. The Numpy library basic routines are very simple and easy to learn. Numpy is also known for scientific computation since it can handle large amount of data in the form of arrays. Numpy is mostly written in C which makes it run time fast and execute operations faster. It is very useful for Mathematics since it offers a vast collection of mathematical functions and random number generators. In this notebook, I try to demonstrate some standard numpy operations essential for operating on matrices. Below are the five operations that I am going to demonstrate:</p>
+<ul>
+<li>np.matmul</li>
+<li>np.linalg.solve</li>
+<li>np.column_stack(tup)</li>
+<li>np.bmat</li>
+<li>np.log</li>
+</ul>
+<p>The demonstrating includes the syntax of using these operations and how to pass arguments for these functions. It also demonstrates in what special cases do we get errors using these operations and also how to solve fix the erorrs efficiently.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Let's begin by importing Numpy and listing out the functions covered in this notebook.</p>
 
@@ -186,11 +235,15 @@ window.onload = wrap_img;
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Function-1---np.matmul">Function 1 - np.matmul<a class="anchor-link" href="#Function-1---np.matmul"> </a></h2><p>The np.matmul operator is a matrix multiplication operator used to multiply arrays.The @ is short form for using this operator.
-<br />The function has the following syntax:
-<br />np.matmul(a,b)-- where a,b are arrays that are to be multiplied.</p>
+<h2 id="Function-1---np.matmul">
+<a class="anchor" href="#Function-1---np.matmul" aria-hidden="true"><span class="octicon octicon-link"></span></a>Function 1 - np.matmul<a class="anchor-link" href="#Function-1---np.matmul"> </a>
+</h2>
+<p>The np.matmul operator is a matrix multiplication operator used to multiply arrays.The @ is short form for using this operator.
+<br>The function has the following syntax:
+<br>np.matmul(a,b)-- where a,b are arrays that are to be multiplied.</p>
 
 </div>
 </div>
@@ -234,7 +287,8 @@ window.onload = wrap_img;
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Explanation: The matmul operator takes two 2d arrays i.e. arr1 and arr2 abd multiplied by  matrix multiplication. Inorder for arrays to be able to perform matrix multiplication the 2nd dimension of arr1 should be equal to first dimension of arr2. Here they satisfy the condition and the output is generated. If the dimensions of two arrays do not satisfy the property we get a traceback error msg telling us there is a mismatch in dimensions.</p>
 
@@ -274,7 +328,8 @@ window.onload = wrap_img;
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>The vector vector gives us scalar inner product. Given two vector arrays the np.matmul operation does dot product or also called as scalar product. The 0j in the output is the complex part of the output since there are no complex numbers involved we get zero complex part in our output</p>
 
@@ -325,25 +380,31 @@ window.onload = wrap_img;
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>It breaks because matrix multiplication takes place only when the second dimension of the first array is equal to first dimension of the second array.</p>
 
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>This function is used to multiply arrays, for dot product of two vectors and multiplication of 3d arrays etc.</p>
 
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Function-2---np.linalg.solve">Function 2 - np.linalg.solve<a class="anchor-link" href="#Function-2---np.linalg.solve"> </a></h2><p>This operator is used to solve linear equations and give out the value of unknowns from the system of linear equations. For example ax = b be a system of linear equations and the above function solves the equation for x. a, b are matrices formed from the system of linear equations.In mathematical terms, a is the coefficient matrix and x is the vector containing unknowns and b is the right hand side values of the system of equations.
-<br />The function has the following syntax:
-<br />np.linalg.solve(a,b) where a,b are arrays coefficient matrix , dependant variable matrix.</p>
+<h2 id="Function-2---np.linalg.solve">
+<a class="anchor" href="#Function-2---np.linalg.solve" aria-hidden="true"><span class="octicon octicon-link"></span></a>Function 2 - np.linalg.solve<a class="anchor-link" href="#Function-2---np.linalg.solve"> </a>
+</h2>
+<p>This operator is used to solve linear equations and give out the value of unknowns from the system of linear equations. For example ax = b be a system of linear equations and the above function solves the equation for x. a, b are matrices formed from the system of linear equations.In mathematical terms, a is the coefficient matrix and x is the vector containing unknowns and b is the right hand side values of the system of equations.
+<br>The function has the following syntax:
+<br>np.linalg.solve(a,b) where a,b are arrays coefficient matrix , dependant variable matrix.</p>
 
 </div>
 </div>
@@ -383,7 +444,8 @@ window.onload = wrap_img;
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Here we found the solution for the system of linear equations where a is coefficient matrix and b is the solution matrix.
 the system of linear equations are of the form:
@@ -395,9 +457,12 @@ the output gives a vector x of two elements that are the solutions of m and n re
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h5 id="Example-2---working">Example 2 - working<a class="anchor-link" href="#Example-2---working"> </a></h5>
+<h5 id="Example-2---working">
+<a class="anchor" href="#Example-2---working" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example 2 - working<a class="anchor-link" href="#Example-2---working"> </a>
+</h5>
 </div>
 </div>
 </div>
@@ -435,7 +500,8 @@ the output gives a vector x of two elements that are the solutions of m and n re
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>The above example is based on three linear equations in three variables.
 the np.linalg.solve all kinds of systems of linear equations.</p>
@@ -476,7 +542,7 @@ the np.linalg.solve all kinds of systems of linear equations.</p>
 <span class="ansi-green-fg">&lt;__array_function__ internals&gt;</span> in <span class="ansi-cyan-fg">solve</span><span class="ansi-blue-fg">(*args, **kwargs)</span>
 
 <span class="ansi-green-fg">/opt/conda/lib/python3.9/site-packages/numpy/linalg/linalg.py</span> in <span class="ansi-cyan-fg">solve</span><span class="ansi-blue-fg">(a, b)</span>
-<span class="ansi-green-intense-fg ansi-bold">    391</span>     signature <span class="ansi-blue-fg">=</span> <span class="ansi-blue-fg">&#39;DD-&gt;D&#39;</span> <span class="ansi-green-fg">if</span> isComplexType<span class="ansi-blue-fg">(</span>t<span class="ansi-blue-fg">)</span> <span class="ansi-green-fg">else</span> <span class="ansi-blue-fg">&#39;dd-&gt;d&#39;</span>
+<span class="ansi-green-intense-fg ansi-bold">    391</span>     signature <span class="ansi-blue-fg">=</span> <span class="ansi-blue-fg">'DD-&gt;D'</span> <span class="ansi-green-fg">if</span> isComplexType<span class="ansi-blue-fg">(</span>t<span class="ansi-blue-fg">)</span> <span class="ansi-green-fg">else</span> <span class="ansi-blue-fg">'dd-&gt;d'</span>
 <span class="ansi-green-intense-fg ansi-bold">    392</span>     extobj <span class="ansi-blue-fg">=</span> get_linalg_error_extobj<span class="ansi-blue-fg">(</span>_raise_linalgerror_singular<span class="ansi-blue-fg">)</span>
 <span class="ansi-green-fg">--&gt; 393</span><span class="ansi-red-fg">     </span>r <span class="ansi-blue-fg">=</span> gufunc<span class="ansi-blue-fg">(</span>a<span class="ansi-blue-fg">,</span> b<span class="ansi-blue-fg">,</span> signature<span class="ansi-blue-fg">=</span>signature<span class="ansi-blue-fg">,</span> extobj<span class="ansi-blue-fg">=</span>extobj<span class="ansi-blue-fg">)</span>
 <span class="ansi-green-intense-fg ansi-bold">    394</span> 
@@ -485,7 +551,7 @@ the np.linalg.solve all kinds of systems of linear equations.</p>
 <span class="ansi-green-fg">/opt/conda/lib/python3.9/site-packages/numpy/linalg/linalg.py</span> in <span class="ansi-cyan-fg">_raise_linalgerror_singular</span><span class="ansi-blue-fg">(err, flag)</span>
 <span class="ansi-green-intense-fg ansi-bold">     86</span> 
 <span class="ansi-green-intense-fg ansi-bold">     87</span> <span class="ansi-green-fg">def</span> _raise_linalgerror_singular<span class="ansi-blue-fg">(</span>err<span class="ansi-blue-fg">,</span> flag<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">---&gt; 88</span><span class="ansi-red-fg">     </span><span class="ansi-green-fg">raise</span> LinAlgError<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34;Singular matrix&#34;</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-fg">---&gt; 88</span><span class="ansi-red-fg">     </span><span class="ansi-green-fg">raise</span> LinAlgError<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">"Singular matrix"</span><span class="ansi-blue-fg">)</span>
 <span class="ansi-green-intense-fg ansi-bold">     89</span> 
 <span class="ansi-green-intense-fg ansi-bold">     90</span> <span class="ansi-green-fg">def</span> _raise_linalgerror_nonposdef<span class="ansi-blue-fg">(</span>err<span class="ansi-blue-fg">,</span> flag<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
 
@@ -499,25 +565,31 @@ the np.linalg.solve all kinds of systems of linear equations.</p>
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>It breaks down above because solving of linear equations has some conditions. If the matrix is singular the output does not give any solution. singular matrix is one that is not invertible. This means that the system of equations you are trying to solve does not have a unique solution.</p>
 
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>This function proves very useful when we need to solve n number of linear equations in n variables and gives the solution. There are a lot of uses for the function Mathematically since it reduced the load of solving linear equations by row reduction process, which is very tedious and most times do not provide accurate solution.</p>
 
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Function-3---np.column_stack">Function 3 - np.column_stack<a class="anchor-link" href="#Function-3---np.column_stack"> </a></h2><p>np.column_stack is used to stack two 1-D arrays into a 2D array of column wise.It is used in the following format np.column_stack(tuple). The parameter is given as tuple type. The 1D array are entered as tuples. 
-<br />The function has the following syntax:
-<br />np.column_stack(tuple)</p>
+<h2 id="Function-3---np.column_stack">
+<a class="anchor" href="#Function-3---np.column_stack" aria-hidden="true"><span class="octicon octicon-link"></span></a>Function 3 - np.column_stack<a class="anchor-link" href="#Function-3---np.column_stack"> </a>
+</h2>
+<p>np.column_stack is used to stack two 1-D arrays into a 2D array of column wise.It is used in the following format np.column_stack(tuple). The parameter is given as tuple type. The 1D array are entered as tuples. 
+<br>The function has the following syntax:
+<br>np.column_stack(tuple)</p>
 
 </div>
 </div>
@@ -558,7 +630,8 @@ the np.linalg.solve all kinds of systems of linear equations.</p>
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>The two arrays a and b are stacked side by side / column wise and the output array is a 2D array containing one column(a) and the other column(b)</p>
 
@@ -604,7 +677,8 @@ the np.linalg.solve all kinds of systems of linear equations.</p>
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>The above example stacks two given arrays in the form of tuples and stacks them side by side.</p>
 
@@ -664,25 +738,31 @@ the np.linalg.solve all kinds of systems of linear equations.</p>
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>The function breaks down because one of the array is longer in size than the other. The concatenation or stacking takes place only when both the arrays to be stacked has same size.</p>
 
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>The function is very useful when we need to stack two list .Similar to appending but here we are appending columns. The function can be used to add the column to pre-existing ones.</p>
 
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Function-4---np.bmat">Function 4 - np.bmat<a class="anchor-link" href="#Function-4---np.bmat"> </a></h2><p>It builds a matrix object from a string, nested sequence or an array.
-<br />The function has the following syntax:
-<br />np.bmat(object,ldict,gdict)where ldict and gdict are dictionaries and they are optional parameters and object is either string or array-like.</p>
+<h2 id="Function-4---np.bmat">
+<a class="anchor" href="#Function-4---np.bmat" aria-hidden="true"><span class="octicon octicon-link"></span></a>Function 4 - np.bmat<a class="anchor-link" href="#Function-4---np.bmat"> </a>
+</h2>
+<p>It builds a matrix object from a string, nested sequence or an array.
+<br>The function has the following syntax:
+<br>np.bmat(object,ldict,gdict)where ldict and gdict are dictionaries and they are optional parameters and object is either string or array-like.</p>
 
 </div>
 </div>
@@ -694,10 +774,10 @@ the np.linalg.solve all kinds of systems of linear equations.</p>
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mat</span><span class="p">(</span><span class="s1">&#39;1 1; 1 1&#39;</span><span class="p">)</span>
-<span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mat</span><span class="p">(</span><span class="s1">&#39;2 2; 2 2&#39;</span><span class="p">)</span>
-<span class="n">C</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mat</span><span class="p">(</span><span class="s1">&#39;3 4; 5 6&#39;</span><span class="p">)</span>
-<span class="n">D</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mat</span><span class="p">(</span><span class="s1">&#39;7 8; 9 0&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mat</span><span class="p">(</span><span class="s1">'1 1; 1 1'</span><span class="p">)</span>
+<span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mat</span><span class="p">(</span><span class="s1">'2 2; 2 2'</span><span class="p">)</span>
+<span class="n">C</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mat</span><span class="p">(</span><span class="s1">'3 4; 5 6'</span><span class="p">)</span>
+<span class="n">D</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mat</span><span class="p">(</span><span class="s1">'7 8; 9 0'</span><span class="p">)</span>
 <span class="n">np</span><span class="o">.</span><span class="n">bmat</span><span class="p">([[</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">],</span> <span class="p">[</span><span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">]])</span>
 </pre></div>
 
@@ -727,7 +807,8 @@ the np.linalg.solve all kinds of systems of linear equations.</p>
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>The above example takes four arrays A,B,C,D and builds up a matrix by stacking A and B, C and D column wise and then stacking the arrays row wise one top of the another.</p>
 
@@ -741,10 +822,10 @@ the np.linalg.solve all kinds of systems of linear equations.</p>
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mat</span><span class="p">(</span><span class="s1">&#39;12 13; 14 15&#39;</span><span class="p">)</span>
-<span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mat</span><span class="p">(</span><span class="s1">&#39;23 28; 24 22&#39;</span><span class="p">)</span>
-<span class="n">C</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mat</span><span class="p">(</span><span class="s1">&#39;34 45; 57 69&#39;</span><span class="p">)</span>
-<span class="n">D</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mat</span><span class="p">(</span><span class="s1">&#39;7 8; 9 0&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mat</span><span class="p">(</span><span class="s1">'12 13; 14 15'</span><span class="p">)</span>
+<span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mat</span><span class="p">(</span><span class="s1">'23 28; 24 22'</span><span class="p">)</span>
+<span class="n">C</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mat</span><span class="p">(</span><span class="s1">'34 45; 57 69'</span><span class="p">)</span>
+<span class="n">D</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mat</span><span class="p">(</span><span class="s1">'7 8; 9 0'</span><span class="p">)</span>
 <span class="n">np</span><span class="o">.</span><span class="n">bmat</span><span class="p">([[</span><span class="n">B</span><span class="p">,</span> <span class="n">A</span><span class="p">],</span> <span class="p">[</span><span class="n">D</span><span class="p">,</span> <span class="n">C</span><span class="p">]])</span>
 </pre></div>
 
@@ -774,7 +855,8 @@ the np.linalg.solve all kinds of systems of linear equations.</p>
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>The above example takes the arrays A,B,C,D and builds the matrix by stacking them as per the order of the parameters given in the paranthesis of the function.</p>
 
@@ -788,10 +870,10 @@ the np.linalg.solve all kinds of systems of linear equations.</p>
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mat</span><span class="p">(</span><span class="s1">&#39;12 13; 14 15 18&#39;</span><span class="p">)</span>
-<span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mat</span><span class="p">(</span><span class="s1">&#39;23 28; 24 22&#39;</span><span class="p">)</span>
-<span class="n">C</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mat</span><span class="p">(</span><span class="s1">&#39;34 45; 57 69&#39;</span><span class="p">)</span>
-<span class="n">D</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mat</span><span class="p">(</span><span class="s1">&#39;7 8; 9 0 12&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mat</span><span class="p">(</span><span class="s1">'12 13; 14 15 18'</span><span class="p">)</span>
+<span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mat</span><span class="p">(</span><span class="s1">'23 28; 24 22'</span><span class="p">)</span>
+<span class="n">C</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mat</span><span class="p">(</span><span class="s1">'34 45; 57 69'</span><span class="p">)</span>
+<span class="n">D</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mat</span><span class="p">(</span><span class="s1">'7 8; 9 0 12'</span><span class="p">)</span>
 <span class="n">np</span><span class="o">.</span><span class="n">bmat</span><span class="p">([[</span><span class="n">B</span><span class="p">,</span> <span class="n">A</span><span class="p">],</span> <span class="p">[</span><span class="n">D</span><span class="p">,</span> <span class="n">C</span><span class="p">]])</span>
 </pre></div>
 
@@ -810,14 +892,14 @@ the np.linalg.solve all kinds of systems of linear equations.</p>
 <span class="ansi-red-fg">ValueError</span>                                Traceback (most recent call last)
 <span class="ansi-green-fg">/tmp/ipykernel_36/1923516388.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
 <span class="ansi-green-intense-fg ansi-bold">      1</span> <span class="ansi-red-fg"># Example 3 - breaking (to illustrate when it breaks)</span>
-<span class="ansi-green-fg">----&gt; 2</span><span class="ansi-red-fg"> </span>A <span class="ansi-blue-fg">=</span> np<span class="ansi-blue-fg">.</span>mat<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;12 13; 14 15 18&#39;</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      3</span> B <span class="ansi-blue-fg">=</span> np<span class="ansi-blue-fg">.</span>mat<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;23 28; 24 22&#39;</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      4</span> C <span class="ansi-blue-fg">=</span> np<span class="ansi-blue-fg">.</span>mat<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;34 45; 57 69&#39;</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      5</span> D <span class="ansi-blue-fg">=</span> np<span class="ansi-blue-fg">.</span>mat<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;7 8; 9 0 12&#39;</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-fg">----&gt; 2</span><span class="ansi-red-fg"> </span>A <span class="ansi-blue-fg">=</span> np<span class="ansi-blue-fg">.</span>mat<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">'12 13; 14 15 18'</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      3</span> B <span class="ansi-blue-fg">=</span> np<span class="ansi-blue-fg">.</span>mat<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">'23 28; 24 22'</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      4</span> C <span class="ansi-blue-fg">=</span> np<span class="ansi-blue-fg">.</span>mat<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">'34 45; 57 69'</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      5</span> D <span class="ansi-blue-fg">=</span> np<span class="ansi-blue-fg">.</span>mat<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">'7 8; 9 0 12'</span><span class="ansi-blue-fg">)</span>
 
 <span class="ansi-green-fg">/opt/conda/lib/python3.9/site-packages/numpy/matrixlib/defmatrix.py</span> in <span class="ansi-cyan-fg">asmatrix</span><span class="ansi-blue-fg">(data, dtype)</span>
 <span class="ansi-green-intense-fg ansi-bold">     67</span> 
-<span class="ansi-green-intense-fg ansi-bold">     68</span>     &#34;&#34;&#34;
+<span class="ansi-green-intense-fg ansi-bold">     68</span>     """
 <span class="ansi-green-fg">---&gt; 69</span><span class="ansi-red-fg">     </span><span class="ansi-green-fg">return</span> matrix<span class="ansi-blue-fg">(</span>data<span class="ansi-blue-fg">,</span> dtype<span class="ansi-blue-fg">=</span>dtype<span class="ansi-blue-fg">,</span> copy<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">False</span><span class="ansi-blue-fg">)</span>
 <span class="ansi-green-intense-fg ansi-bold">     70</span> 
 <span class="ansi-green-intense-fg ansi-bold">     71</span> 
@@ -832,7 +914,7 @@ the np.linalg.solve all kinds of systems of linear equations.</p>
 <span class="ansi-green-fg">/opt/conda/lib/python3.9/site-packages/numpy/matrixlib/defmatrix.py</span> in <span class="ansi-cyan-fg">_convert_from_string</span><span class="ansi-blue-fg">(data)</span>
 <span class="ansi-green-intense-fg ansi-bold">     28</span>             Ncols <span class="ansi-blue-fg">=</span> len<span class="ansi-blue-fg">(</span>newrow<span class="ansi-blue-fg">)</span>
 <span class="ansi-green-intense-fg ansi-bold">     29</span>         <span class="ansi-green-fg">elif</span> len<span class="ansi-blue-fg">(</span>newrow<span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">!=</span> Ncols<span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">---&gt; 30</span><span class="ansi-red-fg">             </span><span class="ansi-green-fg">raise</span> ValueError<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34;Rows not the same size.&#34;</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-fg">---&gt; 30</span><span class="ansi-red-fg">             </span><span class="ansi-green-fg">raise</span> ValueError<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">"Rows not the same size."</span><span class="ansi-blue-fg">)</span>
 <span class="ansi-green-intense-fg ansi-bold">     31</span>         count <span class="ansi-blue-fg">+=</span> <span class="ansi-cyan-fg">1</span>
 <span class="ansi-green-intense-fg ansi-bold">     32</span>         newdata<span class="ansi-blue-fg">.</span>append<span class="ansi-blue-fg">(</span>newrow<span class="ansi-blue-fg">)</span>
 
@@ -846,26 +928,32 @@ the np.linalg.solve all kinds of systems of linear equations.</p>
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>It breaks because there the sizes of the rows are different so they cannot be stacked. The sizes of the rows or columns that are getting stacked must be of the same size inorder to stack them and build the matrix.
-<br />To fix this we need to remove the extra rows in the arrays or add NaN element to others to make the rows of same size.</p>
+<br>To fix this we need to remove the extra rows in the arrays or add NaN element to others to make the rows of same size.</p>
 
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>The function is useful when we have some groups of arrays and we want to stack them into a matrix to perform operations and gain insights from that build matrix.</p>
 
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Function-5---np.log">Function 5 - np.log<a class="anchor-link" href="#Function-5---np.log"> </a></h2><p>The function is used to calculate log values of the elements of the array
-<br />The sytax for the function is:
-<br /> np.log(x)-- x is array-like</p>
+<h2 id="Function-5---np.log">
+<a class="anchor" href="#Function-5---np.log" aria-hidden="true"><span class="octicon octicon-link"></span></a>Function 5 - np.log<a class="anchor-link" href="#Function-5---np.log"> </a>
+</h2>
+<p>The function is used to calculate log values of the elements of the array
+<br>The sytax for the function is:
+<br> np.log(x)-- x is array-like</p>
 
 </div>
 </div>
@@ -903,7 +991,8 @@ the np.linalg.solve all kinds of systems of linear equations.</p>
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>In the above example the function took the input parameters and calculated the individual log values of the elements and gives the output.</p>
 
@@ -952,7 +1041,8 @@ the np.linalg.solve all kinds of systems of linear equations.</p>
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>The above example demonstrates that the np.log function even takes 0 and gives the -inf as the output. It gives a warning because the function detects a zero division because of log (0) computation.</p>
 
@@ -979,7 +1069,7 @@ the np.linalg.solve all kinds of systems of linear equations.</p>
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stderr output_text">
-<pre>/tmp/ipykernel_36/1874325113.py:2: VisibleDeprecationWarning: Creating an ndarray from ragged nested sequences (which is a list-or-tuple of lists-or-tuples-or ndarrays with different lengths or shapes) is deprecated. If you meant to do this, you must specify &#39;dtype=object&#39; when creating the ndarray.
+<pre>/tmp/ipykernel_36/1874325113.py:2: VisibleDeprecationWarning: Creating an ndarray from ragged nested sequences (which is a list-or-tuple of lists-or-tuples-or ndarrays with different lengths or shapes) is deprecated. If you meant to do this, you must specify 'dtype=object' when creating the ndarray.
   np.log([1, np.e, a])
 </pre>
 </div>
@@ -991,7 +1081,7 @@ the np.linalg.solve all kinds of systems of linear equations.</p>
 <pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">AttributeError</span>                            Traceback (most recent call last)
-<span class="ansi-red-fg">AttributeError</span>: &#39;int&#39; object has no attribute &#39;log&#39;
+<span class="ansi-red-fg">AttributeError</span>: 'int' object has no attribute 'log'
 
 The above exception was the direct cause of the following exception:
 
@@ -1010,45 +1100,62 @@ The above exception was the direct cause of the following exception:
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>The above example breaks down because log doesn't support strings. To fix this replace string by integer or float value.</p>
 
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>This function is useful to calculate the log values of an array so that we can manipulate the array and do log operations on the array</p>
 
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Conclusion">Conclusion<a class="anchor-link" href="#Conclusion"> </a></h2><p>The Notebook covers the following:
-<br />np.matmul function: which is used for dot product and multiplication of arrays, given the two arrays satisfies the size condition for matrix multiplication.
-<br />np.linalg.solve : which is used to solve system of linear equations given the coefficient matrix is non-singular.
-<br />np.column_stack: which is used to stack or concatenate two 1D arrays column-wise and give a 2D array,
-<br />np.bmat: builds a matrix from strings or arrays.
-<br />np.log: computed the log values of the elements in the array.
+<h2 id="Conclusion">
+<a class="anchor" href="#Conclusion" aria-hidden="true"><span class="octicon octicon-link"></span></a>Conclusion<a class="anchor-link" href="#Conclusion"> </a>
+</h2>
+<p>The Notebook covers the following:
+<br>np.matmul function: which is used for dot product and multiplication of arrays, given the two arrays satisfies the size condition for matrix multiplication.
+<br>np.linalg.solve : which is used to solve system of linear equations given the coefficient matrix is non-singular.
+<br>np.column_stack: which is used to stack or concatenate two 1D arrays column-wise and give a 2D array,
+<br>np.bmat: builds a matrix from strings or arrays.
+<br>np.log: computed the log values of the elements in the array.
 The following functions are very useful while manipulating matrices and computation of matrices.</p>
 
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Reference-Links">Reference Links<a class="anchor-link" href="#Reference-Links"> </a></h2><p>Provide links to your references and other interesting articles about Numpy arrays:</p>
+<h2 id="Reference-Links">
+<a class="anchor" href="#Reference-Links" aria-hidden="true"><span class="octicon octicon-link"></span></a>Reference Links<a class="anchor-link" href="#Reference-Links"> </a>
+</h2>
+<p>Provide links to your references and other interesting articles about Numpy arrays:</p>
 <ul>
-<li>Numpy official tutorial : <a href="https://numpy.org/doc/stable/user/quickstart.html">https://numpy.org/doc/stable/user/quickstart.html</a></li>
-<li>Numpy offical documnetation :<a href="https://numpy.org/doc/stable/reference/">https://numpy.org/doc/stable/reference/</a></li>
+<li>Numpy official tutorial : <a href="https://numpy.org/doc/stable/user/quickstart.html">https://numpy.org/doc/stable/user/quickstart.html</a>
+</li>
+<li>Numpy offical documnetation :<a href="https://numpy.org/doc/stable/reference/">https://numpy.org/doc/stable/reference/</a>
+</li>
 <li>Numpy documentation for the following functions:</li>
-<li>1.np.matmul : <a href="https://numpy.org/doc/stable/reference/generated/numpy.matmul.html#numpy.matmul">https://numpy.org/doc/stable/reference/generated/numpy.matmul.html#numpy.matmul</a></li>
-<li>2.np.linalg.solve: <a href="https://numpy.org/doc/stable/reference/generated/numpy.linalg.solve.html#numpy.linalg.solve">https://numpy.org/doc/stable/reference/generated/numpy.linalg.solve.html#numpy.linalg.solve</a></li>
-<li>3.np.column_stack: <a href="https://numpy.org/doc/stable/reference/generated/numpy.column_stack.html">https://numpy.org/doc/stable/reference/generated/numpy.column_stack.html</a></li>
-<li>4.np.bmat: <a href="https://numpy.org/doc/stable/reference/generated/numpy.bmat.html#numpy.bmat">https://numpy.org/doc/stable/reference/generated/numpy.bmat.html#numpy.bmat</a></li>
-<li>5.np.log: <a href="https://numpy.org/doc/stable/reference/generated/numpy.log.html#numpy.log">https://numpy.org/doc/stable/reference/generated/numpy.log.html#numpy.log</a></li>
+<li>1.np.matmul : <a href="https://numpy.org/doc/stable/reference/generated/numpy.matmul.html#numpy.matmul">https://numpy.org/doc/stable/reference/generated/numpy.matmul.html#numpy.matmul</a>
+</li>
+<li>2.np.linalg.solve: <a href="https://numpy.org/doc/stable/reference/generated/numpy.linalg.solve.html#numpy.linalg.solve">https://numpy.org/doc/stable/reference/generated/numpy.linalg.solve.html#numpy.linalg.solve</a>
+</li>
+<li>3.np.column_stack: <a href="https://numpy.org/doc/stable/reference/generated/numpy.column_stack.html">https://numpy.org/doc/stable/reference/generated/numpy.column_stack.html</a>
+</li>
+<li>4.np.bmat: <a href="https://numpy.org/doc/stable/reference/generated/numpy.bmat.html#numpy.bmat">https://numpy.org/doc/stable/reference/generated/numpy.bmat.html#numpy.bmat</a>
+</li>
+<li>5.np.log: <a href="https://numpy.org/doc/stable/reference/generated/numpy.log.html#numpy.log">https://numpy.org/doc/stable/reference/generated/numpy.log.html#numpy.log</a>
+</li>
 </ul>
 
 </div>
@@ -1058,7 +1165,15 @@ The following functions are very useful while manipulating matrices and computat
 
 
 
-  </div><a class="u-url" href="/My-Machine_learning-Blog/2021/10/03/Guide-to-Numpy-Operations.html" hidden></a>
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="sandeshkatakam/My-Machine_learning-Blog"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/My-Machine_learning-Blog/jupyter/2021/10/03/Guide-to-Numpy-Operations.html" hidden></a>
 </article>
 
       </div>
