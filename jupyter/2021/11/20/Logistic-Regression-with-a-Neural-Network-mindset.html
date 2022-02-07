@@ -1,0 +1,1508 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Logistic Regression with a Neural Network Mindset | Sandesh’s Machine learning Journal</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="Logistic Regression with a Neural Network Mindset" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Notebook on using logistic regression in neural networks" />
+<meta property="og:description" content="Notebook on using logistic regression in neural networks" />
+<link rel="canonical" href="https://sandeshkatakam.github.io/My-Machine_learning-Blog/jupyter/2021/11/20/Logistic-Regression-with-a-Neural-Network-mindset.html" />
+<meta property="og:url" content="https://sandeshkatakam.github.io/My-Machine_learning-Blog/jupyter/2021/11/20/Logistic-Regression-with-a-Neural-Network-mindset.html" />
+<meta property="og:site_name" content="Sandesh’s Machine learning Journal" />
+<meta property="og:image" content="https://sandeshkatakam.github.io/My-Machine_learning-Blog/images/nnshallowlogo.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-11-20T00:00:00-06:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://sandeshkatakam.github.io/My-Machine_learning-Blog/images/nnshallowlogo.png" />
+<meta property="twitter:title" content="Logistic Regression with a Neural Network Mindset" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2021-11-20T00:00:00-06:00","datePublished":"2021-11-20T00:00:00-06:00","description":"Notebook on using logistic regression in neural networks","headline":"Logistic Regression with a Neural Network Mindset","image":"https://sandeshkatakam.github.io/My-Machine_learning-Blog/images/nnshallowlogo.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://sandeshkatakam.github.io/My-Machine_learning-Blog/jupyter/2021/11/20/Logistic-Regression-with-a-Neural-Network-mindset.html"},"url":"https://sandeshkatakam.github.io/My-Machine_learning-Blog/jupyter/2021/11/20/Logistic-Regression-with-a-Neural-Network-mindset.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/My-Machine_learning-Blog/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://sandeshkatakam.github.io/My-Machine_learning-Blog/feed.xml" title="Sandesh's Machine learning Journal" /><link rel="shortcut icon" type="image/x-icon" href="/My-Machine_learning-Blog/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" /><script src="https://hypothes.is/embed.js" async></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.css" integrity="sha512-h7nl+xz8wgDlNM4NqKEM4F1NkIRS17M9+uJwIGwuo8vGqIl4BhuCKdxjWEINm+xyrUjNCnK5dCrhM0sj+wTIXw==" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.js" integrity="sha512-/CMIhXiDA3m2c9kzRyd97MTb3MC6OVnx4TElQ7fkkoRghwDf6gi41gaT1PwF270W6+J60uTmwgeRpNpJdRV6sg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/contrib/auto-render.min.js" integrity="sha512-Do7uJAaHZm5OLrIv/yN4w0iG1dbu01kzdMNnFfu/mAqgUk6Nniv2JYHcwH+cNwjqgLcqcuBBk+JRvprLVI8azg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha512-0doc9hKxR3PYwso42RD1p5ySZpzzuDiOwMrdCEh2WdJZCjcmFKc/wEnL+z8fBQrnHoiNWbo+3fiGkOYXBdQp4A==" crossorigin="anonymous"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement( document.body, {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "[%", right: "%]", display: true},
+            {left: "$", right: "$", display: false}
+        ]}
+        );
+    });
+    </script>
+
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/My-Machine_learning-Blog/">Sandesh&#39;s Machine learning Journal</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/My-Machine_learning-Blog/about/">About Me</a><a class="page-link" href="/My-Machine_learning-Blog/search/">Search</a><a class="page-link" href="/My-Machine_learning-Blog/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Logistic Regression with a Neural Network Mindset</h1><p class="page-description">Notebook on using logistic regression in neural networks</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2021-11-20T00:00:00-06:00" itemprop="datePublished">
+        Nov 20, 2021
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      19 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/My-Machine_learning-Blog/categories/#jupyter">jupyter</a>
+        
+      
+      </p>
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-justify-center">
+          <div class="px-2">
+
+    <a href="https://github.com/sandeshkatakam/My-Machine_learning-Blog/tree/master/_notebooks/2021-11-20-Logistic-Regression-with-a-Neural-Network-mindset.ipynb" role="button" target="_blank">
+<img class="notebook-badge-image" src="/My-Machine_learning-Blog/assets/badges/github.svg" alt="View On GitHub">
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://mybinder.org/v2/gh/sandeshkatakam/My-Machine_learning-Blog/master?filepath=_notebooks%2F2021-11-20-Logistic-Regression-with-a-Neural-Network-mindset.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/My-Machine_learning-Blog/assets/badges/binder.svg" alt="Open In Binder"/>
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://colab.research.google.com/github/sandeshkatakam/My-Machine_learning-Blog/blob/master/_notebooks/2021-11-20-Logistic-Regression-with-a-Neural-Network-mindset.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/My-Machine_learning-Blog/assets/badges/colab.svg" alt="Open In Colab"/>
+    </a>
+</div>
+          <div class="px-2">
+  <a href="https://deepnote.com/launch?url=https%3A%2F%2Fgithub.com%2Fsandeshkatakam%2FMy-Machine_learning-Blog%2Fblob%2Fmaster%2F_notebooks%2F2021-11-20-Logistic-Regression-with-a-Neural-Network-mindset.ipynb" target="_blank">
+      <img class="notebook-badge-image" src="/My-Machine_learning-Blog/assets/badges/deepnote.svg" alt="Launch in Deepnote"/>
+  </a>
+</div>
+
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul id="toc" class="section-nav">
+<li class="toc-entry toc-h1"><a href="#Logistic-Regression-with-a-Neural-Network-mindset">Logistic Regression with a Neural Network mindset </a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#1---Packages">1 - Packages </a></li>
+<li class="toc-entry toc-h2"><a href="#2---Overview">2 - Overview </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#Exercise-1">Exercise 1 </a></li>
+<li class="toc-entry toc-h3"><a href="#Exercise-2">Exercise 2 </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#3---General-Architecture-of-the-learning-algorithm">3 - General Architecture of the learning algorithm </a></li>
+<li class="toc-entry toc-h2"><a href="#4---Building-the-parts-of-our-algorithm">4 - Building the parts of our algorithm </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#4.1---Helper-functions">4.1 - Helper functions </a></li>
+<li class="toc-entry toc-h3"><a href="#Exercise-3---sigmoid">Exercise 3 - sigmoid </a></li>
+<li class="toc-entry toc-h3"><a href="#4.2---Initializing-parameters">4.2 - Initializing parameters </a></li>
+<li class="toc-entry toc-h3"><a href="#Exercise-4---initialize_with_zeros">Exercise 4 - initialize_with_zeros </a></li>
+<li class="toc-entry toc-h3"><a href="#4.3---Forward-and-Backward-propagation">4.3 - Forward and Backward propagation </a></li>
+<li class="toc-entry toc-h3"><a href="#Exercise-5---propagate">Exercise 5 - propagate </a></li>
+<li class="toc-entry toc-h3"><a href="#4.4---Optimization">4.4 - Optimization </a></li>
+<li class="toc-entry toc-h3"><a href="#Exercise-6---optimize">Exercise 6 - optimize </a></li>
+<li class="toc-entry toc-h3"><a href="#Exercise-7---predict">Exercise 7 - predict </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#5---Merge-all-functions-into-a-model">5 - Merge all functions into a model </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#Exercise-8---model">Exercise 8 - model </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#6---Further-analysis">6 - Further analysis </a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#Choice-of-learning-rate">Choice of learning rate </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#7---Test-with-your-own-image">7 - Test with your own image </a></li>
+</ul>
+</li>
+</ul><!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2021-11-20-Logistic-Regression-with-a-Neural-Network-mindset.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Logistic-Regression-with-a-Neural-Network-mindset">
+<a class="anchor" href="#Logistic-Regression-with-a-Neural-Network-mindset" aria-hidden="true"><span class="octicon octicon-link"></span></a>Logistic Regression with a Neural Network mindset<a class="anchor-link" href="#Logistic-Regression-with-a-Neural-Network-mindset"> </a>
+</h1>
+<p>This notebook demonstrates, how to  build a logistic regression classifier to recognize  cats. This notebook will step you through how to do this with a Neural Network mindset, and will also hone your intuitions about deep learning. This notebook is a modified version of the assignment I had done for the course: <a href="https://www.coursera.org/learn/neural-networks-deep-learning?">Neural Netoworks and Deep learning</a></p>
+<p><strong>Instructions:</strong></p>
+<ul>
+<li>Use <code>np.dot(X,Y)</code> to calculate dot products.</li>
+</ul>
+<p><strong>Roadmap:</strong></p>
+<ul>
+<li>Build the general architecture of a learning algorithm, including:<ul>
+<li>Initializing parameters</li>
+<li>Calculating the cost function and its gradient</li>
+<li>Using an optimization algorithm (gradient descent) </li>
+</ul>
+</li>
+<li>Gather all three functions above into a main model function, in the right order.</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><a name="1"></a></p>
+<h2 id="1---Packages">
+<a class="anchor" href="#1---Packages" aria-hidden="true"><span class="octicon octicon-link"></span></a>1 - Packages<a class="anchor-link" href="#1---Packages"> </a>
+</h2>
+<p>First, let's run the cell below to import all the packages that you will need during this assignment.</p>
+<ul>
+<li>
+<a href="https://numpy.org/doc/1.20/">numpy</a> is the fundamental package for scientific computing with Python.</li>
+<li>
+<a href="http://www.h5py.org">h5py</a> is a common package to interact with a dataset that is stored on an H5 file.</li>
+<li>
+<a href="http://matplotlib.org">matplotlib</a> is a famous library to plot graphs in Python.</li>
+<li>
+<a href="https://pillow.readthedocs.io/en/stable/">PIL</a> and <a href="https://www.scipy.org/">scipy</a> are used here to test your model with your own picture at the end.</li>
+</ul>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">copy</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">h5py</span>
+<span class="kn">import</span> <span class="nn">scipy</span>
+<span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">ndimage</span>
+
+<span class="kn">from</span> <span class="nn">lr_utils</span> <span class="kn">import</span> <span class="n">load_dataset</span>
+<span class="kn">from</span> <span class="nn">public_tests</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="o">%</span><span class="k">load_ext</span> autoreload
+<span class="o">%</span><span class="k">autoreload</span> 2
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><a name="2"></a></p>
+<h2 id="2---Overview">
+<a class="anchor" href="#2---Overview" aria-hidden="true"><span class="octicon octicon-link"></span></a>2 - Overview<a class="anchor-link" href="#2---Overview"> </a>
+</h2>
+<p><strong>Problem Statement</strong>: Given a dataset ("data.h5") containing:</p>
+
+<pre><code>- a training set of m_train images labeled as cat (y=1) or non-cat (y=0)
+- a test set of m_test images labeled as cat or non-cat
+- each image is of shape (num_px, num_px, 3) where 3 is for the 3 channels (RGB). Thus, each image is square (height = num_px) and (width = num_px).
+
+</code></pre>
+<p>build a simple image-recognition algorithm that can correctly classify pictures as cat or non-cat.</p>
+<p>Let's get more familiar with the dataset. Load the data by running the following code.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">train_set_x_orig</span><span class="p">,</span> <span class="n">train_set_y</span><span class="p">,</span> <span class="n">test_set_x_orig</span><span class="p">,</span> <span class="n">test_set_y</span><span class="p">,</span> <span class="n">classes</span> <span class="o">=</span> <span class="n">load_dataset</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-intense-fg ansi-bold">---------------------------------------------------------------------------</span>
+<span class="ansi-red-intense-fg ansi-bold">NameError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-intense-fg ansi-bold">~\AppData\Local\Temp/ipykernel_20868/377641723.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">      1</span> <span class="ansi-red-intense-fg ansi-bold"># Loading the data (cat/non-cat)</span>
+<span class="ansi-green-intense-fg ansi-bold">----&gt; 2</span><span class="ansi-yellow-intense-fg ansi-bold"> </span>train_set_x_orig<span class="ansi-yellow-intense-fg ansi-bold">,</span> train_set_y<span class="ansi-yellow-intense-fg ansi-bold">,</span> test_set_x_orig<span class="ansi-yellow-intense-fg ansi-bold">,</span> test_set_y<span class="ansi-yellow-intense-fg ansi-bold">,</span> classes <span class="ansi-yellow-intense-fg ansi-bold">=</span> load_dataset<span class="ansi-yellow-intense-fg ansi-bold">(</span><span class="ansi-yellow-intense-fg ansi-bold">)</span>
+
+<span class="ansi-red-intense-fg ansi-bold">NameError</span>: name 'load_dataset' is not defined</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We added "_orig" at the end of image datasets (train and test) because we are going to preprocess them. After preprocessing, we will end up with train_set_x and test_set_x (the labels train_set_y and test_set_y don't need any preprocessing).</p>
+<p>Each line of our train_set_x_orig and test_set_x_orig is an array representing an image. We can visualize an example by running the following code. Feel free also to change the <code>index</code> value and re-run to see other images.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">index</span> <span class="o">=</span> <span class="mi">25</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">train_set_x_orig</span><span class="p">[</span><span class="n">index</span><span class="p">])</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">"y = "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">train_set_y</span><span class="p">[:,</span> <span class="n">index</span><span class="p">])</span> <span class="o">+</span> <span class="s2">", it's a '"</span> <span class="o">+</span> <span class="n">classes</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="n">train_set_y</span><span class="p">[:,</span> <span class="n">index</span><span class="p">])]</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">"utf-8"</span><span class="p">)</span> <span class="o">+</span>  <span class="s2">"' picture."</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Many software bugs in deep learning come from having matrix/vector dimensions that don't fit. If you can keep your matrix/vector dimensions straight you will go a long way toward eliminating many bugs.</p>
+<p><a name="ex-1"></a></p>
+<h3 id="Exercise-1">
+<a class="anchor" href="#Exercise-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Exercise 1<a class="anchor-link" href="#Exercise-1"> </a>
+</h3>
+<p>Find the values for:</p>
+
+<pre><code>- m_train (number of training examples)
+- m_test (number of test examples)
+- num_px (= height = width of a training image)
+</code></pre>
+<p>Remember that <code>train_set_x_orig</code> is a numpy-array of shape (m_train, num_px, num_px, 3). For instance, you can access <code>m_train</code> by writing <code>train_set_x_orig.shape[0]</code>.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">m_train</span> <span class="o">=</span> <span class="n">train_set_x_orig</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">num_px</span> <span class="o">=</span> <span class="n">train_set_x_orig</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">m_test</span> <span class="o">=</span> <span class="n">test_set_x_orig</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+
+
+<span class="nb">print</span> <span class="p">(</span><span class="s2">"Number of training examples: m_train = "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">m_train</span><span class="p">))</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">"Number of testing examples: m_test = "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">m_test</span><span class="p">))</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">"Height/Width of each image: num_px = "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">num_px</span><span class="p">))</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">"Each image is of size: ("</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">num_px</span><span class="p">)</span> <span class="o">+</span> <span class="s2">", "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">num_px</span><span class="p">)</span> <span class="o">+</span> <span class="s2">", 3)"</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">"train_set_x shape: "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">train_set_x_orig</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">"train_set_y shape: "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">train_set_y</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">"test_set_x shape: "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">test_set_x_orig</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">"test_set_y shape: "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">test_set_y</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Expected Output for m_train, m_test and num_px</strong>:</p>
+<table style="width:15%">
+  <tr>
+    <td> m_train </td>
+    <td> 209 </td> 
+  </tr>
+
+  <tr>
+    <td>m_test</td>
+    <td> 50 </td> 
+  </tr>
+
+  <tr>
+    <td>num_px</td>
+    <td> 64 </td> 
+  </tr>
+
+</table>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>For convenience, we should now reshape images of shape (num_px, num_px, 3) in a numpy-array of shape (num_px $*$ num_px $*$ 3, 1). After this, our training (and test) dataset is a numpy-array where each column represents a flattened image. There should be m_train (respectively m_test) columns.</p>
+<p><a name="ex-2"></a></p>
+<h3 id="Exercise-2">
+<a class="anchor" href="#Exercise-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Exercise 2<a class="anchor-link" href="#Exercise-2"> </a>
+</h3>
+<p>Reshape the training and test data sets so that images of size (num_px, num_px, 3) are flattened into single vectors of shape (num_px $*$ num_px $*$ 3, 1).</p>
+<p>A trick when you want to flatten a matrix X of shape (a,b,c,d) to a matrix X_flatten of shape (b$*$c$*$d, a) is to use:</p>
+<div class="highlight"><pre><span></span><span class="n">X_flatten</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>      <span class="c1"># X.T is the transpose of X</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">train_set_x_flatten</span> <span class="o">=</span> <span class="n">train_set_x_orig</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">train_set_x_orig</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
+<span class="n">test_set_x_flatten</span> <span class="o">=</span> <span class="n">test_set_x_orig</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span> <span class="n">test_set_x_orig</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
+
+
+<span class="c1"># Check that the first 10 pixels of the second image are in the correct place</span>
+<span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">alltrue</span><span class="p">(</span><span class="n">train_set_x_flatten</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="p">[</span><span class="mi">196</span><span class="p">,</span> <span class="mi">192</span><span class="p">,</span> <span class="mi">190</span><span class="p">,</span> <span class="mi">193</span><span class="p">,</span> <span class="mi">186</span><span class="p">,</span> <span class="mi">182</span><span class="p">,</span> <span class="mi">188</span><span class="p">,</span> <span class="mi">179</span><span class="p">,</span> <span class="mi">174</span><span class="p">,</span> <span class="mi">213</span><span class="p">]),</span> <span class="s2">"Wrong solution. Use (X.shape[0], -1).T."</span>
+<span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">alltrue</span><span class="p">(</span><span class="n">test_set_x_flatten</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="p">[</span><span class="mi">115</span><span class="p">,</span> <span class="mi">110</span><span class="p">,</span> <span class="mi">111</span><span class="p">,</span> <span class="mi">137</span><span class="p">,</span> <span class="mi">129</span><span class="p">,</span> <span class="mi">129</span><span class="p">,</span> <span class="mi">155</span><span class="p">,</span> <span class="mi">146</span><span class="p">,</span> <span class="mi">145</span><span class="p">,</span> <span class="mi">159</span><span class="p">]),</span> <span class="s2">"Wrong solution. Use (X.shape[0], -1).T."</span>
+
+<span class="nb">print</span> <span class="p">(</span><span class="s2">"train_set_x_flatten shape: "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">train_set_x_flatten</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">"train_set_y shape: "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">train_set_y</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">"test_set_x_flatten shape: "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">test_set_x_flatten</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">"test_set_y shape: "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">test_set_y</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Expected Output</strong>:</p>
+<table style="width:35%">
+  <tr>
+    <td>train_set_x_flatten shape</td>
+    <td> (12288, 209)</td> 
+  </tr>
+  <tr>
+    <td>train_set_y shape</td>
+    <td>(1, 209)</td> 
+  </tr>
+  <tr>
+    <td>test_set_x_flatten shape</td>
+    <td>(12288, 50)</td> 
+  </tr>
+  <tr>
+    <td>test_set_y shape</td>
+    <td>(1, 50)</td> 
+  </tr>
+</table>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>To represent color images, the red, green and blue channels (RGB) must be specified for each pixel, and so the pixel value is actually a vector of three numbers ranging from 0 to 255.</p>
+<p>One common preprocessing step in machine learning is to center and standardize your dataset, meaning that you substract the mean of the whole numpy array from each example, and then divide each example by the standard deviation of the whole numpy array. But for picture datasets, it is simpler and more convenient and works almost as well to just divide every row of the dataset by 255 (the maximum value of a pixel channel).</p>
+<!-- During the training of your model, you're going to multiply weights and add biases to some initial inputs in order to observe neuron activations. Then you backpropogate with the gradients to train the model. But, it is extremely important for each feature to have a similar range such that our gradients don't explode. You will see that more in detail later in the lectures. !--> 
+
+<p>Let's standardize our dataset.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">train_set_x</span> <span class="o">=</span> <span class="n">train_set_x_flatten</span> <span class="o">/</span> <span class="mf">255.</span>
+<span class="n">test_set_x</span> <span class="o">=</span> <span class="n">test_set_x_flatten</span> <span class="o">/</span> <span class="mf">255.</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><font color="blue">&lt;/p&gt;
+<p><strong>What you need to remember:</strong></p>
+<p>Common steps for pre-processing a new dataset are:</p>
+<ul>
+<li>Figure out the dimensions and shapes of the problem (m_train, m_test, num_px, ...)</li>
+<li>Reshape the datasets such that each example is now a vector of size (num_px * num_px * 3, 1)</li>
+<li>"Standardize" the data</li>
+</ul>
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><a name="3"></a></p>
+<h2 id="3---General-Architecture-of-the-learning-algorithm">
+<a class="anchor" href="#3---General-Architecture-of-the-learning-algorithm" aria-hidden="true"><span class="octicon octicon-link"></span></a>3 - General Architecture of the learning algorithm<a class="anchor-link" href="#3---General-Architecture-of-the-learning-algorithm"> </a>
+</h2>
+<p>It's time to design a simple algorithm to distinguish cat images from non-cat images.</p>
+<p>You will build a Logistic Regression, using a Neural Network mindset. The following Figure explains why <strong>Logistic Regression is actually a very simple Neural Network!</strong></p>
+<p><strong>Mathematical expression of the algorithm</strong>:</p>
+<p>For one example $x^{(i)}$:
+
+$$z^{(i)} = w^T x^{(i)} + b \tag{1}$$
+
+$$\hat{y}^{(i)} = a^{(i)} = sigmoid(z^{(i)})\tag{2}$$ 
+
+$$ \mathcal{L}(a^{(i)}, y^{(i)}) =  - y^{(i)}  \log(a^{(i)}) - (1-y^{(i)} )  \log(1-a^{(i)})\tag{3}$$
+</p>
+<p>The cost is then computed by summing over all training examples:
+
+$$ J = \frac{1}{m} \sum_{i=1}^m \mathcal{L}(a^{(i)}, y^{(i)})\tag{6}$$
+</p>
+<p><strong>Key steps</strong>:
+In this exercise, you will carry out the following steps:</p>
+
+<pre><code>- Initialize the parameters of the model
+- Learn the parameters for the model by minimizing the cost  
+- Use the learned parameters to make predictions (on the test set)
+- Analyse the results and conclude</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><a name="4"></a></p>
+<h2 id="4---Building-the-parts-of-our-algorithm">
+<a class="anchor" href="#4---Building-the-parts-of-our-algorithm" aria-hidden="true"><span class="octicon octicon-link"></span></a>4 - Building the parts of our algorithm<a class="anchor-link" href="#4---Building-the-parts-of-our-algorithm"> </a>
+</h2>
+<p>The main steps for building a Neural Network are:</p>
+<ol>
+<li>Define the model structure (such as number of input features) </li>
+<li>Initialize the model's parameters</li>
+<li>Loop:<ul>
+<li>Calculate current loss (forward propagation)</li>
+<li>Calculate current gradient (backward propagation)</li>
+<li>Update parameters (gradient descent)</li>
+</ul>
+</li>
+</ol>
+<p>You often build 1-3 separately and integrate them into one function we call <code>model()</code>.</p>
+<p><a name="4-1"></a></p>
+<h3 id="4.1---Helper-functions">
+<a class="anchor" href="#4.1---Helper-functions" aria-hidden="true"><span class="octicon octicon-link"></span></a>4.1 - Helper functions<a class="anchor-link" href="#4.1---Helper-functions"> </a>
+</h3>
+<p><a name="ex-3"></a></p>
+<h3 id="Exercise-3---sigmoid">
+<a class="anchor" href="#Exercise-3---sigmoid" aria-hidden="true"><span class="octicon octicon-link"></span></a>Exercise 3 - sigmoid<a class="anchor-link" href="#Exercise-3---sigmoid"> </a>
+</h3>
+<p>Using your code from "Python Basics", implement <code>sigmoid()</code>. As you've seen in the figure above, you need to compute $sigmoid(z) = \frac{1}{1 + e^{-z}}$ for $z = w^T x + b$ to make predictions. Use np.exp().</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">sigmoid</span><span class="p">(</span><span class="n">z</span><span class="p">):</span>
+    <span class="sd">"""</span>
+<span class="sd">    Compute the sigmoid of z</span>
+
+<span class="sd">    Arguments:</span>
+<span class="sd">    z -- A scalar or numpy array of any size.</span>
+
+<span class="sd">    Return:</span>
+<span class="sd">    s -- sigmoid(z)</span>
+<span class="sd">    """</span>
+
+
+    
+    <span class="n">dummy</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">z</span><span class="p">))</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">dummy</span>
+
+    <span class="k">return</span> <span class="n">s</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span> <span class="p">(</span><span class="s2">"sigmoid([0, 2]) = "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">sigmoid</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">]))))</span>
+
+<span class="n">sigmoid_test</span><span class="p">(</span><span class="n">sigmoid</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">])</span>
+<span class="n">output</span> <span class="o">=</span> <span class="n">sigmoid</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">output</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><a name="4-2"></a></p>
+<h3 id="4.2---Initializing-parameters">
+<a class="anchor" href="#4.2---Initializing-parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>4.2 - Initializing parameters<a class="anchor-link" href="#4.2---Initializing-parameters"> </a>
+</h3>
+<p><a name="ex-4"></a></p>
+<h3 id="Exercise-4---initialize_with_zeros">
+<a class="anchor" href="#Exercise-4---initialize_with_zeros" aria-hidden="true"><span class="octicon octicon-link"></span></a>Exercise 4 - initialize_with_zeros<a class="anchor-link" href="#Exercise-4---initialize_with_zeros"> </a>
+</h3>
+<p>Implement parameter initialization in the cell below. You have to initialize w as a vector of zeros. If you don't know what numpy function to use, look up np.zeros() in the Numpy library's documentation.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">initialize_with_zeros</span><span class="p">(</span><span class="n">dim</span><span class="p">):</span>
+    <span class="sd">"""</span>
+<span class="sd">    This function creates a vector of zeros of shape (dim, 1) for w and initializes b to 0.</span>
+<span class="sd">    </span>
+<span class="sd">    Argument:</span>
+<span class="sd">    dim -- size of the w vector we want (or number of parameters in this case)</span>
+<span class="sd">    </span>
+<span class="sd">    Returns:</span>
+<span class="sd">    w -- initialized vector of shape (dim, 1)</span>
+<span class="sd">    b -- initialized scalar (corresponds to the bias) of type float</span>
+<span class="sd">    """</span>
+    
+
+    <span class="n">w</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">dim</span><span class="p">,</span><span class="mi">1</span><span class="p">)))</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+
+
+    <span class="k">return</span> <span class="n">w</span><span class="p">,</span> <span class="n">b</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dim</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">w</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">initialize_with_zeros</span><span class="p">(</span><span class="n">dim</span><span class="p">)</span>
+
+<span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="o">==</span> <span class="nb">float</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">"w = "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">w</span><span class="p">))</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">"b = "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">b</span><span class="p">))</span>
+
+<span class="n">initialize_with_zeros_test</span><span class="p">(</span><span class="n">initialize_with_zeros</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><a name="4-3"></a></p>
+<h3 id="4.3---Forward-and-Backward-propagation">
+<a class="anchor" href="#4.3---Forward-and-Backward-propagation" aria-hidden="true"><span class="octicon octicon-link"></span></a>4.3 - Forward and Backward propagation<a class="anchor-link" href="#4.3---Forward-and-Backward-propagation"> </a>
+</h3>
+<p>Now that your parameters are initialized, you can do the "forward" and "backward" propagation steps for learning the parameters.</p>
+<p><a name="ex-5"></a></p>
+<h3 id="Exercise-5---propagate">
+<a class="anchor" href="#Exercise-5---propagate" aria-hidden="true"><span class="octicon octicon-link"></span></a>Exercise 5 - propagate<a class="anchor-link" href="#Exercise-5---propagate"> </a>
+</h3>
+<p>Implement a function <code>propagate()</code> that computes the cost function and its gradient.</p>
+<p><strong>Hints</strong>:</p>
+<p>Forward Propagation:</p>
+<ul>
+<li>You get X</li>
+<li>You compute $A = \sigma(w^T X + b) = (a^{(1)}, a^{(2)}, ..., a^{(m-1)}, a^{(m)})$</li>
+<li>You calculate the cost function: $J = -\frac{1}{m}\sum_{i=1}^{m}(y^{(i)}\log(a^{(i)})+(1-y^{(i)})\log(1-a^{(i)}))$</li>
+</ul>
+<p>Here are the two formulas you will be using:</p>
+<p>
+$$ \frac{\partial J}{\partial w} = \frac{1}{m}X(A-Y)^T\tag{7}$$
+
+
+$$ \frac{\partial J}{\partial b} = \frac{1}{m} \sum_{i=1}^m (a^{(i)}-y^{(i)})\tag{8}$$
+</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">propagate</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">):</span>
+    <span class="sd">"""</span>
+<span class="sd">    Implement the cost function and its gradient for the propagation explained above</span>
+
+<span class="sd">    Arguments:</span>
+<span class="sd">    w -- weights, a numpy array of size (num_px * num_px * 3, 1)</span>
+<span class="sd">    b -- bias, a scalar</span>
+<span class="sd">    X -- data of size (num_px * num_px * 3, number of examples)</span>
+<span class="sd">    Y -- true "label" vector (containing 0 if non-cat, 1 if cat) of size (1, number of examples)</span>
+
+<span class="sd">    Return:</span>
+<span class="sd">    cost -- negative log-likelihood cost for logistic regression</span>
+<span class="sd">    dw -- gradient of the loss with respect to w, thus same shape as w</span>
+<span class="sd">    db -- gradient of the loss with respect to b, thus same shape as b</span>
+<span class="sd">    </span>
+<span class="sd">    Tips:</span>
+<span class="sd">    - Write your code step by step for the propagation. np.log(), np.dot()</span>
+<span class="sd">    """</span>
+    
+    <span class="n">m</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    
+    <span class="c1"># FORWARD PROPAGATION (FROM X TO COST)</span>
+    <span class="c1"># compute activation</span>
+    <span class="c1"># compute cost by using np.dot to perform multiplication. </span>
+
+    
+    <span class="n">A</span> <span class="o">=</span> <span class="n">sigmoid</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">w</span><span class="o">.</span><span class="n">T</span><span class="p">,</span><span class="n">X</span><span class="p">)</span> <span class="o">+</span><span class="n">b</span><span class="p">)</span> 
+    <span class="n">cost</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="o">/</span><span class="n">m</span><span class="p">)</span><span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">Y</span><span class="o">*</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">A</span><span class="p">))</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">Y</span><span class="p">)</span><span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">A</span><span class="p">)))</span>
+
+
+    <span class="c1"># BACKWARD PROPAGATION (TO FIND GRAD)</span>
+    <span class="n">dw</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">m</span><span class="p">)</span><span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">X</span><span class="p">,((</span><span class="n">A</span><span class="o">-</span><span class="n">Y</span><span class="p">)</span><span class="o">.</span><span class="n">T</span><span class="p">))</span>
+    <span class="n">db</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">m</span><span class="p">)</span><span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">A</span><span class="o">-</span><span class="n">Y</span><span class="p">))</span>
+
+    <span class="n">cost</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">cost</span><span class="p">))</span>
+
+    
+    <span class="n">grads</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"dw"</span><span class="p">:</span> <span class="n">dw</span><span class="p">,</span>
+             <span class="s2">"db"</span><span class="p">:</span> <span class="n">db</span><span class="p">}</span>
+    
+    <span class="k">return</span> <span class="n">grads</span><span class="p">,</span> <span class="n">cost</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">w</span> <span class="o">=</span>  <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">1.</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">]])</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mf">1.5</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">1.</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.</span><span class="p">],</span> <span class="p">[</span><span class="mf">3.</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">3.2</span><span class="p">]])</span>
+<span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span>
+<span class="n">grads</span><span class="p">,</span> <span class="n">cost</span> <span class="o">=</span> <span class="n">propagate</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">)</span>
+
+<span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">grads</span><span class="p">[</span><span class="s2">"dw"</span><span class="p">])</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span>
+<span class="k">assert</span> <span class="n">grads</span><span class="p">[</span><span class="s2">"dw"</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">grads</span><span class="p">[</span><span class="s2">"db"</span><span class="p">])</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">float64</span>
+
+
+<span class="nb">print</span> <span class="p">(</span><span class="s2">"dw = "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">grads</span><span class="p">[</span><span class="s2">"dw"</span><span class="p">]))</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">"db = "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">grads</span><span class="p">[</span><span class="s2">"db"</span><span class="p">]))</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">"cost = "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">cost</span><span class="p">))</span>
+
+<span class="n">propagate_test</span><span class="p">(</span><span class="n">propagate</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Expected output</strong></p>
+
+<pre><code>dw = [[ 0.25071532]
+ [-0.06604096]]
+db = -0.1250040450043965
+cost = 0.15900537707692405</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><a name="4-4"></a></p>
+<h3 id="4.4---Optimization">
+<a class="anchor" href="#4.4---Optimization" aria-hidden="true"><span class="octicon octicon-link"></span></a>4.4 - Optimization<a class="anchor-link" href="#4.4---Optimization"> </a>
+</h3>
+<ul>
+<li>You have initialized your parameters.</li>
+<li>You are also able to compute a cost function and its gradient.</li>
+<li>Now, you want to update the parameters using gradient descent.</li>
+</ul>
+<p><a name="ex-6"></a></p>
+<h3 id="Exercise-6---optimize">
+<a class="anchor" href="#Exercise-6---optimize" aria-hidden="true"><span class="octicon octicon-link"></span></a>Exercise 6 - optimize<a class="anchor-link" href="#Exercise-6---optimize"> </a>
+</h3>
+<p>Write down the optimization function. The goal is to learn $w$ and $b$ by minimizing the cost function $J$. For a parameter $\theta$, the update rule is $ \theta = \theta - \alpha \text{ } d\theta$, where $\alpha$ is the learning rate.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">optimize</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">num_iterations</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">learning_rate</span><span class="o">=</span><span class="mf">0.009</span><span class="p">,</span> <span class="n">print_cost</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="sd">"""</span>
+<span class="sd">    This function optimizes w and b by running a gradient descent algorithm</span>
+<span class="sd">    </span>
+<span class="sd">    Arguments:</span>
+<span class="sd">    w -- weights, a numpy array of size (num_px * num_px * 3, 1)</span>
+<span class="sd">    b -- bias, a scalar</span>
+<span class="sd">    X -- data of shape (num_px * num_px * 3, number of examples)</span>
+<span class="sd">    Y -- true "label" vector (containing 0 if non-cat, 1 if cat), of shape (1, number of examples)</span>
+<span class="sd">    num_iterations -- number of iterations of the optimization loop</span>
+<span class="sd">    learning_rate -- learning rate of the gradient descent update rule</span>
+<span class="sd">    print_cost -- True to print the loss every 100 steps</span>
+<span class="sd">    </span>
+<span class="sd">    Returns:</span>
+<span class="sd">    params -- dictionary containing the weights w and bias b</span>
+<span class="sd">    grads -- dictionary containing the gradients of the weights and bias with respect to the cost function</span>
+<span class="sd">    costs -- list of all the costs computed during the optimization, this will be used to plot the learning curve.</span>
+<span class="sd">    </span>
+<span class="sd">    Tips:</span>
+<span class="sd">    You basically need to write down two steps and iterate through them:</span>
+<span class="sd">        1) Calculate the cost and the gradient for the current parameters. Use propagate().</span>
+<span class="sd">        2) Update the parameters using gradient descent rule for w and b.</span>
+<span class="sd">    """</span>
+    
+    <span class="n">w</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">w</span><span class="p">)</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+    
+    <span class="n">costs</span> <span class="o">=</span> <span class="p">[]</span>
+    
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_iterations</span><span class="p">):</span>
+        <span class="c1"># Cost and gradient calculation </span>
+        
+        <span class="n">grads</span><span class="p">,</span> <span class="n">cost</span> <span class="o">=</span> <span class="n">propagate</span><span class="p">(</span><span class="n">w</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">)</span>
+    
+        
+        <span class="c1"># Retrieve derivatives from grads</span>
+        <span class="n">dw</span> <span class="o">=</span> <span class="n">grads</span><span class="p">[</span><span class="s2">"dw"</span><span class="p">]</span>
+        <span class="n">db</span> <span class="o">=</span> <span class="n">grads</span><span class="p">[</span><span class="s2">"db"</span><span class="p">]</span>
+        
+        <span class="c1"># update rule </span>
+        <span class="n">w</span> <span class="o">=</span> <span class="n">w</span> <span class="o">-</span> <span class="p">(</span><span class="n">learning_rate</span> <span class="o">*</span> <span class="n">dw</span><span class="p">)</span>
+        <span class="n">b</span> <span class="o">=</span> <span class="n">b</span> <span class="o">-</span> <span class="p">(</span><span class="n">learning_rate</span> <span class="o">*</span> <span class="n">db</span><span class="p">)</span>
+
+        
+        <span class="c1"># Record the costs</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">100</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">costs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">cost</span><span class="p">)</span>
+        
+            <span class="c1"># Print the cost every 100 training iterations</span>
+            <span class="k">if</span> <span class="n">print_cost</span><span class="p">:</span>
+                <span class="nb">print</span> <span class="p">(</span><span class="s2">"Cost after iteration </span><span class="si">%i</span><span class="s2">: </span><span class="si">%f</span><span class="s2">"</span> <span class="o">%</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">cost</span><span class="p">))</span>
+    
+    <span class="n">params</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"w"</span><span class="p">:</span> <span class="n">w</span><span class="p">,</span>
+              <span class="s2">"b"</span><span class="p">:</span> <span class="n">b</span><span class="p">}</span>
+    
+    <span class="n">grads</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"dw"</span><span class="p">:</span> <span class="n">dw</span><span class="p">,</span>
+             <span class="s2">"db"</span><span class="p">:</span> <span class="n">db</span><span class="p">}</span>
+    
+    <span class="k">return</span> <span class="n">params</span><span class="p">,</span> <span class="n">grads</span><span class="p">,</span> <span class="n">costs</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">params</span><span class="p">,</span> <span class="n">grads</span><span class="p">,</span> <span class="n">costs</span> <span class="o">=</span> <span class="n">optimize</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">num_iterations</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">learning_rate</span><span class="o">=</span><span class="mf">0.009</span><span class="p">,</span> <span class="n">print_cost</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="nb">print</span> <span class="p">(</span><span class="s2">"w = "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="s2">"w"</span><span class="p">]))</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">"b = "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="s2">"b"</span><span class="p">]))</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">"dw = "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">grads</span><span class="p">[</span><span class="s2">"dw"</span><span class="p">]))</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">"db = "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">grads</span><span class="p">[</span><span class="s2">"db"</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Costs = "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">costs</span><span class="p">))</span>
+
+<span class="n">optimize_test</span><span class="p">(</span><span class="n">optimize</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><a name="ex-7"></a></p>
+<h3 id="Exercise-7---predict">
+<a class="anchor" href="#Exercise-7---predict" aria-hidden="true"><span class="octicon octicon-link"></span></a>Exercise 7 - predict<a class="anchor-link" href="#Exercise-7---predict"> </a>
+</h3>
+<p>The previous function will output the learned w and b. We are able to use w and b to predict the labels for a dataset X. Implement the <code>predict()</code> function. There are two steps to computing predictions:</p>
+<ol>
+<li>
+<p>Calculate $\hat{Y} = A = \sigma(w^T X + b)$</p>
+</li>
+<li>
+<p>Convert the entries of a into 0 (if activation &lt;= 0.5) or 1 (if activation &gt; 0.5), stores the predictions in a vector <code>Y_prediction</code>. If you wish, you can use an <code>if</code>/<code>else</code> statement in a <code>for</code> loop (though there is also a way to vectorize this).</p>
+</li>
+</ol>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
+    <span class="sd">'''</span>
+<span class="sd">    Predict whether the label is 0 or 1 using learned logistic regression parameters (w, b)</span>
+<span class="sd">    </span>
+<span class="sd">    Arguments:</span>
+<span class="sd">    w -- weights, a numpy array of size (num_px * num_px * 3, 1)</span>
+<span class="sd">    b -- bias, a scalar</span>
+<span class="sd">    X -- data of size (num_px * num_px * 3, number of examples)</span>
+<span class="sd">    </span>
+<span class="sd">    Returns:</span>
+<span class="sd">    Y_prediction -- a numpy array (vector) containing all predictions (0/1) for the examples in X</span>
+<span class="sd">    '''</span>
+    
+    <span class="n">m</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">Y_prediction</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="n">m</span><span class="p">))</span>
+    <span class="n">w</span> <span class="o">=</span> <span class="n">w</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">1</span><span class="p">)</span>
+    
+    <span class="c1"># Compute vector "A" predicting the probabilities of a cat being present in the picture</span>
+    
+    <span class="n">A</span> <span class="o">=</span> <span class="n">sigmoid</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">w</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">X</span><span class="p">)</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span>
+   
+    
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span>
+        
+        <span class="c1"># Convert probabilities A[0,i] to actual predictions p[0,i]</span>
+        <span class="c1"># if A[0, i] &gt; ____ :</span>
+        <span class="c1">#     Y_prediction[0,i] = </span>
+        <span class="c1"># else:</span>
+        <span class="c1">#     Y_prediction[0,i] = </span>
+        
+        <span class="k">if</span> <span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="n">i</span><span class="p">]</span><span class="o">&gt;</span> <span class="mf">0.5</span><span class="p">:</span>
+            <span class="n">Y_prediction</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="n">i</span><span class="p">]</span><span class="o">=</span> <span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">Y_prediction</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+                
+        
+    
+    <span class="k">return</span> <span class="n">Y_prediction</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">w</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">0.1124579</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.23106775</span><span class="p">]])</span>
+<span class="n">b</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.3</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">1.</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.1</span><span class="p">,</span> <span class="o">-</span><span class="mf">3.2</span><span class="p">],[</span><span class="mf">1.2</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">]])</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">"predictions = "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">predict</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">X</span><span class="p">)))</span>
+
+<span class="n">predict_test</span><span class="p">(</span><span class="n">predict</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><font color="blue">&lt;/p&gt;
+<p><strong>What to remember:</strong></p>
+<p>You've implemented several functions that:</p>
+<ul>
+<li>Initialize (w,b)</li>
+<li>Optimize the loss iteratively to learn parameters (w,b):<ul>
+<li>Computing the cost and its gradient </li>
+<li>Updating the parameters using gradient descent</li>
+</ul>
+</li>
+<li>Use the learned (w,b) to predict the labels for a given set of examples</li>
+</ul>
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><a name="5"></a></p>
+<h2 id="5---Merge-all-functions-into-a-model">
+<a class="anchor" href="#5---Merge-all-functions-into-a-model" aria-hidden="true"><span class="octicon octicon-link"></span></a>5 - Merge all functions into a model<a class="anchor-link" href="#5---Merge-all-functions-into-a-model"> </a>
+</h2>
+<p>You will now see how the overall model is structured by putting together all the building blocks (functions implemented in the previous parts) together, in the right order.</p>
+<p><a name="ex-8"></a></p>
+<h3 id="Exercise-8---model">
+<a class="anchor" href="#Exercise-8---model" aria-hidden="true"><span class="octicon octicon-link"></span></a>Exercise 8 - model<a class="anchor-link" href="#Exercise-8---model"> </a>
+</h3>
+<p>Implement the model function. Use the following notation:</p>
+
+<pre><code>- Y_prediction_test for your predictions on the test set
+- Y_prediction_train for your predictions on the train set
+- parameters, grads, costs for the outputs of optimize()</code></pre>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">model</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">Y_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">Y_test</span><span class="p">,</span> <span class="n">num_iterations</span><span class="o">=</span><span class="mi">2000</span><span class="p">,</span> <span class="n">learning_rate</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">print_cost</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="sd">"""</span>
+<span class="sd">    Builds the logistic regression model by calling the function you've implemented previously</span>
+<span class="sd">    </span>
+<span class="sd">    Arguments:</span>
+<span class="sd">    X_train -- training set represented by a numpy array of shape (num_px * num_px * 3, m_train)</span>
+<span class="sd">    Y_train -- training labels represented by a numpy array (vector) of shape (1, m_train)</span>
+<span class="sd">    X_test -- test set represented by a numpy array of shape (num_px * num_px * 3, m_test)</span>
+<span class="sd">    Y_test -- test labels represented by a numpy array (vector) of shape (1, m_test)</span>
+<span class="sd">    num_iterations -- hyperparameter representing the number of iterations to optimize the parameters</span>
+<span class="sd">    learning_rate -- hyperparameter representing the learning rate used in the update rule of optimize()</span>
+<span class="sd">    print_cost -- Set to True to print the cost every 100 iterations</span>
+<span class="sd">    </span>
+<span class="sd">    Returns:</span>
+<span class="sd">    d -- dictionary containing information about the model.</span>
+<span class="sd">    """</span>
+        
+    <span class="c1"># initialize parameters with zeros  </span>
+    <span class="n">w</span><span class="p">,</span><span class="n">b</span> <span class="o">=</span> <span class="n">initialize_with_zeros</span><span class="p">(</span><span class="n">X_train</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="c1"># Gradient descent</span>
+    <span class="n">params</span> <span class="p">,</span><span class="n">grads</span> <span class="p">,</span><span class="n">costs</span> <span class="o">=</span> <span class="n">optimize</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">Y_train</span><span class="p">,</span> <span class="n">num_iterations</span><span class="p">,</span> <span class="n">learning_rate</span><span class="p">,</span> <span class="n">print_cost</span><span class="p">)</span>
+    <span class="c1"># Retrieve parameters w and b from dictionary "params"</span>
+    <span class="n">w</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s2">"w"</span><span class="p">]</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s2">"b"</span><span class="p">]</span>
+    <span class="c1"># Predict test/train set examples </span>
+    <span class="n">Y_prediction_test</span> <span class="o">=</span> <span class="n">predict</span><span class="p">(</span><span class="n">w</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">X_test</span><span class="p">)</span>
+    <span class="n">Y_prediction_train</span> <span class="o">=</span> <span class="n">predict</span><span class="p">(</span><span class="n">w</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">X_train</span><span class="p">)</span>
+    
+    
+
+    <span class="c1"># Print train/test Errors</span>
+    <span class="k">if</span> <span class="n">print_cost</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"train accuracy: </span><span class="si">{}</span><span class="s2"> %"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mi">100</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">Y_prediction_train</span> <span class="o">-</span> <span class="n">Y_train</span><span class="p">))</span> <span class="o">*</span> <span class="mi">100</span><span class="p">))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"test accuracy: </span><span class="si">{}</span><span class="s2"> %"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mi">100</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">Y_prediction_test</span> <span class="o">-</span> <span class="n">Y_test</span><span class="p">))</span> <span class="o">*</span> <span class="mi">100</span><span class="p">))</span>
+
+    
+    <span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"costs"</span><span class="p">:</span> <span class="n">costs</span><span class="p">,</span>
+         <span class="s2">"Y_prediction_test"</span><span class="p">:</span> <span class="n">Y_prediction_test</span><span class="p">,</span> 
+         <span class="s2">"Y_prediction_train"</span> <span class="p">:</span> <span class="n">Y_prediction_train</span><span class="p">,</span> 
+         <span class="s2">"w"</span> <span class="p">:</span> <span class="n">w</span><span class="p">,</span> 
+         <span class="s2">"b"</span> <span class="p">:</span> <span class="n">b</span><span class="p">,</span>
+         <span class="s2">"learning_rate"</span> <span class="p">:</span> <span class="n">learning_rate</span><span class="p">,</span>
+         <span class="s2">"num_iterations"</span><span class="p">:</span> <span class="n">num_iterations</span><span class="p">}</span>
+    
+    <span class="k">return</span> <span class="n">d</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">public_tests</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">model_test</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>If you pass all the tests, run the following cell to train your model.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">logistic_regression_model</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">train_set_x</span><span class="p">,</span> <span class="n">train_set_y</span><span class="p">,</span> <span class="n">test_set_x</span><span class="p">,</span> <span class="n">test_set_y</span><span class="p">,</span> <span class="n">num_iterations</span><span class="o">=</span><span class="mi">2000</span><span class="p">,</span> <span class="n">learning_rate</span><span class="o">=</span><span class="mf">0.005</span><span class="p">,</span> <span class="n">print_cost</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Comment</strong>: Training accuracy is close to 100%. This is a good sanity check: your model is working and has high enough capacity to fit the training data. Test accuracy is 70%. It is actually not bad for this simple model, given the small dataset we used and that logistic regression is a linear classifier. But no worries, you'll build an even better classifier next week!</p>
+<p>Also, you see that the model is clearly overfitting the training data. Later in this specialization you will learn how to reduce overfitting, for example by using regularization. Using the code below (and changing the <code>index</code> variable) you can look at predictions on pictures of the test set.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">index</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">test_set_x</span><span class="p">[:,</span> <span class="n">index</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="n">num_px</span><span class="p">,</span> <span class="n">num_px</span><span class="p">,</span> <span class="mi">3</span><span class="p">)))</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">"y = "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">test_set_y</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="n">index</span><span class="p">])</span> <span class="o">+</span> <span class="s2">", you predicted that it is a </span><span class="se">\"</span><span class="s2">"</span> <span class="o">+</span> <span class="n">classes</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">logistic_regression_model</span><span class="p">[</span><span class="s1">'Y_prediction_test'</span><span class="p">][</span><span class="mi">0</span><span class="p">,</span><span class="n">index</span><span class="p">])]</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">"utf-8"</span><span class="p">)</span> <span class="o">+</span>  <span class="s2">"</span><span class="se">\"</span><span class="s2"> picture."</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Let's also plot the cost function and the gradients.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">costs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="n">logistic_regression_model</span><span class="p">[</span><span class="s1">'costs'</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">costs</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'cost'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'iterations (per hundreds)'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">"Learning rate ="</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">logistic_regression_model</span><span class="p">[</span><span class="s2">"learning_rate"</span><span class="p">]))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Interpretation</strong>:
+You can see the cost decreasing. It shows that the parameters are being learned. However, you see that you could train the model even more on the training set. Try to increase the number of iterations in the cell above and rerun the cells. You might see that the training set accuracy goes up, but the test set accuracy goes down. This is called overfitting.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><a name="6"></a></p>
+<h2 id="6---Further-analysis">
+<a class="anchor" href="#6---Further-analysis" aria-hidden="true"><span class="octicon octicon-link"></span></a>6 - Further analysis<a class="anchor-link" href="#6---Further-analysis"> </a>
+</h2>
+<p>We built our first image classification model. Let's analyze it further, and examine possible choices for the learning rate $\alpha$.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Choice-of-learning-rate">
+<a class="anchor" href="#Choice-of-learning-rate" aria-hidden="true"><span class="octicon octicon-link"></span></a>Choice of learning rate<a class="anchor-link" href="#Choice-of-learning-rate"> </a>
+</h4>
+<p><strong>Reminder</strong>:
+In order for Gradient Descent to work you must choose the learning rate wisely. The learning rate $\alpha$  determines how rapidly we update the parameters. If the learning rate is too large we may "overshoot" the optimal value. Similarly, if it is too small we will need too many iterations to converge to the best values. That's why it is crucial to use a well-tuned learning rate.</p>
+<p>Let's compare the learning curve of our model with several choices of learning rates. Run the cell below. This should take about 1 minute. Feel free also to try different values than the three we have initialized the <code>learning_rates</code> variable to contain, and see what happens.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">learning_rates</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.001</span><span class="p">,</span> <span class="mf">0.0001</span><span class="p">]</span>
+<span class="n">models</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="k">for</span> <span class="n">lr</span> <span class="ow">in</span> <span class="n">learning_rates</span><span class="p">:</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s2">"Training a model with learning rate: "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">lr</span><span class="p">))</span>
+    <span class="n">models</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">lr</span><span class="p">)]</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">train_set_x</span><span class="p">,</span> <span class="n">train_set_y</span><span class="p">,</span> <span class="n">test_set_x</span><span class="p">,</span> <span class="n">test_set_y</span><span class="p">,</span> <span class="n">num_iterations</span><span class="o">=</span><span class="mi">1500</span><span class="p">,</span> <span class="n">learning_rate</span><span class="o">=</span><span class="n">lr</span><span class="p">,</span> <span class="n">print_cost</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s1">'</span><span class="se">\n</span><span class="s1">'</span> <span class="o">+</span> <span class="s2">"-------------------------------------------------------"</span> <span class="o">+</span> <span class="s1">'</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">lr</span> <span class="ow">in</span> <span class="n">learning_rates</span><span class="p">:</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="n">models</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">lr</span><span class="p">)][</span><span class="s2">"costs"</span><span class="p">]),</span> <span class="n">label</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">models</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">lr</span><span class="p">)][</span><span class="s2">"learning_rate"</span><span class="p">]))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'cost'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'iterations (hundreds)'</span><span class="p">)</span>
+
+<span class="n">legend</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">'upper center'</span><span class="p">,</span> <span class="n">shadow</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">frame</span> <span class="o">=</span> <span class="n">legend</span><span class="o">.</span><span class="n">get_frame</span><span class="p">()</span>
+<span class="n">frame</span><span class="o">.</span><span class="n">set_facecolor</span><span class="p">(</span><span class="s1">'0.90'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Interpretation</strong>:</p>
+<ul>
+<li>Different learning rates give different costs and thus different predictions results.</li>
+<li>If the learning rate is too large (0.01), the cost may oscillate up and down. It may even diverge (though in this example, using 0.01 still eventually ends up at a good value for the cost). </li>
+<li>A lower cost doesn't mean a better model. You have to check if there is possibly overfitting. It happens when the training accuracy is a lot higher than the test accuracy.</li>
+<li>In deep learning, we usually recommend that you: <ul>
+<li>Choose the learning rate that better minimizes the cost function.</li>
+<li>If your model overfits, use other techniques to reduce overfitting. (We'll talk about this in later videos.) </li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><a name="7"></a></p>
+<h2 id="7---Test-with-your-own-image">
+<a class="anchor" href="#7---Test-with-your-own-image" aria-hidden="true"><span class="octicon octicon-link"></span></a>7 - Test with your own image<a class="anchor-link" href="#7---Test-with-your-own-image"> </a>
+</h2>
+<pre><code>You can use your own image and see the output of your model. To do that:
+1. Click on "File" in the upper bar of this notebook, then click "Open" to go on your Coursera Hub.
+2. Add your image to this Jupyter Notebook's directory, in the "images" folder
+3. Change your image's name in the following code
+4. Run the code and check if the algorithm is right (1 = cat, 0 = non-cat)!</code></pre>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">my_image</span> <span class="o">=</span> <span class="s2">"docpic.jpg"</span>   
+
+<span class="c1"># We preprocess the image to fit your algorithm.</span>
+<span class="n">fname</span> <span class="o">=</span> <span class="s2">"images/"</span> <span class="o">+</span> <span class="n">my_image</span>
+<span class="n">image</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span><span class="o">.</span><span class="n">resize</span><span class="p">((</span><span class="n">num_px</span><span class="p">,</span> <span class="n">num_px</span><span class="p">)))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
+<span class="n">image</span> <span class="o">=</span> <span class="n">image</span> <span class="o">/</span> <span class="mf">255.</span>
+<span class="n">image</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="n">num_px</span> <span class="o">*</span> <span class="n">num_px</span> <span class="o">*</span> <span class="mi">3</span><span class="p">))</span><span class="o">.</span><span class="n">T</span>
+<span class="n">my_predicted_image</span> <span class="o">=</span> <span class="n">predict</span><span class="p">(</span><span class="n">logistic_regression_model</span><span class="p">[</span><span class="s2">"w"</span><span class="p">],</span> <span class="n">logistic_regression_model</span><span class="p">[</span><span class="s2">"b"</span><span class="p">],</span> <span class="n">image</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">"y = "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="n">my_predicted_image</span><span class="p">))</span> <span class="o">+</span> <span class="s2">", your algorithm predicts a </span><span class="se">\"</span><span class="s2">"</span> <span class="o">+</span> <span class="n">classes</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="n">my_predicted_image</span><span class="p">)),]</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">"utf-8"</span><span class="p">)</span> <span class="o">+</span>  <span class="s2">"</span><span class="se">\"</span><span class="s2"> picture."</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><font color="blue">&lt;/p&gt;
+<p><strong>What to remember :</strong></p>
+<ol>
+<li>Preprocessing the dataset is important.</li>
+<li>You implemented each function separately: initialize(), propagate(), optimize(). Then you built a model().</li>
+<li>Tuning the learning rate (which is an example of a "hyperparameter") can make a big difference to the algorithm. You will see more examples of this later in this course!</li>
+</ol>
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Bibliography:</p>
+<ul>
+<li><a href="http://www.wildml.com/2015/09/implementing-a-neural-network-from-scratch/">http://www.wildml.com/2015/09/implementing-a-neural-network-from-scratch/</a></li>
+<li><a href="https://stats.stackexchange.com/questions/211436/why-do-we-normalize-images-by-subtracting-the-datasets-image-mean-and-not-the-c">https://stats.stackexchange.com/questions/211436/why-do-we-normalize-images-by-subtracting-the-datasets-image-mean-and-not-the-c</a></li>
+</ul>
+
+</div>
+</div>
+</div>
+&lt;/div&gt;
+ 
+
+</font></p>
+</div>
+</div></div></font></p>
+</div>
+</div></div></font></p>
+</div>
+</div></div>
+</div>
+
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="sandeshkatakam/My-Machine_learning-Blog"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/My-Machine_learning-Blog/jupyter/2021/11/20/Logistic-Regression-with-a-Neural-Network-mindset.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/My-Machine_learning-Blog/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/My-Machine_learning-Blog/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/My-Machine_learning-Blog/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>Blog related to Machine learning and Deep learning.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/sandeshkatakam" target="_blank" title="sandeshkatakam"><svg class="svg-icon grey"><use xlink:href="/My-Machine_learning-Blog/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/sandeshkatakam" target="_blank" title="sandeshkatakam"><svg class="svg-icon grey"><use xlink:href="/My-Machine_learning-Blog/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
