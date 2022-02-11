@@ -6,7 +6,7 @@
 
 https://sandeshkatakam.github.io/My-Machine_learning-Blog/
 
-# My Scientific Machine Learning Blog
+# My Machine Learning Blog
 
 
 _powered by [fastpages](https://github.com/fastai/fastpages)_
