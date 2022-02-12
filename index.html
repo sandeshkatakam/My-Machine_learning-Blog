@@ -3,7 +3,33 @@ layout: home
 search_exclude: true
 image: images/ms-icon-310x310.png
 ---
+
+<!-- Load TensorFlow.js. This is required to use MobileNet. -->
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.0.1"> </script>
+<!-- Load the MobileNet model. -->
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/mobilenet@1.0.0"> </script>
+
+<!-- Replace this with your image. Make sure CORS settings allow reading the image! -->
+<img id="img" src="cat.jpg"></img>
+
+<!-- Place your code in the script tag below. You can also use an external .js file -->
+<script>
+  // Notice there is no 'import' statement. 'mobilenet' and 'tf' is
+  // available on the index-page because of the script tag above.
+
+  const img = document.getElementById('img');
+
+  // Load the model.
+  mobilenet.load().then(model => {
+    // Classify the image.
+    model.classify(img).then(predictions => {
+      console.log('Predictions: ');
+      console.log(predictions);
+    });
+  });
+</script>
 <a href="https://hits.seeyoufarm.com"><img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fsandeshkatakam.github.io%2FMy-Machine_learning-Blog%2F&count_bg=%2379C83D&title_bg=%23555555&icon=z-wave.svg&icon_color=%23E7E7E7&title=site+hits&edge_flat=false"/></a>
 ![]({{site.baseurl}}/images/nngram.png "https://github.com/sandeshkatakam/My-Machine_learning-Blog")
+
 
 ## Posts
