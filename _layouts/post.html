@@ -54,6 +54,8 @@ layout: default
       {% endif -%}
     {% endif -%}
   </header>
+  
+  <script src="{{ base.url | prepend: site.url }}/assets/button.js"></script>
 
   <div class="post-content e-content" itemprop="articleBody">
     {{ content | toc  }}
