@@ -133,10 +133,7 @@
   
 
   
-  
-
-  
-      ,"page10": {
+      ,"page9": {
           "title": "",
           "content": "Sitemap: {{ “sitemap.xml” | absolute_url }} | .",
           "url": "https://sandeshkatakam.github.io/My-Machine_learning-Blog/robots.txt",
@@ -144,6 +141,9 @@
           "date": ""
       }
       
+  
+
+  
   
 
 }
