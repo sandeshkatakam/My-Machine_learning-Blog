@@ -411,7 +411,7 @@ table th { text-align: center !important; }
 
 ::-webkit-scrollbar-button { width: 0; height: 0; display: none; }
 
-::-webkit-scrollbar-corner { background-color: transparent; }
+::-webkit-scrollbar-corner { background-color: #fafafa; }
 
 .output_text.output_execute_result pre { white-space: pre-wrap; }
 
