@@ -469,6 +469,24 @@ li .post-meta-description { color: rgba(255, 255, 255, 0.69) !important; }
 
 #myBtn:hover { background-color: #555; /* Add a dark-grey background on hover */ }
 
+@font-face { font-family: "Libertine"; src: url("../../assets/fonts/linux_libertine/LinLibertine_I.otf"); font-weight: 400; font-style: normal; }
+
+@font-face { font-family: "Libertine"; src: url("../../assets/fonts/linux_libertine/LinLibertine_DR.otf"); font-weight: 300; font-style: normal; }
+
+@font-face { font-family: "Libertine"; src: url("../../assets/fonts/linux_libertine/LinLibertine_R.otf"); font-weight: 400; font-style: normal; }
+
+@font-face { font-family: "Libertine"; src: url("../../assets/fonts/linux_libertine/LinLibertine_RI.otf"); font-weight: 400; font-style: italic; }
+
+@font-face { font-family: "Libertine"; src: url("../../assets/fonts/linux_libertine/LinLibertine_RZ.otf"); font-weight: 600; font-style: normal; }
+
+@font-face { font-family: "Libertine"; src: url("../../assets/fonts/linux_libertine/LinLibertine_RZI.otf"); font-weight: 600; font-style: italic; }
+
+@font-face { font-family: "Libertine"; src: url("../../assets/fonts/linux_libertine/LinLibertine_RB.otf"); font-weight: 700; font-style: normal; }
+
+@font-face { font-family: "Libertine"; src: url("../../assets/fonts/linux_libertine/LinLibertine_RBI.otf"); font-weight: 700; font-style: italic; }
+
+.text_cell, .post-title, .site-title, h3, .page-description { font-family: "Libertine" !important; }
+
 .language-python + .language-plaintext { border-left: 1px solid grey; margin-left: 1rem !important; }
 
 [class^="language-"]:not(.language-plaintext) pre, [class^="language-"]:not(.language-plaintext) code { background-color: #323443 !important; color: #f8f8f2; }
