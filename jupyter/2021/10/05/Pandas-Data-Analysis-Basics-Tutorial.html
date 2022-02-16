@@ -122,72 +122,79 @@ window.onload = wrap_img;
 </header>
 <main class="page-content" aria-label="Content"> -->
     <main class="page-content" aria-label="Content" style="padding-top: 0">
-        <!-- <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting"> -->
-<div class="Layout">
+        <div class="Layout">
     
-      <div class="Layout-sidebar border" id="toc">
-        <ol id="toc" class="section-nav">
+      <div class="Layout-sidebar">
+        <div id="toc" class="pt-3 pl-3 sticky">
+          <b><a href="#">Pandas Data Analysis Basics Tutorial</a></b>
+          <ol id="toc" class="section-nav">
 <li class="toc-entry toc-h1"><a href="#Pandas-Data-Analysis-short-tutorial:">Pandas Data Analysis short tutorial: </a></li>
 </ol>
+        </div>
       </div>
-    <article class="Layout-main post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+    <div class="Layout-main"><header class="site-header">
 
-  <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">Pandas Data Analysis Basics Tutorial</h1><p class="page-description">short tutorial on basic pandas operations using python</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2021-10-05T00:00:00-05:00" itemprop="datePublished">
-        Oct 5, 2021
-      </time>
-       • <span class="read-time" title="Estimated read time">
-    
-    
-      9 min read
-    
-</span></p>
+  <div class="wrapper"><a class="site-title" rel="author" href="/My-Machine_learning-Blog/">Sandesh&#39;s Machine Learning Journal</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
 
-    
-      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+        <div class="trigger"><a class="page-link" href="/My-Machine_learning-Blog/about/">About Me</a><a class="page-link" href="/My-Machine_learning-Blog/search/">Search</a><a class="page-link" href="/My-Machine_learning-Blog/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
       
-        <a class="category-tags-link" href="/My-Machine_learning-Blog/categories/#jupyter">jupyter</a>
         
-      
-      </p>
-    
-
-    
-      
-        <div class="pb-5 d-flex flex-justify-center">
-          <div class="px-2">
+          <div class="pb-5 d-flex flex-wrap flex-justify-start" style="padding-left: 52px">
+            <div class="px-2">
 
     <a href="https://github.com/sandeshkatakam/My-Machine_learning-Blog/tree/master/_notebooks/2021-10-05-Pandas-Data-Analysis-Basics-Tutorial.ipynb" role="button" target="_blank">
 <img class="notebook-badge-image" src="/My-Machine_learning-Blog/assets/badges/github.svg" alt="View On GitHub">
     </a>
 </div>
 
-          <div class="px-2">
+            <div class="px-2">
     <a href="https://mybinder.org/v2/gh/sandeshkatakam/My-Machine_learning-Blog/master?filepath=_notebooks%2F2021-10-05-Pandas-Data-Analysis-Basics-Tutorial.ipynb" target="_blank">
         <img class="notebook-badge-image" src="/My-Machine_learning-Blog/assets/badges/binder.svg" alt="Open In Binder"/>
     </a>
 </div>
 
-          <div class="px-2">
+            <div class="px-2">
     <a href="https://colab.research.google.com/github/sandeshkatakam/My-Machine_learning-Blog/blob/master/_notebooks/2021-10-05-Pandas-Data-Analysis-Basics-Tutorial.ipynb" target="_blank">
         <img class="notebook-badge-image" src="/My-Machine_learning-Blog/assets/badges/colab.svg" alt="Open In Colab"/>
     </a>
 </div>
-          <div class="px-2">
-  <a href="https://deepnote.com/launch?url=https%3A%2F%2Fgithub.com%2Fsandeshkatakam%2FMy-Machine_learning-Blog%2Fblob%2Fmaster%2F_notebooks%2F2021-10-05-Pandas-Data-Analysis-Basics-Tutorial.ipynb" target="_blank">
-      <img class="notebook-badge-image" src="/My-Machine_learning-Blog/assets/badges/deepnote.svg" alt="Launch in Deepnote"/>
-  </a>
-</div>
+          </div>
+        <header class="post-header">
+        <h1 class="post-title p-name" itemprop="name headline">Pandas Data Analysis Basics Tutorial</h1><p class="page-description">short tutorial on basic pandas operations using python</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2021-10-05T00:00:00-05:00" itemprop="datePublished">
+            Oct 5, 2021
+          </time>
+           • <span class="read-time" title="Estimated read time">
+    
+    
+      9 min read
+    
+</span></p>
 
-        </div>
+        
+          <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i>
+          
+            <a class="category-tags-link" href="/My-Machine_learning-Blog/categories/#jupyter">jupyter</a>
+            
+          
+          </p>
+        
+
+
       </header>
-  
-  <script src="https://sandeshkatakam.github.io/assets/button.js"></script>
 
-  <div class="post-content e-content" itemprop="articleBody">
-    <ol id="toc" class="section-nav">
-<li class="toc-entry toc-h1"><a href="#Pandas-Data-Analysis-short-tutorial:">Pandas Data Analysis short tutorial: </a></li>
-</ol><script src="https://sandeshkatakam.github.io/assets/button.js"></script>
+      <div class="post-content e-content" itemprop="articleBody">
+        <script src="https://sandeshkatakam.github.io/assets/button.js"></script>
 <a name="top"></a>
 <!--
 #################################################
@@ -198,13 +205,9 @@ window.onload = wrap_img;
 
 <div class="container" id="notebook-container">
         
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Pandas-Data-Analysis-short-tutorial:">
-<a class="anchor" href="#Pandas-Data-Analysis-short-tutorial:" aria-hidden="true"><span class="octicon octicon-link"></span></a>Pandas Data Analysis short tutorial:<a class="anchor-link" href="#Pandas-Data-Analysis-short-tutorial:"> </a>
-</h1>
-<p><em>This is an assignment, a part of the course <a href="https://jovian.ml/learn/data-analysis-with-python-zero-to-pandas">"Data Analysis with Python: Zero to Pandas"</a></em></p>
+<h1 id="Pandas-Data-Analysis-short-tutorial:">Pandas Data Analysis short tutorial:<a class="anchor-link" href="#Pandas-Data-Analysis-short-tutorial:"> </a></h1><p><em>This is an assignment, a part of the course <a href="https://jovian.ml/learn/data-analysis-with-python-zero-to-pandas">"Data Analysis with Python: Zero to Pandas"</a></em></p>
 <p>This tutorial demonstrates data analysis using example from two data sets using the Pandas Library. All the important operations are described in markdown cells.</p>
 
 </div>
@@ -262,8 +265,7 @@ Requirement already satisfied: six&gt;=1.5 in /opt/conda/lib/python3.9/site-pack
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>In this tutorial, we're going to analyze an operate on data from a CSV file. Let's begin by downloading the CSV file.</p>
 
@@ -279,8 +281,8 @@ Requirement already satisfied: six&gt;=1.5 in /opt/conda/lib/python3.9/site-pack
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">urllib.request</span> <span class="kn">import</span> <span class="n">urlretrieve</span>
 
-<span class="n">urlretrieve</span><span class="p">(</span><span class="s1">'https://hub.jovian.ml/wp-content/uploads/2020/09/countries.csv'</span><span class="p">,</span> 
-            <span class="s1">'countries.csv'</span><span class="p">)</span>
+<span class="n">urlretrieve</span><span class="p">(</span><span class="s1">&#39;https://hub.jovian.ml/wp-content/uploads/2020/09/countries.csv&#39;</span><span class="p">,</span> 
+            <span class="s1">&#39;countries.csv&#39;</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -295,7 +297,7 @@ Requirement already satisfied: six&gt;=1.5 in /opt/conda/lib/python3.9/site-pack
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>('countries.csv', &lt;http.client.HTTPMessage at 0x7ff1c18db130&gt;)</pre>
+<pre>(&#39;countries.csv&#39;, &lt;http.client.HTTPMessage at 0x7ff1c18db130&gt;)</pre>
 </div>
 
 </div>
@@ -306,8 +308,7 @@ Requirement already satisfied: six&gt;=1.5 in /opt/conda/lib/python3.9/site-pack
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Let's load the data from the CSV file into a Pandas data frame.</p>
 
@@ -321,7 +322,7 @@ Requirement already satisfied: six&gt;=1.5 in /opt/conda/lib/python3.9/site-pack
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">countries_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">'countries.csv'</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">countries_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;countries.csv&#39;</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -492,8 +493,7 @@ Requirement already satisfied: six&gt;=1.5 in /opt/conda/lib/python3.9/site-pack
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Q1: How many countries does the dataframe contain?</strong></p>
 
@@ -524,7 +524,7 @@ Requirement already satisfied: six&gt;=1.5 in /opt/conda/lib/python3.9/site-pack
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">'There are </span><span class="si">{}</span><span class="s1"> countries in the dataset'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">num_countries</span><span class="p">))</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;There are </span><span class="si">{}</span><span class="s1"> countries in the dataset&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">num_countries</span><span class="p">))</span>
 </pre></div>
 
     </div>
@@ -548,8 +548,7 @@ Requirement already satisfied: six&gt;=1.5 in /opt/conda/lib/python3.9/site-pack
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Q2: Retrieve a list of continents from the dataframe?</strong></p>
 
@@ -597,8 +596,8 @@ Requirement already satisfied: six&gt;=1.5 in /opt/conda/lib/python3.9/site-pack
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>array(['Asia', 'Europe', 'Africa', 'North America', 'South America',
-       'Oceania'], dtype=object)</pre>
+<pre>array([&#39;Asia&#39;, &#39;Europe&#39;, &#39;Africa&#39;, &#39;North America&#39;, &#39;South America&#39;,
+       &#39;Oceania&#39;], dtype=object)</pre>
 </div>
 
 </div>
@@ -609,8 +608,7 @@ Requirement already satisfied: six&gt;=1.5 in /opt/conda/lib/python3.9/site-pack
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Q3: What is the total population of all the countries listed in this dataset?</strong></p>
 
@@ -641,7 +639,7 @@ Requirement already satisfied: six&gt;=1.5 in /opt/conda/lib/python3.9/site-pack
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">'The total population is </span><span class="si">{}</span><span class="s1">.'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">total_population</span><span class="p">)))</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The total population is </span><span class="si">{}</span><span class="s1">.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">total_population</span><span class="p">)))</span>
 </pre></div>
 
     </div>
@@ -665,8 +663,7 @@ Requirement already satisfied: six&gt;=1.5 in /opt/conda/lib/python3.9/site-pack
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Q: What is the overall life expectancy across in the world?</strong></p>
 
@@ -711,7 +708,7 @@ Requirement already satisfied: six&gt;=1.5 in /opt/conda/lib/python3.9/site-pack
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">overall_life</span> <span class="o">=</span> <span class="n">countries_df</span><span class="p">[</span><span class="s1">'life_expectancy'</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">overall_life</span> <span class="o">=</span> <span class="n">countries_df</span><span class="p">[</span><span class="s1">&#39;life_expectancy&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 </pre></div>
 
     </div>
@@ -754,8 +751,7 @@ Requirement already satisfied: six&gt;=1.5 in /opt/conda/lib/python3.9/site-pack
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Q4: Create a dataframe containing 10 countries with the highest population.</strong></p>
 
@@ -769,7 +765,7 @@ Requirement already satisfied: six&gt;=1.5 in /opt/conda/lib/python3.9/site-pack
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">most_populous_df</span> <span class="o">=</span> <span class="p">(</span><span class="n">countries_df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s1">'population'</span><span class="p">],</span><span class="n">ascending</span> <span class="o">=</span> <span class="kc">False</span><span class="p">))</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">most_populous_df</span> <span class="o">=</span> <span class="p">(</span><span class="n">countries_df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;population&#39;</span><span class="p">],</span><span class="n">ascending</span> <span class="o">=</span> <span class="kc">False</span><span class="p">))</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -930,8 +926,7 @@ Requirement already satisfied: six&gt;=1.5 in /opt/conda/lib/python3.9/site-pack
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Q5: Add a new column in <code>countries_df</code> to record the overall GDP per country (product of population &amp; per capita GDP).</strong></p>
 
@@ -945,7 +940,7 @@ Requirement already satisfied: six&gt;=1.5 in /opt/conda/lib/python3.9/site-pack
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">countries_df</span><span class="p">[</span><span class="s1">'gdp'</span><span class="p">]</span> <span class="o">=</span> <span class="n">countries_df</span><span class="o">.</span><span class="n">population</span> <span class="o">*</span> <span class="n">countries_df</span><span class="o">.</span><span class="n">gdp_per_capita</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">countries_df</span><span class="p">[</span><span class="s1">&#39;gdp&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">countries_df</span><span class="o">.</span><span class="n">population</span> <span class="o">*</span> <span class="n">countries_df</span><span class="o">.</span><span class="n">gdp_per_capita</span>
 </pre></div>
 
     </div>
@@ -1128,8 +1123,7 @@ Requirement already satisfied: six&gt;=1.5 in /opt/conda/lib/python3.9/site-pack
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Q6: Create a data frame that counts the number countries in each continent?</strong></p>
 
@@ -1143,7 +1137,7 @@ Requirement already satisfied: six&gt;=1.5 in /opt/conda/lib/python3.9/site-pack
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">country_counts_df</span> <span class="o">=</span> <span class="n">countries_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'continent'</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">country_counts_df</span> <span class="o">=</span> <span class="n">countries_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;continent&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
 </pre></div>
 
     </div>
@@ -1277,8 +1271,7 @@ Requirement already satisfied: six&gt;=1.5 in /opt/conda/lib/python3.9/site-pack
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Q7: Create a data frame showing the total population of each continent.</strong></p>
 
@@ -1292,7 +1285,7 @@ Requirement already satisfied: six&gt;=1.5 in /opt/conda/lib/python3.9/site-pack
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">continent_populations_df</span> <span class="o">=</span> <span class="n">countries_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'continent'</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">continent_populations_df</span> <span class="o">=</span> <span class="n">countries_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;continent&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
 </pre></div>
 
     </div>
@@ -1309,7 +1302,7 @@ Requirement already satisfied: six&gt;=1.5 in /opt/conda/lib/python3.9/site-pack
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">continent_populations_df</span> <span class="o">=</span> <span class="n">continent_populations_df</span><span class="p">[</span><span class="s1">'population'</span><span class="p">]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">continent_populations_df</span> <span class="o">=</span> <span class="n">continent_populations_df</span><span class="p">[</span><span class="s1">&#39;population&#39;</span><span class="p">]</span>
 </pre></div>
 
     </div>
@@ -1359,8 +1352,7 @@ Name: population, dtype: float64</pre>
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Let's download another CSV file containing overall Covid-19 stats for various countires, and read the data into another Pandas data frame.</p>
 
@@ -1374,8 +1366,8 @@ Name: population, dtype: float64</pre>
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">urlretrieve</span><span class="p">(</span><span class="s1">'https://hub.jovian.ml/wp-content/uploads/2020/09/covid-countries-data.csv'</span><span class="p">,</span> 
-            <span class="s1">'covid-countries-data.csv'</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">urlretrieve</span><span class="p">(</span><span class="s1">&#39;https://hub.jovian.ml/wp-content/uploads/2020/09/covid-countries-data.csv&#39;</span><span class="p">,</span> 
+            <span class="s1">&#39;covid-countries-data.csv&#39;</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -1390,7 +1382,7 @@ Name: population, dtype: float64</pre>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>('covid-countries-data.csv', &lt;http.client.HTTPMessage at 0x7ff1789d6c10&gt;)</pre>
+<pre>(&#39;covid-countries-data.csv&#39;, &lt;http.client.HTTPMessage at 0x7ff1789d6c10&gt;)</pre>
 </div>
 
 </div>
@@ -1408,7 +1400,7 @@ Name: population, dtype: float64</pre>
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">covid_data_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">'covid-countries-data.csv'</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">covid_data_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;covid-countries-data.csv&#39;</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -1555,8 +1547,7 @@ Name: population, dtype: float64</pre>
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Q8: Count the number of countries for which the <code>total_tests</code> data is missing.</strong></p>
 <p><em>Hint: Use the <code>.isna</code> method.</em></p>
@@ -1573,7 +1564,7 @@ Name: population, dtype: float64</pre>
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">total_tests_miss</span> <span class="o">=</span> <span class="n">covid_data_df</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span>
 <span class="c1">#total_tests_missing = (total_tests_miss[total_tests_miss.total_tests == True]).count()</span>
-<span class="n">total_tests_missing</span> <span class="o">=</span> <span class="n">total_tests_miss</span><span class="p">[</span><span class="s1">'total_tests'</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">total_tests_missing</span> <span class="o">=</span> <span class="n">total_tests_miss</span><span class="p">[</span><span class="s1">&#39;total_tests&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
 </pre></div>
 
     </div>
@@ -1590,7 +1581,7 @@ Name: population, dtype: float64</pre>
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">"The data for total tests is missing for </span><span class="si">{}</span><span class="s2"> countries."</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">total_tests_missing</span><span class="p">)))</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The data for total tests is missing for </span><span class="si">{}</span><span class="s2"> countries.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">total_tests_missing</span><span class="p">)))</span>
 </pre></div>
 
     </div>
@@ -1614,8 +1605,7 @@ Name: population, dtype: float64</pre>
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Let's merge the two data frames, and compute some more metrics.</p>
 <p><strong>Q9: Merge <code>countries_df</code> with <code>covid_data_df</code> on the <code>location</code> column.</strong></p>
@@ -1630,7 +1620,7 @@ Name: population, dtype: float64</pre>
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">combined_df</span> <span class="o">=</span> <span class="n">countries_df</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">covid_data_df</span><span class="p">,</span><span class="n">on</span><span class="o">=</span><span class="s1">'location'</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">combined_df</span> <span class="o">=</span> <span class="n">countries_df</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">covid_data_df</span><span class="p">,</span><span class="n">on</span><span class="o">=</span><span class="s1">&#39;location&#39;</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -1849,8 +1839,7 @@ Name: population, dtype: float64</pre>
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Q10: Add columns <code>tests_per_million</code>, <code>cases_per_million</code> and <code>deaths_per_million</code> into <code>combined_df</code>.</strong></p>
 
@@ -1864,7 +1853,7 @@ Name: population, dtype: float64</pre>
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">combined_df</span><span class="p">[</span><span class="s1">'tests_per_million'</span><span class="p">]</span> <span class="o">=</span> <span class="n">combined_df</span><span class="p">[</span><span class="s1">'total_tests'</span><span class="p">]</span> <span class="o">*</span> <span class="mf">1e6</span> <span class="o">/</span> <span class="n">combined_df</span><span class="p">[</span><span class="s1">'population'</span><span class="p">]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">combined_df</span><span class="p">[</span><span class="s1">&#39;tests_per_million&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">combined_df</span><span class="p">[</span><span class="s1">&#39;total_tests&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mf">1e6</span> <span class="o">/</span> <span class="n">combined_df</span><span class="p">[</span><span class="s1">&#39;population&#39;</span><span class="p">]</span>
 </pre></div>
 
     </div>
@@ -1881,7 +1870,7 @@ Name: population, dtype: float64</pre>
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">combined_df</span><span class="p">[</span><span class="s1">'cases_per_million'</span><span class="p">]</span> <span class="o">=</span> <span class="n">combined_df</span><span class="p">[</span><span class="s1">'total_cases'</span><span class="p">]</span> <span class="o">*</span> <span class="mf">1e6</span> <span class="o">/</span> <span class="n">combined_df</span><span class="p">[</span><span class="s1">'population'</span><span class="p">]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">combined_df</span><span class="p">[</span><span class="s1">&#39;cases_per_million&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">combined_df</span><span class="p">[</span><span class="s1">&#39;total_cases&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mf">1e6</span> <span class="o">/</span> <span class="n">combined_df</span><span class="p">[</span><span class="s1">&#39;population&#39;</span><span class="p">]</span>
 </pre></div>
 
     </div>
@@ -1898,7 +1887,7 @@ Name: population, dtype: float64</pre>
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">combined_df</span><span class="p">[</span><span class="s1">'deaths_per_million'</span><span class="p">]</span> <span class="o">=</span> <span class="n">combined_df</span><span class="p">[</span><span class="s1">'total_deaths'</span><span class="p">]</span> <span class="o">*</span> <span class="mf">1e6</span> <span class="o">/</span> <span class="n">combined_df</span><span class="p">[</span><span class="s1">'population'</span><span class="p">]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">combined_df</span><span class="p">[</span><span class="s1">&#39;deaths_per_million&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">combined_df</span><span class="p">[</span><span class="s1">&#39;total_deaths&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mf">1e6</span> <span class="o">/</span> <span class="n">combined_df</span><span class="p">[</span><span class="s1">&#39;population&#39;</span><span class="p">]</span>
 </pre></div>
 
     </div>
@@ -2153,8 +2142,7 @@ Name: population, dtype: float64</pre>
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Q11: Create a dataframe with 10 countires that have highest number of tests per million people.</strong></p>
 
@@ -2168,7 +2156,7 @@ Name: population, dtype: float64</pre>
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">highest_tests_df</span> <span class="o">=</span> <span class="n">combined_df</span><span class="o">.</span><span class="n">nlargest</span><span class="p">(</span><span class="mi">10</span><span class="p">,[</span><span class="s2">"tests_per_million"</span><span class="p">])</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">highest_tests_df</span> <span class="o">=</span> <span class="n">combined_df</span><span class="o">.</span><span class="n">nlargest</span><span class="p">(</span><span class="mi">10</span><span class="p">,[</span><span class="s2">&quot;tests_per_million&quot;</span><span class="p">])</span>
 </pre></div>
 
     </div>
@@ -2406,8 +2394,7 @@ Name: population, dtype: float64</pre>
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Q12: Create a dataframe with 10 countires that have highest number of positive cases per million people.</strong></p>
 
@@ -2421,7 +2408,7 @@ Name: population, dtype: float64</pre>
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">highest_cases_df</span> <span class="o">=</span>  <span class="n">combined_df</span><span class="o">.</span><span class="n">nlargest</span><span class="p">(</span><span class="mi">10</span><span class="p">,[</span><span class="s2">"cases_per_million"</span><span class="p">])</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">highest_cases_df</span> <span class="o">=</span>  <span class="n">combined_df</span><span class="o">.</span><span class="n">nlargest</span><span class="p">(</span><span class="mi">10</span><span class="p">,[</span><span class="s2">&quot;cases_per_million&quot;</span><span class="p">])</span>
 </pre></div>
 
     </div>
@@ -2659,8 +2646,7 @@ Name: population, dtype: float64</pre>
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Q13: Create a dataframe with 10 countires that have highest number of deaths cases per million people?</strong></p>
 
@@ -2674,7 +2660,7 @@ Name: population, dtype: float64</pre>
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">highest_deaths_df</span> <span class="o">=</span> <span class="n">combined_df</span><span class="o">.</span><span class="n">nlargest</span><span class="p">(</span><span class="mi">10</span><span class="p">,[</span><span class="s2">"deaths_per_million"</span><span class="p">])</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">highest_deaths_df</span> <span class="o">=</span> <span class="n">combined_df</span><span class="o">.</span><span class="n">nlargest</span><span class="p">(</span><span class="mi">10</span><span class="p">,[</span><span class="s2">&quot;deaths_per_million&quot;</span><span class="p">])</span>
 </pre></div>
 
     </div>
@@ -2918,7 +2904,7 @@ Name: population, dtype: float64</pre>
 <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
 <a href="#top">Back to top of page</a>
 
-  </div><!-- from https://github.com/utterance/utterances -->
+      </div><!-- from https://github.com/utterance/utterances -->
 <script src="https://utteranc.es/client.js"
         repo="sandeshkatakam/My-Machine_learning-Blog"
         issue-term="title"
@@ -2927,7 +2913,35 @@ Name: population, dtype: float64</pre>
         crossorigin="anonymous"
         async>
 </script><a class="u-url" href="/My-Machine_learning-Blog/jupyter/2021/10/05/Pandas-Data-Analysis-Basics-Tutorial.html" hidden></a>
-</article>
+    </article><footer class="site-footer h-card">
+  <data class="u-url" href="/My-Machine_learning-Blog/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/My-Machine_learning-Blog/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/My-Machine_learning-Blog/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>Blog related to Machine learning and Deep learning.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/sandeshkatakam" target="_blank" title="sandeshkatakam"><svg class="svg-icon grey"><use xlink:href="/My-Machine_learning-Blog/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/sandeshkatakam" target="_blank" title="sandeshkatakam"><svg class="svg-icon grey"><use xlink:href="/My-Machine_learning-Blog/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</div>
+
+
 </div>
 
 

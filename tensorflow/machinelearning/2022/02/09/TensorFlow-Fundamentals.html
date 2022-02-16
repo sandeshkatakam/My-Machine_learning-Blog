@@ -122,11 +122,12 @@ window.onload = wrap_img;
 </header>
 <main class="page-content" aria-label="Content"> -->
     <main class="page-content" aria-label="Content" style="padding-top: 0">
-        <!-- <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting"> -->
-<div class="Layout">
+        <div class="Layout">
     
-      <div class="Layout-sidebar border" id="toc">
-        <ol id="toc" class="section-nav">
+      <div class="Layout-sidebar">
+        <div id="toc" class="pt-3 pl-3 sticky">
+          <b><a href="#">TensorFlow Fundamentals</a></b>
+          <ol id="toc" class="section-nav">
 <li class="toc-entry toc-h2"><a href="#Fundamental-concepts-of-TensorFlow:">Fundamental concepts of TensorFlow: </a></li>
 <li class="toc-entry toc-h2"><a href="#Introduction-to-Tensors">Introduction to Tensors </a>
 <ol>
@@ -160,99 +161,74 @@ window.onload = wrap_img;
 </ol>
 </li>
 </ol>
+        </div>
       </div>
-    <article class="Layout-main post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+    <div class="Layout-main"><header class="site-header">
 
-  <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">TensorFlow Fundamentals</h1><p class="page-description">Notebook on fundamental concepts of tensorflow</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-02-09T00:00:00-06:00" itemprop="datePublished">
-        Feb 9, 2022
-      </time>
-       • <span class="read-time" title="Estimated read time">
-    
-    
-      40 min read
-    
-</span></p>
+  <div class="wrapper"><a class="site-title" rel="author" href="/My-Machine_learning-Blog/">Sandesh&#39;s Machine Learning Journal</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
 
-    
-      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+        <div class="trigger"><a class="page-link" href="/My-Machine_learning-Blog/about/">About Me</a><a class="page-link" href="/My-Machine_learning-Blog/search/">Search</a><a class="page-link" href="/My-Machine_learning-Blog/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
       
-        <a class="category-tags-link" href="/My-Machine_learning-Blog/categories/#TensorFlow">TensorFlow</a>
-        &nbsp;
-      
-        <a class="category-tags-link" href="/My-Machine_learning-Blog/categories/#MachineLearning">MachineLearning</a>
         
-      
-      </p>
-    
-
-    
-      
-        <div class="pb-5 d-flex flex-justify-center">
-          <div class="px-2">
+          <div class="pb-5 d-flex flex-wrap flex-justify-start" style="padding-left: 52px">
+            <div class="px-2">
 
     <a href="https://github.com/sandeshkatakam/My-Machine_learning-Blog/tree/master/_notebooks/2022-02-09-TensorFlow-Fundamentals.ipynb" role="button" target="_blank">
 <img class="notebook-badge-image" src="/My-Machine_learning-Blog/assets/badges/github.svg" alt="View On GitHub">
     </a>
 </div>
 
-          <div class="px-2">
+            <div class="px-2">
     <a href="https://mybinder.org/v2/gh/sandeshkatakam/My-Machine_learning-Blog/master?filepath=_notebooks%2F2022-02-09-TensorFlow-Fundamentals.ipynb" target="_blank">
         <img class="notebook-badge-image" src="/My-Machine_learning-Blog/assets/badges/binder.svg" alt="Open In Binder"/>
     </a>
 </div>
 
-          <div class="px-2">
+            <div class="px-2">
     <a href="https://colab.research.google.com/github/sandeshkatakam/My-Machine_learning-Blog/blob/master/_notebooks/2022-02-09-TensorFlow-Fundamentals.ipynb" target="_blank">
         <img class="notebook-badge-image" src="/My-Machine_learning-Blog/assets/badges/colab.svg" alt="Open In Colab"/>
     </a>
 </div>
-          <div class="px-2">
-  <a href="https://deepnote.com/launch?url=https%3A%2F%2Fgithub.com%2Fsandeshkatakam%2FMy-Machine_learning-Blog%2Fblob%2Fmaster%2F_notebooks%2F2022-02-09-TensorFlow-Fundamentals.ipynb" target="_blank">
-      <img class="notebook-badge-image" src="/My-Machine_learning-Blog/assets/badges/deepnote.svg" alt="Launch in Deepnote"/>
-  </a>
-</div>
+          </div>
+        <header class="post-header">
+        <h1 class="post-title p-name" itemprop="name headline">TensorFlow Fundamentals</h1><p class="page-description">Notebook on fundamental concepts of tensorflow</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-02-09T00:00:00-06:00" itemprop="datePublished">
+            Feb 9, 2022
+          </time>
+           • <span class="read-time" title="Estimated read time">
+    
+    
+      40 min read
+    
+</span></p>
 
-        </div>
+        
+          <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i>
+          
+            <a class="category-tags-link" href="/My-Machine_learning-Blog/categories/#TensorFlow">TensorFlow</a>
+            &nbsp;
+          
+            <a class="category-tags-link" href="/My-Machine_learning-Blog/categories/#MachineLearning">MachineLearning</a>
+            
+          
+          </p>
+        
+
+
       </header>
-  
-  <script src="https://sandeshkatakam.github.io/assets/button.js"></script>
 
-  <div class="post-content e-content" itemprop="articleBody">
-    <ol id="toc" class="section-nav">
-<li class="toc-entry toc-h2"><a href="#Fundamental-concepts-of-TensorFlow:">Fundamental concepts of TensorFlow: </a></li>
-<li class="toc-entry toc-h2"><a href="#Introduction-to-Tensors">Introduction to Tensors </a>
-<ol>
-<li class="toc-entry toc-h3"><a href="#Creating-tensors-with-tf.Variable:">Creating tensors with tf.Variable: </a></li>
-<li class="toc-entry toc-h3"><a href="#Creating-random-tensors:">Creating random tensors: </a></li>
-<li class="toc-entry toc-h3"><a href="#shuffle-the-order-of-elements-in-a-tensor">shuffle the order of elements in a tensor </a>
-<ol>
-<li class="toc-entry toc-h4"><a href="#Exercise-working:">Exercise working: </a></li>
-</ol>
-</li>
-<li class="toc-entry toc-h3"><a href="#Other-ways-to-make-tensors">Other ways to make tensors </a></li>
-<li class="toc-entry toc-h3"><a href="#Turn-Numpy-arrays-into-tensors:">Turn Numpy arrays into tensors: </a></li>
-<li class="toc-entry toc-h3"><a href="#Getting-Information-from-tensors:">Getting Information from tensors: </a></li>
-<li class="toc-entry toc-h3"><a href="#Indexing-tensors:">Indexing tensors: </a></li>
-<li class="toc-entry toc-h3"><a href="#Manipulating-tensors(tensors-operations):">Manipulating tensors(tensors operations): </a></li>
-<li class="toc-entry toc-h3"><a href="#Matrix-Multiplication-in-TensorFlow:">Matrix Multiplication in TensorFlow: </a>
-<ol>
-<li class="toc-entry toc-h4"><a href="#The-dot-product">The dot product </a></li>
-</ol>
-</li>
-<li class="toc-entry toc-h3"><a href="#Changing-the-datatype-of-a-tensor">Changing the datatype of a tensor </a></li>
-<li class="toc-entry toc-h3"><a href="#Aggregating-tensors">Aggregating tensors </a></li>
-<li class="toc-entry toc-h3"><a href="#Find-the-positional-maximum-and-minimum">Find the positional maximum and minimum </a></li>
-<li class="toc-entry toc-h3"><a href="#Squeezing-a-tensor-(removing-all-single-dimensions)">Squeezing a tensor (removing all single dimensions) </a></li>
-<li class="toc-entry toc-h3"><a href="#One-hot-encoding-tensors">One hot encoding tensors </a></li>
-<li class="toc-entry toc-h3"><a href="#More-on-math-functions:">More on math functions: </a></li>
-<li class="toc-entry toc-h3"><a href="#Tensors-and-NumPy">Tensors and NumPy </a></li>
-<li class="toc-entry toc-h3"><a href="#Using-@tf.function">Using @tf.function </a></li>
-<li class="toc-entry toc-h3"><a href="#Using-GPUs:">Using GPUs: </a></li>
-<li class="toc-entry toc-h3"><a href="#Solutions-to-the-Exercises-given-in-the-tutorial-Notebook:">Solutions to the Exercises given in the tutorial Notebook: </a></li>
-</ol>
-</li>
-</ol><script src="https://sandeshkatakam.github.io/assets/button.js"></script>
+      <div class="post-content e-content" itemprop="articleBody">
+        <script src="https://sandeshkatakam.github.io/assets/button.js"></script>
 <a name="top"></a>
 <!--
 #################################################
@@ -263,14 +239,10 @@ window.onload = wrap_img;
 
 <div class="container" id="notebook-container">
         
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Fundamental-concepts-of-TensorFlow:">
-<a class="anchor" href="#Fundamental-concepts-of-TensorFlow:" aria-hidden="true"><span class="octicon octicon-link"></span></a>Fundamental concepts of TensorFlow:<a class="anchor-link" href="#Fundamental-concepts-of-TensorFlow:"> </a>
-</h2>
-<p>This notebook is an account of my working for the Tensorflow tutorial by Daniel Bourke on Youtube. The Notebook covers key concepts of tensorflow essential for Deep Learning.  It also highlights key points of using the various methods of TensorFlow library and also notes the possible common errors we are going to encounter during tensorflow. The possible fixes for the errors are also included in the notebook.</p>
-<p><strong>TensorFlow:</strong><br>
+<h2 id="Fundamental-concepts-of-TensorFlow:">Fundamental concepts of TensorFlow:<a class="anchor-link" href="#Fundamental-concepts-of-TensorFlow:"> </a></h2><p>This notebook is an account of my working for the Tensorflow tutorial by Daniel Bourke on Youtube. The Notebook covers key concepts of tensorflow essential for Deep Learning.  It also highlights key points of using the various methods of TensorFlow library and also notes the possible common errors we are going to encounter during tensorflow. The possible fixes for the errors are also included in the notebook.</p>
+<p><strong>TensorFlow:</strong><br />
 TensorFlow is google's open-source end to end machine learning library. The basic units of the library are tensors which are generalization of matrices to higher dimensions. TensorFlow library helps in doing the computation of tensors faster by accelerating the computation process through GPUs/TPUs.
 The other important library for scientific computing is NumPy and TensorFlow works well with NumPy. The only difference is tensor flow has high functionality can be used to quickly implement the code even for complex deep learning architectures, which can help us experiment more and spend more effort on making it better rather than focussing on building the Neural Networks from scratch. You can also pass on the python functions with tensorflow to accelerate the function calls.</p>
 <p>Concepts covered in this Notebook:</p>
@@ -287,12 +259,9 @@ The other important library for scientific computing is NumPy and TensorFlow wor
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Introduction-to-Tensors">
-<a class="anchor" href="#Introduction-to-Tensors" aria-hidden="true"><span class="octicon octicon-link"></span></a>Introduction to Tensors<a class="anchor-link" href="#Introduction-to-Tensors"> </a>
-</h2>
+<h2 id="Introduction-to-Tensors">Introduction to Tensors<a class="anchor-link" href="#Introduction-to-Tensors"> </a></h2>
 </div>
 </div>
 </div>
@@ -655,8 +624,7 @@ array([[10.,  7.,  4.],
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>The difference between both the dtypes are precision. The higher the no after the "float" the more exact the values inside the matrix stored in your computer.</p>
 
@@ -696,8 +664,7 @@ array([[10.,  7.,  4.],
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Even though the matrix is (3,2) the ndim function gives the value 2. Because the number of elements in the shape gives us the number of dimensions of the matrix. Here, we have two elements (3,2) for the shape of the matrix so the ndim gives the output 2</p>
 
@@ -781,8 +748,7 @@ array([[[1, 2, 3],
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>So, we have created a matrix with shape (3,2,3) there are three elements in the value of shape. so the ndim returned the value 3</p>
 
@@ -877,16 +843,14 @@ array([[[1. , 0.3, 0.5],
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>so, now we created a tensor of 3 dimension.</p>
 
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>What we have created so far:</p>
 <ul>
@@ -903,12 +867,9 @@ array([[[1. , 0.3, 0.5],
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Creating-tensors-with-tf.Variable:">
-<a class="anchor" href="#Creating-tensors-with-tf.Variable:" aria-hidden="true"><span class="octicon octicon-link"></span></a>Creating tensors with <code>tf.Variable</code>:<a class="anchor-link" href="#Creating-tensors-with-tf.Variable:"> </a>
-</h3>
+<h3 id="Creating-tensors-with-tf.Variable:">Creating tensors with <code>tf.Variable</code>:<a class="anchor-link" href="#Creating-tensors-with-tf.Variable:"> </a></h3>
 </div>
 </div>
 </div>
@@ -936,7 +897,7 @@ array([[[1. , 0.3, 0.5],
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>(&lt;tf.Variable 'Variable:0' shape=(2,) dtype=int32, numpy=array([10,  7], dtype=int32)&gt;,
+<pre>(&lt;tf.Variable &#39;Variable:0&#39; shape=(2,) dtype=int32, numpy=array([10,  7], dtype=int32)&gt;,
  &lt;tf.Tensor: shape=(2,), dtype=int32, numpy=array([10,  7], dtype=int32)&gt;)</pre>
 </div>
 
@@ -973,11 +934,11 @@ array([[[1. , 0.3, 0.5],
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
 <span class="ansi-green-fg">&lt;ipython-input-18-9972a815a90d&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-intense-fg ansi-bold">      1</span> <span class="ansi-red-fg"># Let's try to change one of the elements in our changeable tensor</span>
+<span class="ansi-green-intense-fg ansi-bold">      1</span> <span class="ansi-red-fg"># Let&#39;s try to change one of the elements in our changeable tensor</span>
 <span class="ansi-green-fg">----&gt; 2</span><span class="ansi-red-fg"> </span>changeable_tensor<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">0</span><span class="ansi-blue-fg">]</span> <span class="ansi-blue-fg">=</span> <span class="ansi-cyan-fg">7</span>
 <span class="ansi-green-intense-fg ansi-bold">      3</span> changeable_tensor
 
-<span class="ansi-red-fg">TypeError</span>: 'ResourceVariable' object does not support item assignment</pre>
+<span class="ansi-red-fg">TypeError</span>: &#39;ResourceVariable&#39; object does not support item assignment</pre>
 </div>
 </div>
 
@@ -1010,7 +971,7 @@ array([[[1. , 0.3, 0.5],
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;tf.Variable 'Variable:0' shape=(2,) dtype=int32, numpy=array([7, 7], dtype=int32)&gt;</pre>
+<pre>&lt;tf.Variable &#39;Variable:0&#39; shape=(2,) dtype=int32, numpy=array([7, 7], dtype=int32)&gt;</pre>
 </div>
 
 </div>
@@ -1048,7 +1009,7 @@ array([[[1. , 0.3, 0.5],
 <span class="ansi-green-intense-fg ansi-bold">      1</span> <span class="ansi-red-fg"># try changing the elements in unchangeable tensor</span>
 <span class="ansi-green-fg">----&gt; 2</span><span class="ansi-red-fg"> </span>unchangeable_tensor<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">0</span><span class="ansi-blue-fg">]</span> <span class="ansi-blue-fg">=</span> <span class="ansi-cyan-fg">7</span>
 
-<span class="ansi-red-fg">TypeError</span>: 'tensorflow.python.framework.ops.EagerTensor' object does not support item assignment</pre>
+<span class="ansi-red-fg">TypeError</span>: &#39;tensorflow.python.framework.ops.EagerTensor&#39; object does not support item assignment</pre>
 </div>
 </div>
 
@@ -1088,12 +1049,12 @@ array([[[1. , 0.3, 0.5],
 
 <span class="ansi-green-fg">/usr/local/lib/python3.7/dist-packages/tensorflow/python/framework/ops.py</span> in <span class="ansi-cyan-fg">__getattr__</span><span class="ansi-blue-fg">(self, name)</span>
 <span class="ansi-green-intense-fg ansi-bold">    440</span>         <span class="ansi-green-fg">from</span> tensorflow<span class="ansi-blue-fg">.</span>python<span class="ansi-blue-fg">.</span>ops<span class="ansi-blue-fg">.</span>numpy_ops <span class="ansi-green-fg">import</span> np_config
-<span class="ansi-green-intense-fg ansi-bold">    441</span>         np_config.enable_numpy_behavior()""".format(type(self).__name__, name))
+<span class="ansi-green-intense-fg ansi-bold">    441</span>         np_config.enable_numpy_behavior()&#34;&#34;&#34;.format(type(self).__name__, name))
 <span class="ansi-green-fg">--&gt; 442</span><span class="ansi-red-fg">     </span>self<span class="ansi-blue-fg">.</span>__getattribute__<span class="ansi-blue-fg">(</span>name<span class="ansi-blue-fg">)</span>
 <span class="ansi-green-intense-fg ansi-bold">    443</span> 
 <span class="ansi-green-intense-fg ansi-bold">    444</span>   <span class="ansi-blue-fg">@</span>staticmethod
 
-<span class="ansi-red-fg">AttributeError</span>: 'tensorflow.python.framework.ops.EagerTensor' object has no attribute 'assign'</pre>
+<span class="ansi-red-fg">AttributeError</span>: &#39;tensorflow.python.framework.ops.EagerTensor&#39; object has no attribute &#39;assign&#39;</pre>
 </div>
 </div>
 
@@ -1103,29 +1064,23 @@ array([[[1. , 0.3, 0.5],
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>As you can see the difference between <code>tf.Variable</code> and <code>tf.constant</code>. The former one is mutable and you can change and manipulate the elements using the <code>tf.Variable</code> and the latter created an immutable object where you cannot change or manipulate the values of the type <code>tf.Constant</code></p>
 
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Note:</strong> Rarely in practice you will decide whether to use <code>tf.constant</code> or <code>tf.Variable</code> to create tensors as TensorFlow does this for you. However, if in doubt, use <code>tf.constant</code> and change it later if needed</p>
 
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Creating-random-tensors:">
-<a class="anchor" href="#Creating-random-tensors:" aria-hidden="true"><span class="octicon octicon-link"></span></a>Creating random tensors:<a class="anchor-link" href="#Creating-random-tensors:"> </a>
-</h3>
-<p>Random tensors of some arbitary size which contain random numbers.
+<h3 id="Creating-random-tensors:">Creating random tensors:<a class="anchor-link" href="#Creating-random-tensors:"> </a></h3><p>Random tensors of some arbitary size which contain random numbers.
 These are useful during intializing random weights at beginning of neural networks. The Neural Network then learns the paramaters using gradient descent.</p>
 
 </div>
@@ -1144,7 +1099,7 @@ These are useful during intializing random weights at beginning of neural networ
 <span class="n">another_random_1</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">Generator</span><span class="o">.</span><span class="n">from_seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
 <span class="n">another_random_1</span> <span class="o">=</span> <span class="n">another_random_1</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">shape</span> <span class="o">=</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
 
-<span class="c1"># Let's check if they are equal?</span>
+<span class="c1"># Let&#39;s check if they are equal?</span>
 
 <span class="n">random_1</span><span class="p">,</span> <span class="n">another_random_1</span><span class="p">,</span> <span class="n">random_1</span> <span class="o">==</span> <span class="n">another_random_1</span>
 </pre></div>
@@ -1183,16 +1138,14 @@ These are useful during intializing random weights at beginning of neural networ
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>So, the random tensors appear as random but they are infact pseudo random numbers. The seed acts like a starting trigger for the underlying random algorithm. Specifying the seed value will help us in producing the same results since the a random generator function produce the same random value everytime if we use a same seed value.</p>
 
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>This can help when we are reproducing the same model from any where. The paramters that neural network is learning in each step will be different if we get different intialization values of our weights. If we used the same seed value as mentioned in the previously implemented model we can generate the same intialization at the beginning and produce the exact same results.</p>
 
@@ -1485,12 +1438,9 @@ array([[[ 0.97061104, -1.0242516 , -0.6544423 , -0.29738766,
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="shuffle-the-order-of-elements-in-a-tensor">
-<a class="anchor" href="#shuffle-the-order-of-elements-in-a-tensor" aria-hidden="true"><span class="octicon octicon-link"></span></a>shuffle the order of elements in a tensor<a class="anchor-link" href="#shuffle-the-order-of-elements-in-a-tensor"> </a>
-</h3>
+<h3 id="shuffle-the-order-of-elements-in-a-tensor">shuffle the order of elements in a tensor<a class="anchor-link" href="#shuffle-the-order-of-elements-in-a-tensor"> </a></h3>
 </div>
 </div>
 </div>
@@ -1680,8 +1630,7 @@ array([[ 2,  3],
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Even though we set the same seed the value is getting changed. Why is this happening?
 refer to this link :<a href="https://www.tensorflow.org/api_docs/python/tf/random/set_seed"><code>tf.random.seed_set</code> documentation</a></p>
@@ -1728,23 +1677,16 @@ array([[ 3,  4],
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Exercise-working:">
-<a class="anchor" href="#Exercise-working:" aria-hidden="true"><span class="octicon octicon-link"></span></a>Exercise working:<a class="anchor-link" href="#Exercise-working:"> </a>
-</h4>
-<p>Exercise:  Read through tensorflow docs on random seed generation. Practice 5 random seed generation examples.</p>
+<h4 id="Exercise-working:">Exercise working:<a class="anchor-link" href="#Exercise-working:"> </a></h4><p>Exercise:  Read through tensorflow docs on random seed generation. Practice 5 random seed generation examples.</p>
 
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Other-ways-to-make-tensors">
-<a class="anchor" href="#Other-ways-to-make-tensors" aria-hidden="true"><span class="octicon octicon-link"></span></a>Other ways to make tensors<a class="anchor-link" href="#Other-ways-to-make-tensors"> </a>
-</h3>
+<h3 id="Other-ways-to-make-tensors">Other ways to make tensors<a class="anchor-link" href="#Other-ways-to-make-tensors"> </a></h3>
 </div>
 </div>
 </div>
@@ -1836,13 +1778,9 @@ array([[0., 0., 0., 0., 0., 0., 0.],
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Turn-Numpy-arrays-into-tensors:">
-<a class="anchor" href="#Turn-Numpy-arrays-into-tensors:" aria-hidden="true"><span class="octicon octicon-link"></span></a>Turn Numpy arrays into tensors:<a class="anchor-link" href="#Turn-Numpy-arrays-into-tensors:"> </a>
-</h3>
-<p>The main difference between Numpy and TensorFlow tensors is that tensors can be run on GPUs/TPUs.</p>
+<h3 id="Turn-Numpy-arrays-into-tensors:">Turn Numpy arrays into tensors:<a class="anchor-link" href="#Turn-Numpy-arrays-into-tensors:"> </a></h3><p>The main difference between Numpy and TensorFlow tensors is that tensors can be run on GPUs/TPUs.</p>
 
 </div>
 </div>
@@ -1964,16 +1902,14 @@ array([[0., 0., 0., 0., 0., 0., 0.],
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>The unmodified shape is the same shape as our NumPy vector. If you want to change the shape of the array with tf.constant, we need to make sure the product of the three values of dimensions should be equal to the no. of values in the unmodified array</p>
 
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>So, anything we have in NumPy we can pass it to a tensor.</p>
 
@@ -2112,23 +2048,17 @@ array([[0., 0., 0., 0., 0., 0., 0.],
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Getting-Information-from-tensors:">
-<a class="anchor" href="#Getting-Information-from-tensors:" aria-hidden="true"><span class="octicon octicon-link"></span></a>Getting Information from tensors:<a class="anchor-link" href="#Getting-Information-from-tensors:"> </a>
-</h3>
-<p>Attributes:<br>
+<h3 id="Getting-Information-from-tensors:">Getting Information from tensors:<a class="anchor-link" href="#Getting-Information-from-tensors:"> </a></h3><p>Attributes:<br />
 When dealing with tensors you probably want to e aware of the following attributes:</p>
 <ul>
 <li>Shape : The length of each of the dimensions of a tensor<ul>
-<li>code: <code>tensor.shape</code>
-</li>
+<li>code: <code>tensor.shape</code></li>
 </ul>
 </li>
 <li>Rank: The number of tensor dimensions. A scalar has a rank 0, vector has rank 1,a matrix is rank 2, a tensor has a rank n.<ul>
-<li>code: <code>tensor.ndim</code>
-</li>
+<li>code: <code>tensor.ndim</code></li>
 </ul>
 </li>
 <li>Axis or dimension : A particular dimension of a tensor<ul>
@@ -2337,12 +2267,12 @@ array([[[0., 0., 0., 0., 0.],
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-python"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">"Datatype of every element"</span><span class="p">,</span> <span class="n">rank_4_tensor</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Number of dimensions (rank): "</span><span class="p">,</span> <span class="n">rank_4_tensor</span><span class="o">.</span><span class="n">ndim</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Shape of tensor: "</span><span class="p">,</span> <span class="n">rank_4_tensor</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Elements along the 0 axis:"</span><span class="p">,</span> <span class="n">rank_4_tensor</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Elements along the last axis:"</span><span class="p">,</span> <span class="n">rank_4_tensor</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Total number of elements in our tensor:"</span><span class="p">,</span><span class="n">tf</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">rank_4_tensor</span><span class="p">)</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span> <span class="p">)</span>
+<div class=" highlight hl-python"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Datatype of every element&quot;</span><span class="p">,</span> <span class="n">rank_4_tensor</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Number of dimensions (rank): &quot;</span><span class="p">,</span> <span class="n">rank_4_tensor</span><span class="o">.</span><span class="n">ndim</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Shape of tensor: &quot;</span><span class="p">,</span> <span class="n">rank_4_tensor</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Elements along the 0 axis:&quot;</span><span class="p">,</span> <span class="n">rank_4_tensor</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Elements along the last axis:&quot;</span><span class="p">,</span> <span class="n">rank_4_tensor</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Total number of elements in our tensor:&quot;</span><span class="p">,</span><span class="n">tf</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">rank_4_tensor</span><span class="p">)</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span> <span class="p">)</span>
 </pre></div>
 
     </div>
@@ -2355,7 +2285,7 @@ array([[[0., 0., 0., 0., 0.],
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Datatype of every element &lt;dtype: 'float32'&gt;
+<pre>Datatype of every element &lt;dtype: &#39;float32&#39;&gt;
 Number of dimensions (rank):  4
 Shape of tensor:  (2, 3, 4, 5)
 Elements along the 0 axis: 2
@@ -2380,12 +2310,12 @@ Total number of elements in our tensor: 120
     <div class="input_area">
 <div class=" highlight hl-python"><pre><span></span><span class="c1"># we can put all the print statements in a function to reuse it whenever we want</span>
 <span class="k">def</span> <span class="nf">print_attributes_of_tensor</span><span class="p">(</span><span class="n">tensor_name</span><span class="p">):</span>
-   <span class="nb">print</span><span class="p">(</span><span class="s2">"Datatype of every element"</span><span class="p">,</span> <span class="n">tensor_name</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
-   <span class="nb">print</span><span class="p">(</span><span class="s2">"Number of dimensions (rank): "</span><span class="p">,</span> <span class="n">tensor_name</span><span class="o">.</span><span class="n">ndim</span><span class="p">)</span>
-   <span class="nb">print</span><span class="p">(</span><span class="s2">"Shape of tensor: "</span><span class="p">,</span> <span class="n">tensor_name</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-   <span class="nb">print</span><span class="p">(</span><span class="s2">"Elements along the 0 axis:"</span><span class="p">,</span> <span class="n">tensor_name</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-   <span class="nb">print</span><span class="p">(</span><span class="s2">"Elements along the last axis:"</span><span class="p">,</span> <span class="n">tensor_name</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
-   <span class="nb">print</span><span class="p">(</span><span class="s2">"Total number of elements in our tensor:"</span><span class="p">,</span><span class="n">tf</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">tensor_name</span><span class="p">)</span><span class="o">.</span><span class="n">numpy</span><span class="p">())</span>
+   <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Datatype of every element&quot;</span><span class="p">,</span> <span class="n">tensor_name</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+   <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Number of dimensions (rank): &quot;</span><span class="p">,</span> <span class="n">tensor_name</span><span class="o">.</span><span class="n">ndim</span><span class="p">)</span>
+   <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Shape of tensor: &quot;</span><span class="p">,</span> <span class="n">tensor_name</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+   <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Elements along the 0 axis:&quot;</span><span class="p">,</span> <span class="n">tensor_name</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+   <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Elements along the last axis:&quot;</span><span class="p">,</span> <span class="n">tensor_name</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+   <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Total number of elements in our tensor:&quot;</span><span class="p">,</span><span class="n">tf</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">tensor_name</span><span class="p">)</span><span class="o">.</span><span class="n">numpy</span><span class="p">())</span>
    <span class="k">return</span> <span class="mi">0</span>
 </pre></div>
 
@@ -2416,7 +2346,7 @@ Total number of elements in our tensor: 120
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Datatype of every element &lt;dtype: 'float32'&gt;
+<pre>Datatype of every element &lt;dtype: &#39;float32&#39;&gt;
 Number of dimensions (rank):  4
 Shape of tensor:  (2, 3, 4, 5)
 Elements along the 0 axis: 2
@@ -2442,21 +2372,16 @@ Total number of elements in our tensor: 120
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Now, we can reuse the function to print the attributes of any tensor by passing the tensor name as function argument. We can add more print statement to display more attributes of the tensor.</p>
 
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Indexing-tensors:">
-<a class="anchor" href="#Indexing-tensors:" aria-hidden="true"><span class="octicon octicon-link"></span></a>Indexing tensors:<a class="anchor-link" href="#Indexing-tensors:"> </a>
-</h3>
-<p>Tensors can be indexed just like Python Lists</p>
+<h3 id="Indexing-tensors:">Indexing tensors:<a class="anchor-link" href="#Indexing-tensors:"> </a></h3><p>Tensors can be indexed just like Python Lists</p>
 
 </div>
 </div>
@@ -2700,7 +2625,7 @@ array([[10,  7],
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Datatype of every element &lt;dtype: 'int32'&gt;
+<pre>Datatype of every element &lt;dtype: &#39;int32&#39;&gt;
 Number of dimensions (rank):  2
 Shape of tensor:  (2, 2)
 Elements along the 0 axis: 2
@@ -2831,10 +2756,9 @@ array([[[10],
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>we added a new dimension at the end</strong><br>
+<p><strong>we added a new dimension at the end</strong><br />
 "..." means indicating all the other previous present dimensions and the new axis gets added at the end</p>
 
 </div>
@@ -2847,7 +2771,7 @@ array([[[10],
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-python"><pre><span></span><span class="n">tf</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">rank_2_tensor</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># "-1" means expand the final axis</span>
+<div class=" highlight hl-python"><pre><span></span><span class="n">tf</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">rank_2_tensor</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># &quot;-1&quot; means expand the final axis</span>
 <span class="c1"># see the documentation for more details</span>
 </pre></div>
 
@@ -2967,13 +2891,9 @@ array([[[10,  7]],
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Manipulating-tensors(tensors-operations):">
-<a class="anchor" href="#Manipulating-tensors(tensors-operations):" aria-hidden="true"><span class="octicon octicon-link"></span></a>Manipulating tensors(tensors operations):<a class="anchor-link" href="#Manipulating-tensors(tensors-operations):"> </a>
-</h3>
-<p><strong>Basic Operations</strong> 
+<h3 id="Manipulating-tensors(tensors-operations):">Manipulating tensors(tensors operations):<a class="anchor-link" href="#Manipulating-tensors(tensors-operations):"> </a></h3><p><strong>Basic Operations</strong> 
 <code>+</code>,<code>-</code>,<code>*</code>,<code>/</code></p>
 
 </div>
@@ -3226,13 +3146,9 @@ array([[20, 14],
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Matrix-Multiplication-in-TensorFlow:">
-<a class="anchor" href="#Matrix-Multiplication-in-TensorFlow:" aria-hidden="true"><span class="octicon octicon-link"></span></a>Matrix Multiplication in TensorFlow:<a class="anchor-link" href="#Matrix-Multiplication-in-TensorFlow:"> </a>
-</h3>
-<p>In Machine learning, matrix multiplication is one of the most common tensor operations.</p>
+<h3 id="Matrix-Multiplication-in-TensorFlow:">Matrix Multiplication in TensorFlow:<a class="anchor-link" href="#Matrix-Multiplication-in-TensorFlow:"> </a></h3><p>In Machine learning, matrix multiplication is one of the most common tensor operations.</p>
 
 </div>
 </div>
@@ -3454,8 +3370,8 @@ array([[121,  98],
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-python"><pre><span></span><span class="n">X</span> <span class="o">@</span> <span class="n">Y</span>
-<span class="sd">''' This gives an error because X and Y doesn't satisfy </span>
-<span class="sd">the criteria for matrix multiplication '''</span>
+<span class="sd">&#39;&#39;&#39; This gives an error because X and Y doesn&#39;t satisfy </span>
+<span class="sd">the criteria for matrix multiplication &#39;&#39;&#39;</span>
 </pre></div>
 
     </div>
@@ -3474,8 +3390,8 @@ array([[121,  98],
 <span class="ansi-green-fg">&lt;ipython-input-77-04133f28c872&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
 <span class="ansi-green-intense-fg ansi-bold">      1</span> <span class="ansi-red-fg"># Try to matrix multiply tensors of same shape.</span>
 <span class="ansi-green-fg">----&gt; 2</span><span class="ansi-red-fg"> </span>X <span class="ansi-blue-fg">@</span> Y
-<span class="ansi-green-intense-fg ansi-bold">      3</span> ''' This gives an error because X and Y doesn't satisfy 
-<span class="ansi-green-intense-fg ansi-bold">      4</span> the criteria for matrix multiplication '''
+<span class="ansi-green-intense-fg ansi-bold">      3</span> &#39;&#39;&#39; This gives an error because X and Y doesn&#39;t satisfy 
+<span class="ansi-green-intense-fg ansi-bold">      4</span> the criteria for matrix multiplication &#39;&#39;&#39;
 
 <span class="ansi-green-fg">/usr/local/lib/python3.7/dist-packages/tensorflow/python/util/traceback_utils.py</span> in <span class="ansi-cyan-fg">error_handler</span><span class="ansi-blue-fg">(*args, **kwargs)</span>
 <span class="ansi-green-intense-fg ansi-bold">    151</span>     <span class="ansi-green-fg">except</span> Exception <span class="ansi-green-fg">as</span> e<span class="ansi-blue-fg">:</span>
@@ -3486,7 +3402,7 @@ array([[121,  98],
 
 <span class="ansi-green-fg">/usr/local/lib/python3.7/dist-packages/tensorflow/python/framework/ops.py</span> in <span class="ansi-cyan-fg">raise_from_not_ok_status</span><span class="ansi-blue-fg">(e, name)</span>
 <span class="ansi-green-intense-fg ansi-bold">   7105</span> <span class="ansi-green-fg">def</span> raise_from_not_ok_status<span class="ansi-blue-fg">(</span>e<span class="ansi-blue-fg">,</span> name<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">   7106</span>   e<span class="ansi-blue-fg">.</span>message <span class="ansi-blue-fg">+=</span> <span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">" name: "</span> <span class="ansi-blue-fg">+</span> name <span class="ansi-green-fg">if</span> name <span class="ansi-green-fg">is</span> <span class="ansi-green-fg">not</span> <span class="ansi-green-fg">None</span> <span class="ansi-green-fg">else</span> <span class="ansi-blue-fg">""</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">   7106</span>   e<span class="ansi-blue-fg">.</span>message <span class="ansi-blue-fg">+=</span> <span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34; name: &#34;</span> <span class="ansi-blue-fg">+</span> name <span class="ansi-green-fg">if</span> name <span class="ansi-green-fg">is</span> <span class="ansi-green-fg">not</span> <span class="ansi-green-fg">None</span> <span class="ansi-green-fg">else</span> <span class="ansi-blue-fg">&#34;&#34;</span><span class="ansi-blue-fg">)</span>
 <span class="ansi-green-fg">-&gt; 7107</span><span class="ansi-red-fg">   </span><span class="ansi-green-fg">raise</span> core<span class="ansi-blue-fg">.</span>_status_to_exception<span class="ansi-blue-fg">(</span>e<span class="ansi-blue-fg">)</span> <span class="ansi-green-fg">from</span> <span class="ansi-green-fg">None</span>  <span class="ansi-red-fg"># pylint: disable=protected-access</span>
 <span class="ansi-green-intense-fg ansi-bold">   7108</span> 
 <span class="ansi-green-intense-fg ansi-bold">   7109</span> 
@@ -3509,8 +3425,8 @@ array([[121,  98],
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-python"><pre><span></span><span class="n">tf</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">)</span>
-<span class="sd">''' This gives an error because X and Y doesn't satisfy </span>
-<span class="sd">the criteria for matrix multiplication '''</span>
+<span class="sd">&#39;&#39;&#39; This gives an error because X and Y doesn&#39;t satisfy </span>
+<span class="sd">the criteria for matrix multiplication &#39;&#39;&#39;</span>
 </pre></div>
 
     </div>
@@ -3529,8 +3445,8 @@ array([[121,  98],
 <span class="ansi-green-fg">&lt;ipython-input-78-6bfc63f024cf&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
 <span class="ansi-green-intense-fg ansi-bold">      1</span> <span class="ansi-red-fg"># Try to matrix multiply tensors of same shape.</span>
 <span class="ansi-green-fg">----&gt; 2</span><span class="ansi-red-fg"> </span>tf<span class="ansi-blue-fg">.</span>matmul<span class="ansi-blue-fg">(</span>X<span class="ansi-blue-fg">,</span>Y<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      3</span> ''' This gives an error because X and Y doesn't satisfy 
-<span class="ansi-green-intense-fg ansi-bold">      4</span> the criteria for matrix multiplication '''
+<span class="ansi-green-intense-fg ansi-bold">      3</span> &#39;&#39;&#39; This gives an error because X and Y doesn&#39;t satisfy 
+<span class="ansi-green-intense-fg ansi-bold">      4</span> the criteria for matrix multiplication &#39;&#39;&#39;
 
 <span class="ansi-green-fg">/usr/local/lib/python3.7/dist-packages/tensorflow/python/util/traceback_utils.py</span> in <span class="ansi-cyan-fg">error_handler</span><span class="ansi-blue-fg">(*args, **kwargs)</span>
 <span class="ansi-green-intense-fg ansi-bold">    151</span>     <span class="ansi-green-fg">except</span> Exception <span class="ansi-green-fg">as</span> e<span class="ansi-blue-fg">:</span>
@@ -3541,7 +3457,7 @@ array([[121,  98],
 
 <span class="ansi-green-fg">/usr/local/lib/python3.7/dist-packages/tensorflow/python/framework/ops.py</span> in <span class="ansi-cyan-fg">raise_from_not_ok_status</span><span class="ansi-blue-fg">(e, name)</span>
 <span class="ansi-green-intense-fg ansi-bold">   7105</span> <span class="ansi-green-fg">def</span> raise_from_not_ok_status<span class="ansi-blue-fg">(</span>e<span class="ansi-blue-fg">,</span> name<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">   7106</span>   e<span class="ansi-blue-fg">.</span>message <span class="ansi-blue-fg">+=</span> <span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">" name: "</span> <span class="ansi-blue-fg">+</span> name <span class="ansi-green-fg">if</span> name <span class="ansi-green-fg">is</span> <span class="ansi-green-fg">not</span> <span class="ansi-green-fg">None</span> <span class="ansi-green-fg">else</span> <span class="ansi-blue-fg">""</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">   7106</span>   e<span class="ansi-blue-fg">.</span>message <span class="ansi-blue-fg">+=</span> <span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34; name: &#34;</span> <span class="ansi-blue-fg">+</span> name <span class="ansi-green-fg">if</span> name <span class="ansi-green-fg">is</span> <span class="ansi-green-fg">not</span> <span class="ansi-green-fg">None</span> <span class="ansi-green-fg">else</span> <span class="ansi-blue-fg">&#34;&#34;</span><span class="ansi-blue-fg">)</span>
 <span class="ansi-green-fg">-&gt; 7107</span><span class="ansi-red-fg">   </span><span class="ansi-green-fg">raise</span> core<span class="ansi-blue-fg">.</span>_status_to_exception<span class="ansi-blue-fg">(</span>e<span class="ansi-blue-fg">)</span> <span class="ansi-green-fg">from</span> <span class="ansi-green-fg">None</span>  <span class="ansi-red-fg"># pylint: disable=protected-access</span>
 <span class="ansi-green-intense-fg ansi-bold">   7108</span> 
 <span class="ansi-green-intense-fg ansi-bold">   7109</span> 
@@ -3556,8 +3472,7 @@ array([[121,  98],
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>This fails because for two matrices to be multiplied the dimensions should satisfy these two  criteria:</p>
 <ul>
@@ -3639,7 +3554,7 @@ array([[ 7,  8,  9],
 
 <span class="ansi-green-fg">/usr/local/lib/python3.7/dist-packages/tensorflow/python/framework/ops.py</span> in <span class="ansi-cyan-fg">raise_from_not_ok_status</span><span class="ansi-blue-fg">(e, name)</span>
 <span class="ansi-green-intense-fg ansi-bold">   7105</span> <span class="ansi-green-fg">def</span> raise_from_not_ok_status<span class="ansi-blue-fg">(</span>e<span class="ansi-blue-fg">,</span> name<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">   7106</span>   e<span class="ansi-blue-fg">.</span>message <span class="ansi-blue-fg">+=</span> <span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">" name: "</span> <span class="ansi-blue-fg">+</span> name <span class="ansi-green-fg">if</span> name <span class="ansi-green-fg">is</span> <span class="ansi-green-fg">not</span> <span class="ansi-green-fg">None</span> <span class="ansi-green-fg">else</span> <span class="ansi-blue-fg">""</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">   7106</span>   e<span class="ansi-blue-fg">.</span>message <span class="ansi-blue-fg">+=</span> <span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34; name: &#34;</span> <span class="ansi-blue-fg">+</span> name <span class="ansi-green-fg">if</span> name <span class="ansi-green-fg">is</span> <span class="ansi-green-fg">not</span> <span class="ansi-green-fg">None</span> <span class="ansi-green-fg">else</span> <span class="ansi-blue-fg">&#34;&#34;</span><span class="ansi-blue-fg">)</span>
 <span class="ansi-green-fg">-&gt; 7107</span><span class="ansi-red-fg">   </span><span class="ansi-green-fg">raise</span> core<span class="ansi-blue-fg">.</span>_status_to_exception<span class="ansi-blue-fg">(</span>e<span class="ansi-blue-fg">)</span> <span class="ansi-green-fg">from</span> <span class="ansi-green-fg">None</span>  <span class="ansi-red-fg"># pylint: disable=protected-access</span>
 <span class="ansi-green-intense-fg ansi-bold">   7108</span> 
 <span class="ansi-green-intense-fg ansi-bold">   7109</span> 
@@ -3690,8 +3605,7 @@ array([[ 27,  30,  33],
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>This works !!!</p>
 
@@ -3768,16 +3682,14 @@ array([[ 58,  64],
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>You can see that the inner dimensions now match, and the output of the dot product is the same as outer</p>
 
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Note:</strong> Matrix Multiplication is also called the "Dot Product"</p>
 
@@ -3825,13 +3737,9 @@ array([[ 58,  64],
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="The-dot-product">
-<a class="anchor" href="#The-dot-product" aria-hidden="true"><span class="octicon octicon-link"></span></a>The dot product<a class="anchor-link" href="#The-dot-product"> </a>
-</h4>
-<p>You can perform matrix multiplication using:</p>
+<h4 id="The-dot-product">The dot product<a class="anchor-link" href="#The-dot-product"> </a></h4><p>You can perform matrix multiplication using:</p>
 <ul>
 <li><code>tf.matmul()</code></li>
 <li><code>tf.tensordot()</code></li>
@@ -3841,8 +3749,7 @@ array([[ 58,  64],
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Perform the dot product on X and Y (requires X or Y to be transposed)</p>
 
@@ -3884,8 +3791,7 @@ array([[ 89,  98],
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>we can use either transpose or reshape</p>
 
@@ -3964,8 +3870,7 @@ array([[ 27,  30,  33],
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>we are getting different values for the dot product in the above two cases. That means <code>tf.reshape()</code> and <code>tf.transpose()</code> does not exactly do the same thing. In some cases we might get output of both the functions same but not always.</p>
 
@@ -3979,13 +3884,13 @@ array([[ 27,  30,  33],
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-python"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">"Normal Y:"</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">Y</span><span class="p">,</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+<div class=" highlight hl-python"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Normal Y:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Y</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Y reshaped to (2,3):"</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">Y</span><span class="p">,</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)),</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Y reshaped to (2,3):&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">Y</span><span class="p">,</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)),</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Y transposed:"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Y transposed:&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">Y</span><span class="p">))</span>
 </pre></div>
 
@@ -4060,21 +3965,16 @@ array([[ 23,  29,  35],
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Generally, when performing matrix multiplication on two tensors, and one of the axes doesn't line up, you will transpose rather than reshape one of the tensors to satisfy the matrix multiplication rules.</p>
 
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Changing-the-datatype-of-a-tensor">
-<a class="anchor" href="#Changing-the-datatype-of-a-tensor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Changing the datatype of a tensor<a class="anchor-link" href="#Changing-the-datatype-of-a-tensor"> </a>
-</h3>
-<p>The default datatype for tensors is int32 but however if you want to use other datatype for your tensor. we can change the datatype of the tensor.</p>
+<h3 id="Changing-the-datatype-of-a-tensor">Changing the datatype of a tensor<a class="anchor-link" href="#Changing-the-datatype-of-a-tensor"> </a></h3><p>The default datatype for tensors is int32 but however if you want to use other datatype for your tensor. we can change the datatype of the tensor.</p>
 
 </div>
 </div>
@@ -4250,13 +4150,9 @@ array([[ 23,  29,  35],
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Aggregating-tensors">
-<a class="anchor" href="#Aggregating-tensors" aria-hidden="true"><span class="octicon octicon-link"></span></a>Aggregating tensors<a class="anchor-link" href="#Aggregating-tensors"> </a>
-</h3>
-<p>Aggregating tensors  = condensing them from multiple values down to a smaller amount of values.</p>
+<h3 id="Aggregating-tensors">Aggregating tensors<a class="anchor-link" href="#Aggregating-tensors"> </a></h3><p>Aggregating tensors  = condensing them from multiple values down to a smaller amount of values.</p>
 
 </div>
 </div>
@@ -4328,8 +4224,7 @@ array([[ 23,  29,  35],
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Let's go through the following forms of aggregation:</p>
 <ul>
@@ -4544,10 +4439,9 @@ array([50, 30,  8,  9, 11, 58, 26, 64, 89,  4, 96, 20, 19, 35, 25, 33, 53,
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Exercise:</strong><br>
+<p><strong>Exercise:</strong><br />
 Find the variance and standard deviation of our <code>E</code> tensor using TensorFlow methods</p>
 
 </div>
@@ -4627,11 +4521,11 @@ Find the variance and standard deviation of our <code>E</code> tensor using Tens
 <span class="ansi-green-fg">/usr/local/lib/python3.7/dist-packages/tensorflow/python/ops/math_ops.py</span> in <span class="ansi-cyan-fg">reduce_variance</span><span class="ansi-blue-fg">(input_tensor, axis, keepdims, name)</span>
 <span class="ansi-green-intense-fg ansi-bold">   2673</span>     means <span class="ansi-blue-fg">=</span> reduce_mean<span class="ansi-blue-fg">(</span>input_tensor<span class="ansi-blue-fg">,</span> axis<span class="ansi-blue-fg">=</span>axis<span class="ansi-blue-fg">,</span> keepdims<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">True</span><span class="ansi-blue-fg">)</span>
 <span class="ansi-green-intense-fg ansi-bold">   2674</span>     <span class="ansi-green-fg">if</span> means<span class="ansi-blue-fg">.</span>dtype<span class="ansi-blue-fg">.</span>is_integer<span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">-&gt; 2675</span><span class="ansi-red-fg">       raise TypeError(f"Input must be either real or complex. "
-</span><span class="ansi-green-intense-fg ansi-bold">   2676</span>                       f"Received integer type {means.dtype}.")
+<span class="ansi-green-fg">-&gt; 2675</span><span class="ansi-red-fg">       raise TypeError(f&#34;Input must be either real or complex. &#34;
+</span><span class="ansi-green-intense-fg ansi-bold">   2676</span>                       f&#34;Received integer type {means.dtype}.&#34;)
 <span class="ansi-green-intense-fg ansi-bold">   2677</span>     diff <span class="ansi-blue-fg">=</span> input_tensor <span class="ansi-blue-fg">-</span> means
 
-<span class="ansi-red-fg">TypeError</span>: Input must be either real or complex. Received integer type &lt;dtype: 'int64'&gt;.</pre>
+<span class="ansi-red-fg">TypeError</span>: Input must be either real or complex. Received integer type &lt;dtype: &#39;int64&#39;&gt;.</pre>
 </div>
 </div>
 
@@ -4675,13 +4569,9 @@ Find the variance and standard deviation of our <code>E</code> tensor using Tens
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Find-the-positional-maximum-and-minimum">
-<a class="anchor" href="#Find-the-positional-maximum-and-minimum" aria-hidden="true"><span class="octicon octicon-link"></span></a>Find the positional maximum and minimum<a class="anchor-link" href="#Find-the-positional-maximum-and-minimum"> </a>
-</h3>
-<p>We find this helpful for our output probabilities that come from neural network.</p>
+<h3 id="Find-the-positional-maximum-and-minimum">Find the positional maximum and minimum<a class="anchor-link" href="#Find-the-positional-maximum-and-minimum"> </a></h3><p>We find this helpful for our output probabilities that come from neural network.</p>
 
 </div>
 </div>
@@ -4848,8 +4738,7 @@ array([0.6645621 , 0.44100678, 0.3528825 , 0.46448255, 0.03366041,
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>No error so we got it right!</p>
 
@@ -4955,12 +4844,9 @@ array([0.6645621 , 0.44100678, 0.3528825 , 0.46448255, 0.03366041,
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Squeezing-a-tensor-(removing-all-single-dimensions)">
-<a class="anchor" href="#Squeezing-a-tensor-(removing-all-single-dimensions)" aria-hidden="true"><span class="octicon octicon-link"></span></a>Squeezing a tensor (removing all single dimensions)<a class="anchor-link" href="#Squeezing-a-tensor-(removing-all-single-dimensions)"> </a>
-</h3>
+<h3 id="Squeezing-a-tensor-(removing-all-single-dimensions)">Squeezing a tensor (removing all single dimensions)<a class="anchor-link" href="#Squeezing-a-tensor-(removing-all-single-dimensions)"> </a></h3>
 </div>
 </div>
 </div>
@@ -5088,13 +4974,9 @@ array([[[[[0.6645621 , 0.44100678, 0.3528825 , 0.46448255, 0.03366041,
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="One-hot-encoding-tensors">
-<a class="anchor" href="#One-hot-encoding-tensors" aria-hidden="true"><span class="octicon octicon-link"></span></a>One hot encoding tensors<a class="anchor-link" href="#One-hot-encoding-tensors"> </a>
-</h3>
-<p>What is one-hot encoding?</p>
+<h3 id="One-hot-encoding-tensors">One hot encoding tensors<a class="anchor-link" href="#One-hot-encoding-tensors"> </a></h3><p>What is one-hot encoding?</p>
 
 </div>
 </div>
@@ -5146,7 +5028,7 @@ array([[1., 0., 0., 0.],
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-python"><pre><span></span><span class="n">tf</span><span class="o">.</span><span class="n">one_hot</span><span class="p">(</span><span class="n">some_list</span><span class="p">,</span> <span class="n">depth</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span> <span class="n">on_value</span> <span class="o">=</span> <span class="s2">"Yo I love deep learning"</span><span class="p">,</span> <span class="n">off_value</span> <span class="o">=</span> <span class="s2">"I also like to write"</span><span class="p">)</span>
+<div class=" highlight hl-python"><pre><span></span><span class="n">tf</span><span class="o">.</span><span class="n">one_hot</span><span class="p">(</span><span class="n">some_list</span><span class="p">,</span> <span class="n">depth</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span> <span class="n">on_value</span> <span class="o">=</span> <span class="s2">&quot;Yo I love deep learning&quot;</span><span class="p">,</span> <span class="n">off_value</span> <span class="o">=</span> <span class="s2">&quot;I also like to write&quot;</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -5162,14 +5044,14 @@ array([[1., 0., 0., 0.],
 
 <div class="output_text output_subarea output_execute_result">
 <pre>&lt;tf.Tensor: shape=(4, 4), dtype=string, numpy=
-array([[b'Yo I love deep learning', b'I also like to write',
-        b'I also like to write', b'I also like to write'],
-       [b'I also like to write', b'Yo I love deep learning',
-        b'I also like to write', b'I also like to write'],
-       [b'I also like to write', b'I also like to write',
-        b'Yo I love deep learning', b'I also like to write'],
-       [b'I also like to write', b'I also like to write',
-        b'I also like to write', b'Yo I love deep learning']],
+array([[b&#39;Yo I love deep learning&#39;, b&#39;I also like to write&#39;,
+        b&#39;I also like to write&#39;, b&#39;I also like to write&#39;],
+       [b&#39;I also like to write&#39;, b&#39;Yo I love deep learning&#39;,
+        b&#39;I also like to write&#39;, b&#39;I also like to write&#39;],
+       [b&#39;I also like to write&#39;, b&#39;I also like to write&#39;,
+        b&#39;Yo I love deep learning&#39;, b&#39;I also like to write&#39;],
+       [b&#39;I also like to write&#39;, b&#39;I also like to write&#39;,
+        b&#39;I also like to write&#39;, b&#39;Yo I love deep learning&#39;]],
       dtype=object)&gt;</pre>
 </div>
 
@@ -5181,13 +5063,9 @@ array([[b'Yo I love deep learning', b'I also like to write',
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="More-on-math-functions:">
-<a class="anchor" href="#More-on-math-functions:" aria-hidden="true"><span class="octicon octicon-link"></span></a>More on math functions:<a class="anchor-link" href="#More-on-math-functions:"> </a>
-</h3>
-<ul>
+<h3 id="More-on-math-functions:">More on math functions:<a class="anchor-link" href="#More-on-math-functions:"> </a></h3><ul>
 <li>squaring</li>
 <li>log</li>
 <li>square root</li>
@@ -5298,12 +5176,12 @@ array([[b'Yo I love deep learning', b'I also like to write',
 
 <span class="ansi-green-fg">/usr/local/lib/python3.7/dist-packages/tensorflow/python/framework/ops.py</span> in <span class="ansi-cyan-fg">raise_from_not_ok_status</span><span class="ansi-blue-fg">(e, name)</span>
 <span class="ansi-green-intense-fg ansi-bold">   7105</span> <span class="ansi-green-fg">def</span> raise_from_not_ok_status<span class="ansi-blue-fg">(</span>e<span class="ansi-blue-fg">,</span> name<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">   7106</span>   e<span class="ansi-blue-fg">.</span>message <span class="ansi-blue-fg">+=</span> <span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">" name: "</span> <span class="ansi-blue-fg">+</span> name <span class="ansi-green-fg">if</span> name <span class="ansi-green-fg">is</span> <span class="ansi-green-fg">not</span> <span class="ansi-green-fg">None</span> <span class="ansi-green-fg">else</span> <span class="ansi-blue-fg">""</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">   7106</span>   e<span class="ansi-blue-fg">.</span>message <span class="ansi-blue-fg">+=</span> <span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34; name: &#34;</span> <span class="ansi-blue-fg">+</span> name <span class="ansi-green-fg">if</span> name <span class="ansi-green-fg">is</span> <span class="ansi-green-fg">not</span> <span class="ansi-green-fg">None</span> <span class="ansi-green-fg">else</span> <span class="ansi-blue-fg">&#34;&#34;</span><span class="ansi-blue-fg">)</span>
 <span class="ansi-green-fg">-&gt; 7107</span><span class="ansi-red-fg">   </span><span class="ansi-green-fg">raise</span> core<span class="ansi-blue-fg">.</span>_status_to_exception<span class="ansi-blue-fg">(</span>e<span class="ansi-blue-fg">)</span> <span class="ansi-green-fg">from</span> <span class="ansi-green-fg">None</span>  <span class="ansi-red-fg"># pylint: disable=protected-access</span>
 <span class="ansi-green-intense-fg ansi-bold">   7108</span> 
 <span class="ansi-green-intense-fg ansi-bold">   7109</span> 
 
-<span class="ansi-red-fg">InvalidArgumentError</span>: Value for attr 'T' of int32 is not in the list of allowed values: bfloat16, half, float, double, complex64, complex128
+<span class="ansi-red-fg">InvalidArgumentError</span>: Value for attr &#39;T&#39; of int32 is not in the list of allowed values: bfloat16, half, float, double, complex64, complex128
 	; NodeDef: {{node Sqrt}}; Op&lt;name=Sqrt; signature=x:T -&gt; y:T; attr=T:type,allowed=[DT_BFLOAT16, DT_HALF, DT_FLOAT, DT_DOUBLE, DT_COMPLEX64, DT_COMPLEX128]&gt; [Op:Sqrt]</pre>
 </div>
 </div>
@@ -5314,8 +5192,7 @@ array([[b'Yo I love deep learning', b'I also like to write',
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>we got an error here because tensors of dtype int32 is not allowed as arguments for sqrt function. So, we cast it to different datatype</p>
 
@@ -5393,12 +5270,12 @@ array([0.99999994, 1.4142134 , 1.7320508 , 1.9999999 , 2.236068  ,
 
 <span class="ansi-green-fg">/usr/local/lib/python3.7/dist-packages/tensorflow/python/framework/ops.py</span> in <span class="ansi-cyan-fg">raise_from_not_ok_status</span><span class="ansi-blue-fg">(e, name)</span>
 <span class="ansi-green-intense-fg ansi-bold">   7105</span> <span class="ansi-green-fg">def</span> raise_from_not_ok_status<span class="ansi-blue-fg">(</span>e<span class="ansi-blue-fg">,</span> name<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">   7106</span>   e<span class="ansi-blue-fg">.</span>message <span class="ansi-blue-fg">+=</span> <span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">" name: "</span> <span class="ansi-blue-fg">+</span> name <span class="ansi-green-fg">if</span> name <span class="ansi-green-fg">is</span> <span class="ansi-green-fg">not</span> <span class="ansi-green-fg">None</span> <span class="ansi-green-fg">else</span> <span class="ansi-blue-fg">""</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">   7106</span>   e<span class="ansi-blue-fg">.</span>message <span class="ansi-blue-fg">+=</span> <span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34; name: &#34;</span> <span class="ansi-blue-fg">+</span> name <span class="ansi-green-fg">if</span> name <span class="ansi-green-fg">is</span> <span class="ansi-green-fg">not</span> <span class="ansi-green-fg">None</span> <span class="ansi-green-fg">else</span> <span class="ansi-blue-fg">&#34;&#34;</span><span class="ansi-blue-fg">)</span>
 <span class="ansi-green-fg">-&gt; 7107</span><span class="ansi-red-fg">   </span><span class="ansi-green-fg">raise</span> core<span class="ansi-blue-fg">.</span>_status_to_exception<span class="ansi-blue-fg">(</span>e<span class="ansi-blue-fg">)</span> <span class="ansi-green-fg">from</span> <span class="ansi-green-fg">None</span>  <span class="ansi-red-fg"># pylint: disable=protected-access</span>
 <span class="ansi-green-intense-fg ansi-bold">   7108</span> 
 <span class="ansi-green-intense-fg ansi-bold">   7109</span> 
 
-<span class="ansi-red-fg">InvalidArgumentError</span>: Value for attr 'T' of int32 is not in the list of allowed values: bfloat16, half, float, double, complex64, complex128
+<span class="ansi-red-fg">InvalidArgumentError</span>: Value for attr &#39;T&#39; of int32 is not in the list of allowed values: bfloat16, half, float, double, complex64, complex128
 	; NodeDef: {{node Log}}; Op&lt;name=Log; signature=x:T -&gt; y:T; attr=T:type,allowed=[DT_BFLOAT16, DT_HALF, DT_FLOAT, DT_DOUBLE, DT_COMPLEX64, DT_COMPLEX128]&gt; [Op:Log]</pre>
 </div>
 </div>
@@ -5409,8 +5286,7 @@ array([0.99999994, 1.4142134 , 1.7320508 , 1.9999999 , 2.236068  ,
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>we also get the same error for this too. so cast the argument tensor to one of the allowed values.</p>
 
@@ -5452,13 +5328,9 @@ array([0.       , 0.6931472, 1.0986123, 1.3862944, 1.609438 , 1.7917595,
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Tensors-and-NumPy">
-<a class="anchor" href="#Tensors-and-NumPy" aria-hidden="true"><span class="octicon octicon-link"></span></a>Tensors and NumPy<a class="anchor-link" href="#Tensors-and-NumPy"> </a>
-</h3>
-<p>NumPy is a package used for scientific computing. The most fundamental type in NumPy is numpy array.<br>
+<h3 id="Tensors-and-NumPy">Tensors and NumPy<a class="anchor-link" href="#Tensors-and-NumPy"> </a></h3><p>NumPy is a package used for scientific computing. The most fundamental type in NumPy is numpy array.<br />
 TensorFlow interacts beautifully with NumPy arrays.</p>
 
 </div>
@@ -5634,21 +5506,16 @@ TensorFlow interacts beautifully with NumPy arrays.</p>
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>We can see above that creating tensors directly from tensorflow will create a default dtype of float32 values but if we pass in numpy array to <code>tf.constant</code> the default dtype of created tensor is float64</p>
 
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Using-@tf.function">
-<a class="anchor" href="#Using-@tf.function" aria-hidden="true"><span class="octicon octicon-link"></span></a>Using <code>@tf.function</code><a class="anchor-link" href="#Using-@tf.function"> </a>
-</h3>
-<p>In your TensorFlow adventures, you might come across Python functions which have the decorator <code>@tf.function</code>.</p>
+<h3 id="Using-@tf.function">Using <code>@tf.function</code><a class="anchor-link" href="#Using-@tf.function"> </a></h3><p>In your TensorFlow adventures, you might come across Python functions which have the decorator <code>@tf.function</code>.</p>
 <p>But in short, decorators modify a function in one way or another.</p>
 <p>In the <code>@tf.function</code> decorator case, it turns a Python function into a callable TensorFlow graph. Which is a fancy way of saying, if you've written your own Python function, and you decorate it with <code>@tf.function</code>, when you export your code (to potentially run on another device), TensorFlow will attempt to convert it into a fast(er) version of itself (by making it part of a computation graph).</p>
 <p>For more on this, read the <a href="https://www.tensorflow.org/guide/function">Better performnace with tf.function</a> guide.</p>
@@ -5731,8 +5598,7 @@ TensorFlow interacts beautifully with NumPy arrays.</p>
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>If you noticed no difference between the above two functions (the decorated one and the non-decorated one) you'd be right.</p>
 <p>Much of the difference happens behind the scenes. One of the main ones being potential code speed-ups where possible.</p>
@@ -5740,13 +5606,9 @@ TensorFlow interacts beautifully with NumPy arrays.</p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Using-GPUs:">
-<a class="anchor" href="#Using-GPUs:" aria-hidden="true"><span class="octicon octicon-link"></span></a>Using GPUs:<a class="anchor-link" href="#Using-GPUs:"> </a>
-</h3>
-<p>We've mentioned GPUs plenty of times throughout this notebook.</p>
+<h3 id="Using-GPUs:">Using GPUs:<a class="anchor-link" href="#Using-GPUs:"> </a></h3><p>We've mentioned GPUs plenty of times throughout this notebook.</p>
 <p>So how do you check if you've got one available?</p>
 <p>You can check if you've got access to a GPU using <code>tf.config.list_physical_devices()</code>.</p>
 
@@ -5760,7 +5622,7 @@ TensorFlow interacts beautifully with NumPy arrays.</p>
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-python"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">list_physical_devices</span><span class="p">(</span><span class="s1">'GPU'</span><span class="p">))</span>
+<div class=" highlight hl-python"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">list_physical_devices</span><span class="p">(</span><span class="s1">&#39;GPU&#39;</span><span class="p">))</span>
 </pre></div>
 
     </div>
@@ -5784,8 +5646,7 @@ TensorFlow interacts beautifully with NumPy arrays.</p>
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>The PC I am working from has no GPU support.</p>
 
@@ -5800,7 +5661,7 @@ TensorFlow interacts beautifully with NumPy arrays.</p>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-python"><pre><span></span><span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">list_physical_devices</span><span class="p">(</span><span class="s1">'GPU'</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">list_physical_devices</span><span class="p">(</span><span class="s1">&#39;GPU&#39;</span><span class="p">))</span>
 </pre></div>
 
     </div>
@@ -5824,8 +5685,7 @@ TensorFlow interacts beautifully with NumPy arrays.</p>
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>If you've got access to a GPU, the cell above should output something like:</p>
 <p><code>[PhysicalDevice(name='/physical_device:GPU:0', device_type='GPU')]</code></p>
@@ -5834,27 +5694,21 @@ TensorFlow interacts beautifully with NumPy arrays.</p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<blockquote>
-<p>🔑 <strong>Note:</strong> If you have access to a GPU, TensorFlow will automatically use it whenever possible.</p>
+<blockquote><p>🔑 <strong>Note:</strong> If you have access to a GPU, TensorFlow will automatically use it whenever possible.</p>
 </blockquote>
 
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Solutions-to-the-Exercises-given-in-the-tutorial-Notebook:">
-<a class="anchor" href="#Solutions-to-the-Exercises-given-in-the-tutorial-Notebook:" aria-hidden="true"><span class="octicon octicon-link"></span></a>Solutions to the Exercises given in the tutorial Notebook:<a class="anchor-link" href="#Solutions-to-the-Exercises-given-in-the-tutorial-Notebook:"> </a>
-</h3>
+<h3 id="Solutions-to-the-Exercises-given-in-the-tutorial-Notebook:">Solutions to the Exercises given in the tutorial Notebook:<a class="anchor-link" href="#Solutions-to-the-Exercises-given-in-the-tutorial-Notebook:"> </a></h3>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <ol>
 <li>Create a vector, scalar, matrix and tensor with values of your choosing using <code>tf.constant()</code>.</li>
@@ -5920,8 +5774,7 @@ TensorFlow interacts beautifully with NumPy arrays.</p>
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <ol>
 <li>Find the shape, rank and size of the tensors you created in 1.</li>
@@ -6070,8 +5923,7 @@ TensorFlow interacts beautifully with NumPy arrays.</p>
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <ol>
 <li>Create two tensors containing random values between 0 and 1 with shape <code>[5, 300]</code>.</li>
@@ -6137,8 +5989,7 @@ TensorFlow interacts beautifully with NumPy arrays.</p>
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <ol>
 <li>Multiply the two tensors you created in 3 using matrix multiplication.</li>
@@ -6232,8 +6083,7 @@ array([[1.317161  , 0.61993605, 1.2612379 , ..., 1.5290778 , 1.0735596 ,
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <ol>
 <li>Multiply the two tensors you created in 3 using dot product.</li>
@@ -6281,8 +6131,7 @@ array([[80.33344 , 73.40498 , 77.15962 , 73.98368 , 80.90053 ],
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <ol>
 <li>Create a tensor with random values between 0 and 1 with shape <code>[224, 224, 3]</code>.</li>
@@ -6375,8 +6224,7 @@ array([[[0.6645621 , 0.44100678, 0.3528825 ],
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <ol>
 <li>Find the min and max values of the tensor you created in 6.</li>
@@ -6451,8 +6299,7 @@ array([[[0.6645621 , 0.44100678, 0.3528825 ],
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <ol>
 <li>Created a tensor with random values of shape <code>[1, 224, 224, 3]</code> then squeeze it to change the shape to <code>[224, 224, 3]</code>.</li>
@@ -6629,8 +6476,7 @@ array([[[[0.6645621 , 0.44100678, 0.3528825 ],
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <ol>
 <li>Create a tensor with shape <code>[10]</code> using your own choice of values, then find the index which has the maximum value.</li>
@@ -6707,8 +6553,7 @@ array([[[[0.6645621 , 0.44100678, 0.3528825 ],
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <ol>
 <li>One-hot encode the tensor you created in 9.</li>
@@ -6760,8 +6605,7 @@ array([[0., 0., 0., 0., 0., 0., 0., 1., 0., 0.],
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Bibliography</strong>:</p>
 <ul>
@@ -6777,7 +6621,7 @@ array([[0., 0., 0., 0., 0., 0., 0., 1., 0., 0.],
 <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
 <a href="#top">Back to top of page</a>
 
-  </div><!-- from https://github.com/utterance/utterances -->
+      </div><!-- from https://github.com/utterance/utterances -->
 <script src="https://utteranc.es/client.js"
         repo="sandeshkatakam/My-Machine_learning-Blog"
         issue-term="title"
@@ -6786,7 +6630,35 @@ array([[0., 0., 0., 0., 0., 0., 0., 1., 0., 0.],
         crossorigin="anonymous"
         async>
 </script><a class="u-url" href="/My-Machine_learning-Blog/tensorflow/machinelearning/2022/02/09/TensorFlow-Fundamentals.html" hidden></a>
-</article>
+    </article><footer class="site-footer h-card">
+  <data class="u-url" href="/My-Machine_learning-Blog/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/My-Machine_learning-Blog/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/My-Machine_learning-Blog/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>Blog related to Machine learning and Deep learning.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/sandeshkatakam" target="_blank" title="sandeshkatakam"><svg class="svg-icon grey"><use xlink:href="/My-Machine_learning-Blog/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/sandeshkatakam" target="_blank" title="sandeshkatakam"><svg class="svg-icon grey"><use xlink:href="/My-Machine_learning-Blog/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</div>
+
+
 </div>
 
 
