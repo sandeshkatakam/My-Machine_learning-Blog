@@ -11,14 +11,20 @@
 
 @font-face { font-family: "Libertine"; src: url("../../assets/fonts/linux_libertine/LinLibertine_I.otf"); font-weight: 400; font-style: normal; }
 @font-face { font-family: "Libertine"; src: url("../../assets/fonts/linux_libertine/LinLibertine_DR.otf"); font-weight: 400; font-style: normal; }
-@font-face { font-family: "Libertine"; src: url("../../assets/fonts/linux_libertine/LinLibertine_R.otf"); font-weight: 400; font-style: normal; }
+//@font-face { font-family: "Libertine"; src: url("../../assets/fonts/linux_libertine/LinLibertine_R.otf"); font-weight: 400; font-style: normal; }
 @font-face { font-family: "Libertine"; src: url("../../assets/fonts/linux_libertine/LinLibertine_RI.otf"); font-weight: 400; font-style: italic; }
 @font-face { font-family: "Libertine"; src: url("../../assets/fonts/linux_libertine/LinLibertine_RZ.otf"); font-weight: 600; font-style: normal; }
 @font-face { font-family: "Libertine"; src: url("../../assets/fonts/linux_libertine/LinLibertine_RZI.otf"); font-weight: 600; font-style: italic; }
 @font-face { font-family: "Libertine"; src: url("../../assets/fonts/linux_libertine/LinLibertine_RB.otf"); font-weight: 700; font-style: normal; }
 @font-face { font-family: "Libertine"; src: url("../../assets/fonts/linux_libertine/LinLibertine_RBI.otf"); font-weight: 700; font-style: italic; }
 
-
+@font-face {
+  font-family: 'Linux Libertine';
+  src: url('../../assets/fonts/linux_libertine/LinLibertine_R.otf'); 
+  src: url('../../assets/fonts/linux_libertine/LinLibertine_R.otf') format('embedded-opentype'), /* IE6-IE8 */ 
+       url('https://github.com/sandeshkatakam/My-Machine_learning-Blog/blob/master/assets/fonts/linuxlibertine/LinLibertine_R.ttf')  format('truetype'), /* Safari, Android, iOS */
+       
+}
 .text_cell, .post-title, .site-title, h3, .page-description {
     font-family: "Libertine" !important;
 }
