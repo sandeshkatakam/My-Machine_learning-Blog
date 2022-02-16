@@ -19,10 +19,10 @@
 //@font-face { font-family: "Libertine"; src: url("../../assets/fonts/linux_libertine/LinLibertine_RBI.otf"); font-weight: 700; font-style: italic; }
 
 
-//.text_cell, .post-title, .site-title, h3, .page-description {
-//    font-family: "Libertine" !important;
-//    font-size: 1.4rem !important;
-//}
+.text_cell, .post-title, .site-title, h3, .page-description {
+    font-family: 'Playfair Display', serif !important;
+    //font-size: 1.4rem !important;
+}
 
 // If you want to turn off dark background for syntax highlighting, comment or delete the below line.
 @import "minima/fastpages-dracula-highlight"; 
