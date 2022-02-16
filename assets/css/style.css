@@ -469,97 +469,11 @@ li .post-meta-description { color: rgba(255, 255, 255, 0.69) !important; }
 
 #myBtn:hover { background-color: #555; /* Add a dark-grey background on hover */ }
 
-@font-face { font-family: "Libertine"; src: url("../../assets/fonts/linux_libertine/LinLibertine_I.otf"); font-weight: 400; font-style: normal; }
-
-@font-face { font-family: "Libertine"; src: url("../../assets/fonts/linux_libertine/LinLibertine_DR.otf"); font-weight: 300; font-style: normal; }
-
-@font-face { font-family: "Libertine"; src: url("../../assets/fonts/linux_libertine/LinLibertine_R.otf"); font-weight: 400; font-style: normal; }
-
-@font-face { font-family: "Libertine"; src: url("../../assets/fonts/linux_libertine/LinLibertine_RI.otf"); font-weight: 400; font-style: italic; }
-
-@font-face { font-family: "Libertine"; src: url("../../assets/fonts/linux_libertine/LinLibertine_RZ.otf"); font-weight: 600; font-style: normal; }
-
-@font-face { font-family: "Libertine"; src: url("../../assets/fonts/linux_libertine/LinLibertine_RZI.otf"); font-weight: 600; font-style: italic; }
-
-@font-face { font-family: "Libertine"; src: url("../../assets/fonts/linux_libertine/LinLibertine_RB.otf"); font-weight: 700; font-style: normal; }
-
-@font-face { font-family: "Libertine"; src: url("../../assets/fonts/linux_libertine/LinLibertine_RBI.otf"); font-weight: 700; font-style: italic; }
-
-h2 { font-size: 2.25rem !important; }
-
-h3 { font-size: 1.85rem !important; }
-
-h4 { font-size: 1.7rem !important; }
-
-body { max-width: 100%; overflow-x: hidden; }
-
-.post, .footer-col-wrapper { max-width: 100vw !important; width: 100vw; padding: 0; margin: 0; }
-
-.rendered_html p { font-size: 1.4rem !important; color: #191919 !important; }
-
-.text_cell, .post-title, .site-title, h3, .page-description { font-family: "Libertine" !important; }
-
-.site-title { float: unset; }
-
-.site-header .wrapper { text-align: center !important; }
-
-.text_cell_render, .output, .post-header { max-width: 940px; margin-left: 60px; }
-
-.output_png img:not(.keep_dims) { width: auto !important; height: auto !important; max-width: 800px; margin: 0; }
-
-pre { line-height: 1rem; }
-
-pre, .footer-col-wrapper { padding-left: 60px; }
-
-.output pre { background-color: inherit !important; border: none; border-left: 3px solid lightgray; padding-left: 15px; }
-
-.katex { font-size: 1.3rem !important; }
-
-.katex-display .katex { font-size: 1.3rem !important; }
-
-table.dataframe th, table.dataframe td { padding: 3px 10px !important; }
-
-table.dataframe { width: auto !important; text-align: right; font-family: -apple-system, BlinkMacSystemFont, 'Roboto', "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; font-weight: 500; margin-bottom: 1px; }
-
-table.dataframe + p { margin-top: 0 !important; font-size: 0.7rem !important; }
-
-h1.post-title { font-size: 3rem !important; margin: 0 !important; }
-
-.post-meta-title { margin-top: 0 !important; }
-
-.flash { border: none !important; font-size: 1.2rem !important; }
-
-.derivation { border-left: 1px solid black; border-top: 1px solid black; border-bottom: 1px solid black; padding-left: 1.4rem; }
-
-.octicon-info { display: none !important; }
-
-.post-content p, .post-content li { color: #24292e !important; }
-
-.collapsed + .output_wrapper { margin-top: 1.5rem !important; }
-
-code { padding: 0 !important; }
-
-.derivation .katex-display > .katex { text-align: left; margin-left: 4rem; }
-
-/*-----------------------------------*/
-/*----- COLLAPSE --------------------*/
-.collapsible { position: relative; }
-
-.collapsed { height: 1.6rem; overflow-y: hidden; }
-
-.collapse-button { position: absolute; top: 0.21rem; left: 0; font-size: 1.2rem; width: 60px; text-align: center; }
-
-.collapsed > .collapse-button { background: #e0e0e0; background: linear-gradient(90deg, #e0e0e0 0%, white 35%, white 100%); }
-
-.collapse-button > i { color: #b7b7b7; }
-
-.collapse-button > i:hover { color: #1f1f1f; }
-
 /*-----------------------------------*/
 /*----- TOC --------------------*/
 .sticky { position: -webkit-sticky; /* Safari */ position: sticky; top: 0; }
 
-.Layout-sidebar { background-color: #f8f9fb; border-right: 1px solid #eeebee; }
+.Layout-sidebar { background-color: #323333; border-right: 1px solid #eeebee; }
 
 .Layout { --Layout-gutter: 0 !important; }
 
