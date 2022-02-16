@@ -485,7 +485,7 @@ li .post-meta-description { color: rgba(255, 255, 255, 0.69) !important; }
 
 @font-face { font-family: 'Linux Libertine'; src: url("../../assets/fonts/linux_libertine/LinLibertine_R.otf"); src: url("../../assets/fonts/linux_libertine/LinLibertine_R.otf") format("embedded-opentype"), url("https://github.com/sandeshkatakam/My-Machine_learning-Blog/blob/master/assets/fonts/linuxlibertine/LinLibertine_R.ttf") format("truetype"); }
 
-.text_cell, .post-title, .site-title, h3, .page-description { font-family: "Linux Libertine" !important; }
+.text_cell, .post-title, .site-title, h3, .page-description { font-family: "Libertine" !important; }
 
 .language-python + .language-plaintext { border-left: 1px solid grey; margin-left: 1rem !important; }
 
