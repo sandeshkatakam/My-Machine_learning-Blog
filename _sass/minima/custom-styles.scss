@@ -15,9 +15,25 @@
 @font-face { font-family: "Libertine"; src: url("../../assets/fonts/linux_libertine/LinLibertine_RI.otf"); font-weight: 400; font-style: italic; }
 @font-face { font-family: "Libertine"; src: url("../../assets/fonts/linux_libertine/LinLibertine_RZ.otf"); font-weight: 600; font-style: normal; }
 @font-face { font-family: "Libertine"; src: url("../../assets/fonts/linux_libertine/LinLibertine_RZI.otf"); font-weight: 600; font-style: italic; }
-@font-face { font-family: "Libertine"; src: url("../../assets/fonts/linux_libertine/LinLibertine_RB.otf"); font-weight: 700; font-style: normal; }
-@font-face { font-family: "Libertine"; src: url("../../assets/fonts/linux_libertine/LinLibertine_RBI.otf"); font-weight: 700; font-style: italic; }
+//@font-face { font-family: "Libertine"; src: url("../../assets/fonts/linux_libertine/LinLibertine_RB.otf"); font-weight: 700; font-style: normal; }
+//@font-face { font-family: "Libertine"; src: url("../../assets/fonts/linux_libertine/LinLibertine_RBI.otf"); font-weight: 700; font-style: italic; }
 
+@font-face {
+    font-family: 'Linux Libertine'; /* bold */
+    src: url('/static/fonts/linux-libertine/LinLibertine_RB.woff') format('woff');
+    src: url('/static/fonts/linux-libertine/LinLibertine_RB.woff') format('embedded-opentype'), /* IE6-IE8 */
+         url('/static/fonts/linux-libertine/LinLibertine_RB.ttf')  format('truetype'), /* Safari, Android, iOS */
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Linux Libertine'; /* bold */
+    src: url('/static/fonts/linux-libertine/LinLibertine_RBI.woff') format('woff');
+    src: url('/static/fonts/linux-libertine/LinLibertine_RBI.ttf') format('truetype'),
+    font-weight: bold;
+    font-style: italic;
+}
 .text_cell, .post-title, .site-title, h3, .page-description {
     font-family: "Linux Libertine" !important;
 }
