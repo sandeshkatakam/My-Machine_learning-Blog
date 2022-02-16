@@ -473,7 +473,7 @@ li .post-meta-description { color: rgba(255, 255, 255, 0.69) !important; }
 /*----- TOC --------------------*/
 .sticky { position: -webkit-sticky; /* Safari */ position: sticky; top: 0; }
 
-.Layout-sidebar { background-color: #323333; border-right: 1px solid #eeebee; }
+.Layout-sidebar { background-color: #131416; border-right: 1px solid #eeebee; }
 
 .Layout { --Layout-gutter: 0 !important; }
 
