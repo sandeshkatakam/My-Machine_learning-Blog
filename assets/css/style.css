@@ -466,7 +466,7 @@ canvas { filter: invert(100%); }
 
 li .post-meta-description { color: rgba(255, 255, 255, 0.69) !important; }
 
-.scrollup { width: 40px; height: 40px; position: fixed; bottom: 50px; right: 100px; display: none; text-indent: -9999px; background: url("/images/scroll-to-top.png") no-repeat; background-color: #fafafa; }
+.scrollup { width: 40px; height: 40px; position: fixed; bottom: 70px; right: 150px; display: none; text-indent: -9999px; background: url("/images/scroll-to-top.png") no-repeat; background-color: #fafafa; }
 
 .text_cell, .post-title, .site-nav, .site-title, h3, .page-description { font-family: 'Playfair Display', serif !important; }
 
