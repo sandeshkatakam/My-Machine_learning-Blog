@@ -470,59 +470,186 @@ li .post-meta-description { color: rgba(255, 255, 255, 0.69) !important; }
 
 .text_cell, .post-title, .site-nav, .site-title, h3, .page-description { font-family: 'Playfair Display', serif !important; }
 
-.language-python + .language-plaintext { border-left: 1px solid grey; margin-left: 1rem !important; }
+pre, code { background-color: #f8f9fa !important; }
 
-[class^="language-"]:not(.language-plaintext) pre, [class^="language-"]:not(.language-plaintext) code { background-color: #323443 !important; color: #f8f8f2; }
+/* Comment */
+.highlight .c { color: #408080; font-style: italic; }
 
-.language-python + .language-plaintext code { background-color: white !important; }
+/* Error */
+.highlight .err { border: 1px solid #FF0000; }
 
-.language-python + .language-plaintext pre { background-color: white !important; }
+/* Keyword */
+.highlight .k { color: #008000; font-weight: bold; }
 
-.input_area pre, .input_area div { margin-bottom: 1.0rem !important; margin-top: 1.5rem !important; padding-bottom: 0 !important; padding-top: 0 !important; background: #323443 !important; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; font-family: Menlo, Monaco, Consolas, "Lucida Console", Roboto, Ubuntu, monospace; border-radius: 5px; font-size: 100%; }
+/* Operator */
+.highlight .o { color: #666666; }
 
-.output_area pre, .output_area div { margin-bottom: 1rem !important; margin-top: 0rem !important; padding-bottom: 0 !important; padding-top: 0 !important; }
+/* Comment.Multiline */
+.highlight .cm { color: #408080; font-style: italic; }
 
-.input_area pre { border-left: 1px solid lightcoral; }
+/* Comment.Preproc */
+.highlight .cp { color: #BC7A00; }
 
-.output_area pre { border-left: 1px solid grey; margin-left: 1rem !important; font-size: 16px; }
+/* Comment.Single */
+.highlight .c1 { color: #408080; font-style: italic; }
 
-.code_cell table { width: auto; }
+/* Comment.Special */
+.highlight .cs { color: #408080; font-style: italic; }
 
-/* Dracula Theme v1.2.5 https://github.com/zenorocha/dracula-theme Copyright 2016, All rights reserved Code licensed under the MIT license */
-.highlight { background: #323443 !important; color: #f8f8f2 !important; }
+/* Generic.Deleted */
+.highlight .gd { color: #A00000; }
 
-.highlight pre, .highlight code { background: #323443; color: #f8f8f2; font-size: 110%; }
+/* Generic.Emph */
+.highlight .ge { font-style: italic; }
 
-.highlight .hll, .highlight .s, .highlight .sa, .highlight .sb, .highlight .sc, .highlight .dl, .highlight .sd, .highlight .s2, .highlight .se, .highlight .sh, .highlight .si, .highlight .sx, .highlight .sr, .highlight .s1, .highlight .ss { color: #e7997a; }
+/* Generic.Error */
+.highlight .gr { color: #FF0000; }
 
-.highlight .go { color: #44475a; }
+/* Generic.Heading */
+.highlight .gh { color: #000080; font-weight: bold; }
 
-.highlight .err, .highlight .g, .highlight .l, .highlight .n, .highlight .x, .highlight .ge, .highlight .gr, .highlight .gh, .highlight .gi, .highlight .gp, .highlight .gs, .highlight .gu, .highlight .gt, .highlight .ld, .highlight .no, .highlight .nd, .highlight .pi, .highlight .ni, .highlight .ne, .highlight .nn, .highlight .nx, .highlight .py, .highlight .w, .highlight .bp { color: #f8f8f2; background-color: #323443 !important; }
+/* Generic.Inserted */
+.highlight .gi { color: #00A000; }
 
-.highlight .p { font-weight: bold; color: #66d9ef; }
+/* Generic.Output */
+.highlight .go { color: #808080; }
 
-.highlight .ge { text-decoration: underline; }
+/* Generic.Prompt */
+.highlight .gp { color: #000080; font-weight: bold; }
 
-.highlight .bp { font-style: italic; }
+/* Generic.Strong */
+.highlight .gs { font-weight: bold; }
 
-.highlight .c, .highlight .ch, .highlight .cm, .highlight .cpf, .highlight .cs { color: #6272a4; }
+/* Generic.Subheading */
+.highlight .gu { color: #800080; font-weight: bold; }
 
-.highlight .c1 { color: gray; }
+/* Generic.Traceback */
+.highlight .gt { color: #0040D0; }
 
-.highlight .kd, .highlight .kt, .highlight .nb, .highlight .nl, .highlight .nv, .highlight .vc, .highlight .vg, .highlight .vi, .highlight .vm { color: #8be9fd; }
+/* Keyword.Constant */
+.highlight .kc { color: #008000; font-weight: bold; }
 
-.highlight .kd, .highlight .nb, .highlight .nl, .highlight .nv, .highlight .vc, .highlight .vg, .highlight .vi, .highlight .vm { font-style: italic; }
+/* Keyword.Declaration */
+.highlight .kd { color: #008000; font-weight: bold; }
 
-.highlight .fm, .highlight .na, .highlight .nc, .highlight .nf { color: #ace591; }
+/* Keyword.Namespace */
+.highlight .kn { color: #008000; font-weight: bold; }
 
-.highlight .k, .highlight .o, .highlight .cp, .highlight .kc, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .nt, .highlight .ow { color: #ff79c6; }
+/* Keyword.Pseudo */
+.highlight .kp { color: #008000; }
 
-.highlight .kc { color: #ace591; }
+/* Keyword.Reserved */
+.highlight .kr { color: #008000; font-weight: bold; }
 
-.highlight .m, .highlight .mb, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .mo, .highlight .il { color: #bd93f9; }
+/* Keyword.Type */
+.highlight .kt { color: #B00040; }
 
-.highlight .gd { color: #ff5555; }
+/* Literal.Number */
+.highlight .m { color: #666666; }
 
-p code { font-size: 16px; }
+/* Literal.String */
+.highlight .s { color: #BA2121; }
+
+/* Name.Attribute */
+.highlight .na { color: #7D9029; }
+
+/* Name.Builtin */
+.highlight .nb { color: #008000; }
+
+/* Name.Class */
+.highlight .nc { color: #0000FF; font-weight: bold; }
+
+/* Name.Constant */
+.highlight .no { color: #880000; }
+
+/* Name.Decorator */
+.highlight .nd { color: #AA22FF; }
+
+/* Name.Entity */
+.highlight .ni { color: #999999; font-weight: bold; }
+
+/* Name.Exception */
+.highlight .ne { color: #D2413A; font-weight: bold; }
+
+/* Name.Function */
+.highlight .nf { color: #0000FF; }
+
+/* Name.Label */
+.highlight .nl { color: #A0A000; }
+
+/* Name.Namespace */
+.highlight .nn { color: #0000FF; font-weight: bold; }
+
+/* Name.Tag */
+.highlight .nt { color: #008000; font-weight: bold; }
+
+/* Name.Variable */
+.highlight .nv { color: #19177C; }
+
+/* Operator.Word */
+.highlight .ow { color: #AA22FF; font-weight: bold; }
+
+/* Text.Whitespace */
+.highlight .w { color: #bbbbbb; }
+
+/* Literal.Number.Float */
+.highlight .mf { color: #666666; }
+
+/* Literal.Number.Hex */
+.highlight .mh { color: #666666; }
+
+/* Literal.Number.Integer */
+.highlight .mi { color: #666666; }
+
+/* Literal.Number.Oct */
+.highlight .mo { color: #666666; }
+
+/* Literal.String.Backtick */
+.highlight .sb { color: #BA2121; }
+
+/* Literal.String.Char */
+.highlight .sc { color: #BA2121; }
+
+/* Literal.String.Doc */
+.highlight .sd { color: #BA2121; font-style: italic; }
+
+/* Literal.String.Double */
+.highlight .s2 { color: #BA2121; }
+
+/* Literal.String.Escape */
+.highlight .se { color: #BB6622; font-weight: bold; }
+
+/* Literal.String.Heredoc */
+.highlight .sh { color: #BA2121; }
+
+/* Literal.String.Interpol */
+.highlight .si { color: #BB6688; font-weight: bold; }
+
+/* Literal.String.Other */
+.highlight .sx { color: #008000; }
+
+/* Literal.String.Regex */
+.highlight .sr { color: #BB6688; }
+
+/* Literal.String.Single */
+.highlight .s1 { color: #BA2121; }
+
+/* Literal.String.Symbol */
+.highlight .ss { color: #19177C; }
+
+/* Name.Builtin.Pseudo */
+.highlight .bp { color: #008000; }
+
+/* Name.Variable.Class */
+.highlight .vc { color: #19177C; }
+
+/* Name.Variable.Global */
+.highlight .vg { color: #19177C; }
+
+/* Name.Variable.Instance */
+.highlight .vi { color: #19177C; }
+
+/* Literal.Number.Integer.Long */
+.highlight .il { color: #666666; }
 
 /*# sourceMappingURL=style.css.map */
