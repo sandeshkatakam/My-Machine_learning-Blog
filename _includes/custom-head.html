@@ -4,7 +4,24 @@
   1. Head over to https://realfavicongenerator.net/ to add your own favicons.
   2. Customize default _includes/custom-head.html in your source directory and insert the given code snippet.
 {% endcomment %}
-
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+<script>
+ $(document).ready(function () {
+     $(window).scroll(function () {
+         if ($(this).scrollTop() > 100) {
+             $('.scrollup').fadeIn();
+         } else {
+             $('.scrollup').fadeOut();
+         }
+     });
+     $('.scrollup').click(function () {
+         $("html, body").animate({
+             scrollTop: 0
+         }, 600);
+         return false;
+     });
+ });
+</script>
 <style>
       .img-container {
         text-align: center;
