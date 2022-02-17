@@ -25,61 +25,6 @@
 <link rel="stylesheet" href="/My-Machine_learning-Blog/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://sandeshkatakam.github.io/My-Machine_learning-Blog/feed.xml" title="Sandesh's Machine Learning Journal" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
 <script>
-  const backToTopButton = document.querySelector("#back-to-top-btn");
-
-  window.addEventListener("scroll", scrollFunction);
-
-  function scrollFunction() {
-    if (window.pageYOffset > 300) { // Show backToTopButton
-      if(!backToTopButton.classList.contains("btnEntrance")) {
-        backToTopButton.classList.remove("btnExit");
-        backToTopButton.classList.add("btnEntrance");
-        backToTopButton.style.display = "block";
-      }
-    }
-    else { // Hide backToTopButton
-      if(backToTopButton.classList.contains("btnEntrance")) {
-        backToTopButton.classList.remove("btnEntrance");
-        backToTopButton.classList.add("btnExit");
-        setTimeout(function() {
-          backToTopButton.style.display = "none";
-        }, 250);
-      }
-    }
-  }
-
-  backToTopButton.addEventListener("click", smoothScrollBackToTop);
-
-// function backToTop() {
-//   window.scrollTo(0, 0);
-// }
-
-  function smoothScrollBackToTop() {
-    const targetPosition = 0;
-    const startPosition = window.pageYOffset;
-    const distance = targetPosition - startPosition;
-    const duration = 750;
-    let start = null;
-  
-    window.requestAnimationFrame(step);
-
-    function step(timestamp) {
-      if (!start) start = timestamp;
-      const progress = timestamp - start;
-      window.scrollTo(0, easeInOutCubic(progress, startPosition, distance, duration));
-      if (progress < duration) window.requestAnimationFrame(step);
-    }
-  }
-
-  function easeInOutCubic(t, b, c, d) {
-	  t /= d/2;
-	  if (t < 1) return c/2*t*t*t + b;
-	  t -= 2;
-	  return c/2*(t*t*t + 2) + b;
-  };
-</script>
-<!--
-<script>
  $(document).ready(function () {
      $(window).scroll(function () {
          if ($(this).scrollTop() > 100) {
@@ -96,7 +41,7 @@
      });
  });
 </script>
--->
+
 <style>
       .img-container {
         text-align: center;
@@ -572,10 +517,10 @@ I chose this dataset because of the importance of NIFTY50 listed stocks on India
 
 
 
-<div id="51bc897c-21ae-470d-9fcf-9542477980c1"></div>
+<div id="ee6e5623-dfb9-4c87-b5f4-68f4914866df"></div>
 <div class="output_subarea output_javascript ">
 <script type="text/javascript">
-var element = $('#51bc897c-21ae-470d-9fcf-9542477980c1');
+var element = $('#ee6e5623-dfb9-4c87-b5f4-68f4914866df');
 window.require && require(["base/js/namespace"],function(Jupyter){Jupyter.notebook.save_checkpoint()})
 </script>
 </div>
@@ -2393,10 +2338,10 @@ memory usage: 40.7+ KB
 
 
 
-<div id="04c2cde2-b43c-4ac0-9cfc-45c06a513aca"></div>
+<div id="5cfdb56c-c366-45aa-a4ee-753cfc52f712"></div>
 <div class="output_subarea output_javascript ">
 <script type="text/javascript">
-var element = $('#04c2cde2-b43c-4ac0-9cfc-45c06a513aca');
+var element = $('#5cfdb56c-c366-45aa-a4ee-753cfc52f712');
 window.require && require(["base/js/namespace"],function(Jupyter){Jupyter.notebook.save_checkpoint()})
 </script>
 </div>
@@ -3851,10 +3796,10 @@ window.require && require(["base/js/namespace"],function(Jupyter){Jupyter.notebo
 
 
 
-<div id="710633f8-56b0-48cf-868f-07e46846f232"></div>
+<div id="4d7d8277-f942-4eae-a709-f1b33f8fb406"></div>
 <div class="output_subarea output_javascript ">
 <script type="text/javascript">
-var element = $('#710633f8-56b0-48cf-868f-07e46846f232');
+var element = $('#4d7d8277-f942-4eae-a709-f1b33f8fb406');
 window.require && require(["base/js/namespace"],function(Jupyter){Jupyter.notebook.save_checkpoint()})
 </script>
 </div>
@@ -4642,10 +4587,10 @@ Name: 302, dtype: object</pre>
 
 
 
-<div id="34f0e5f7-51a6-4180-954c-fedc29e2ac78"></div>
+<div id="c44359bc-5c5b-4f8a-a1c2-9f8c70762493"></div>
 <div class="output_subarea output_javascript ">
 <script type="text/javascript">
-var element = $('#34f0e5f7-51a6-4180-954c-fedc29e2ac78');
+var element = $('#c44359bc-5c5b-4f8a-a1c2-9f8c70762493');
 window.require && require(["base/js/namespace"],function(Jupyter){Jupyter.notebook.save_checkpoint()})
 </script>
 </div>
@@ -4727,10 +4672,10 @@ window.require && require(["base/js/namespace"],function(Jupyter){Jupyter.notebo
 
 
 
-<div id="e023c75e-968c-4e7e-9182-c46e21b85027"></div>
+<div id="195d0c8f-794b-4750-998a-24b60a394148"></div>
 <div class="output_subarea output_javascript ">
 <script type="text/javascript">
-var element = $('#e023c75e-968c-4e7e-9182-c46e21b85027');
+var element = $('#195d0c8f-794b-4750-998a-24b60a394148');
 window.require && require(["base/js/namespace"],function(Jupyter){Jupyter.notebook.save_checkpoint()})
 </script>
 </div>
@@ -4847,10 +4792,10 @@ window.require && require(["base/js/namespace"],function(Jupyter){Jupyter.notebo
 
 
 
-<div id="f62a824e-3d06-4bb8-94b3-2138f3c1fe9a"></div>
+<div id="7f05ee83-bc0b-440e-97f9-d8d317a57b94"></div>
 <div class="output_subarea output_javascript ">
 <script type="text/javascript">
-var element = $('#f62a824e-3d06-4bb8-94b3-2138f3c1fe9a');
+var element = $('#7f05ee83-bc0b-440e-97f9-d8d317a57b94');
 window.require && require(["base/js/namespace"],function(Jupyter){Jupyter.notebook.save_checkpoint()})
 </script>
 </div>
