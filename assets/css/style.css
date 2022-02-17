@@ -470,7 +470,7 @@ li .post-meta-description { color: rgba(255, 255, 255, 0.69) !important; }
 
 #myBtn:hover { background-color: #555; /* Add a dark-grey background on hover */ }
 
-.text_cell, .post-title, .site-title, h3, .page-description { font-family: 'Playfair Display', serif !important; }
+.text_cell, .post-title, .site-nav, .site-title, h3, .page-description { font-family: 'Playfair Display', serif !important; }
 
 .language-python + .language-plaintext { border-left: 1px solid grey; margin-left: 1rem !important; }
 
