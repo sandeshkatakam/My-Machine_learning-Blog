@@ -56,7 +56,7 @@ layout: default
     {% endif -%}
   </header>
   
-  <script src="{{ base.url | prepend: site.url }}/assets/button.js"></script>
+  
 
   <div class="post-content e-content" itemprop="articleBody">
     {{ content | toc  }}
@@ -68,6 +68,7 @@ layout: default
     {%- include disqus_comments.html -%}
   {%- endif -%}
   <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
+  <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
   <a href="#" class="scrollup">Scroll</a>
 </article>
 
