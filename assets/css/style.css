@@ -470,6 +470,26 @@ li .post-meta-description { color: rgba(255, 255, 255, 0.69) !important; }
 
 #myBtn:hover { background-color: #555; /* Add a dark-grey background on hover */ }
 
+#scroll-to-top { display: block; position: fixed; font-size: 21px; bottom: 25px; right: 10%; opacity: 0; z-index: 99; text-align: center; transform: translateY(30%); transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out; }
+
+@media (max-width: 600px) { #scroll-to-top { font-size: 20px; } }
+
+@media (max-width: 600px) { #scroll-to-top { right: 5%; bottom: 15px; } }
+
+#scroll-to-top :last-child { transition: transform 0.7s ease-in-out; }
+
+#scroll-to-top :last-child:active, #scroll-to-top :last-child:hover { transform: translateY(-10%); }
+
+#scroll-to-top span { cursor: pointer; color: #1a1d24; }
+
+#scroll-to-top span:hover .up-arrow, #scroll-to-top span:active .up-arrow { color: #00adb5; }
+
+.highlighter-rouge { background: gray; }
+
+@media all and (max-width: 360px) { div.highlighter-rouge { font-size: .4em; } }
+
+@media all and (max-width: 460px) { div.highlighter-rouge { font-size: .5em; } }
+
 .text_cell, .post-title, .site-nav, .site-title, h3, .page-description { font-family: 'Playfair Display', serif !important; }
 
 .language-python + .language-plaintext { border-left: 1px solid grey; margin-left: 1rem !important; }
