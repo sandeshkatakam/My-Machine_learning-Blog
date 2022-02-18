@@ -126,7 +126,7 @@ kramdown:
   syntax_highlighter: rouge
   
 toc:
-  ordered_list: true
+  ordered_list: false
 
 # to limit size of xml as it can grow quite large.
 feed:
