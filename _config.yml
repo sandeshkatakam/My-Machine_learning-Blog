@@ -36,6 +36,12 @@ url: "https://sandeshkatakam.github.io" # the base hostname & protocol for your 
 #
 baseurl: "/My-Machine_learning-Blog" # the subpath of your site, e.g. "/blog".
 
+# networking
+twitter_username: sandeshkatakam
+github_username: sandeshkatakam
+linkedin_username: sandesh-katakam-79b6b1135
+# you can comment the below line out if your repo name is not different than your baseurl
+github_repo: "precisnapse"
 # Github and twitter are optional:
 minima:
   social_links:
