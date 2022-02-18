@@ -503,7 +503,7 @@ li .post-meta-description { color: rgba(255, 255, 255, 0.69) !important; }
 
 .highlight .ge { text-decoration: underline; }
 
-.highlight .bp { font-style: Menlo, Monaco, Consolas, "Lucida Console", Roboto, Ubuntu, monospace; }
+.highlight .bp { font-style: italic; }
 
 .highlight .c, .highlight .ch, .highlight .cm, .highlight .cpf, .highlight .cs { color: #6272a4; }
 
