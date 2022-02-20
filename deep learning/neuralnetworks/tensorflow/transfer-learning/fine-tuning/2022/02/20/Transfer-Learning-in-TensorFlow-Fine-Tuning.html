@@ -213,10 +213,6 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h3"><a href="#Get-the-Data">Get the Data </a></li>
 <li class="toc-entry toc-h3"><a href="#Modelling-experiments-we-are-going-to-run:">Modelling experiments we are going to run: </a></li>
 <li class="toc-entry toc-h3"><a href="#Keras-Functional-API:">Keras Functional API: </a></li>
-</ul>
-</li>
-<li class="toc-entry toc-h1"><a href="#Creating-a-model-with-the-Functional-API">Creating a model with the Functional API </a>
-<ul>
 <li class="toc-entry toc-h3"><a href="#Model-0:-Building-a-transfer-learning-model-using-the-Keras-Functional-API">Model 0: Building a transfer learning model using the Keras Functional API </a></li>
 <li class="toc-entry toc-h3"><a href="#Getting-a-Feature-vector-from-a-trained-model">Getting a Feature vector from a trained model </a></li>
 <li class="toc-entry toc-h3"><a href="#Running-transfer-learning-experiments">Running transfer learning experiments </a></li>
@@ -1041,24 +1037,24 @@ Found 2500 files belonging to 10 classes.
 <h3 id="Keras-Functional-API:">
 <a class="anchor" href="#Keras-Functional-API:" aria-hidden="true"><span class="octicon octicon-link"></span></a>Keras Functional API:<a class="anchor-link" href="#Keras-Functional-API:"> </a>
 </h3>
-<p>```</p>
-<h1 id="Creating-a-model-with-the-Functional-API">
-<a class="anchor" href="#Creating-a-model-with-the-Functional-API" aria-hidden="true"><span class="octicon octicon-link"></span></a>Creating a model with the Functional API<a class="anchor-link" href="#Creating-a-model-with-the-Functional-API"> </a>
-</h1>
-<p>inputs = tf.keras.layers.Input(shape = (28,28))
+<pre><code># Creating a model with the Functional API
+inputs = tf.keras.layers.Input(shape = (28,28))
 x = tf.keras.layers.Flatten()(inputs)
 x = tf.keras.layers.Dense(64, activation = "relu")(x)
 x = tf.keras.layers.Dense(64, activation = "relu")(x)
 outputs = tf.keras.layers.Dense(10, activation = "softmax")(x)
-functional_model = tf.keras.Model(inputs,outputs,name = "functional model")</p>
-<p>functional_model.compile(
+functional_model = tf.keras.Model(inputs,outputs,name = "functional model")
+
+functional_model.compile(
     loss = tf.keras.losses.SparseCategoricalCrossentropy(),
     optimizer = tf.keras.optimizers.Adam(),
-    metrics =["accuracy"]</p>
-<p>)</p>
-<p>functional_model.fit(X_train, y_train,
+    metrics =["accuracy"]
+
+)
+
+functional_model.fit(X_train, y_train,
                      batch_size = 32,
-                     epochs =5)</p>
+                     epochs =5)</code></pre>
 
 </div>
 </div>
