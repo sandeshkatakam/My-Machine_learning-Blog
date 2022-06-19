@@ -422,7 +422,7 @@ $$\min_{(\theta_{0},\theta_{1})} J(\theta_{0},\theta_{1})$$</p>
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-python"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="k">def</span> <span class="nf">compute_cost</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">theta</span><span class="p">):</span>
   <span class="sd">"""</span>
 <span class="sd">  Calculates the cost function for given data</span>
@@ -461,7 +461,7 @@ $$\min_{(\theta_{0},\theta_{1})} J(\theta_{0},\theta_{1})$$</p>
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-python"><pre><span></span><span class="k">def</span> <span class="nf">gradient_descent</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">theta</span><span class="p">,</span><span class="n">alpha</span><span class="p">,</span> <span class="n">num_iters</span><span class="p">):</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">gradient_descent</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">theta</span><span class="p">,</span><span class="n">alpha</span><span class="p">,</span> <span class="n">num_iters</span><span class="p">):</span>
   <span class="sd">"""</span>
 <span class="sd">  Performs the gradient descent for the Data given no of iterations</span>
 
@@ -501,7 +501,7 @@ $$\min_{(\theta_{0},\theta_{1})} J(\theta_{0},\theta_{1})$$</p>
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-python"><pre><span></span><span class="c1"># Loading the dataset and preparing the data for the model training</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Loading the dataset and preparing the data for the model training</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"/content/linear_reg.csv"</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span> <span class="p">[</span><span class="s2">"X"</span><span class="p">,</span><span class="s2">"y"</span><span class="p">])</span>
 <span class="n">X</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">"X"</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
@@ -587,7 +587,7 @@ $$\theta_{j} := \theta_{j} - (\alpha)\frac{\partial J(\theta_{0}, \theta_{1})}{\
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-python"><pre><span></span><span class="k">def</span> <span class="nf">mean_normalization</span><span class="p">(</span><span class="n">X</span><span class="p">):</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">mean_normalization</span><span class="p">(</span><span class="n">X</span><span class="p">):</span>
     <span class="sd">"""</span>
 <span class="sd">    Performs the feature normalization step for the Input data</span>
 
@@ -615,7 +615,7 @@ $$\theta_{j} := \theta_{j} - (\alpha)\frac{\partial J(\theta_{0}, \theta_{1})}{\
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-python"><pre><span></span><span class="k">def</span> <span class="nf">normal_eqn_method</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">y</span><span class="p">):</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">normal_eqn_method</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">y</span><span class="p">):</span>
   <span class="sd">"""</span>
 <span class="sd">  Calculates the paramter matrix or theta by using Normal Equation method</span>
 
@@ -695,7 +695,7 @@ $$g(z) = \frac{1}{1+ e^{-\theta^{T}(x)}}$$</p>
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-python"><pre><span></span><span class="k">def</span> <span class="nf">sigmoid</span><span class="p">(</span><span class="n">z</span><span class="p">):</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">sigmoid</span><span class="p">(</span><span class="n">z</span><span class="p">):</span>
     <span class="sd">"""</span>
 <span class="sd">    Compute the sigmoid of z</span>
 
@@ -785,12 +785,12 @@ We obtained this version by combining both equations from previous version of ou
 <li>If $y = 0$ : $Cost(h_{\theta}(x), y) = - \log(1 - h_{\theta}(x))$  </li>
 </ul>
 <p>This cost function below is derived from statistics using the principle of maximum likelihood estimation. It is also convex. So it converges to a global minimum.<br>
-$$\begin{equation}
+$$
 J(\theta) = \sum^{m}_{i=1} Cost(h_{\theta}(x^{(i)}),y^{(i)})
-\end{equation}$$
-$$\begin{equation}
+$$
+$$
 J(\theta) = \frac{1}{m} \Big\{ \sum^{m}_{i=1} y^{(i)}\log(h_{\theta}(x^{(i)})) + (1- y^{(i)})\log(1-h_{\theta}(x)) \Big\}
-\end{equation}$$</p>
+$$</p>
 <p>To fit paramters $\theta$ : $\min_{\theta} {J(\theta)}$</p>
 <p>To make a prediction given any $x$:
 
@@ -844,7 +844,7 @@ $$\theta_{j} := \theta_{j} - (\alpha)\frac{\partial J(\theta_{0}, \theta_{1})}{\
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-python"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">h5py</span>
 <span class="kn">import</span> <span class="nn">scipy</span>
@@ -852,7 +852,7 @@ $$\theta_{j} := \theta_{j} - (\alpha)\frac{\partial J(\theta_{0}, \theta_{1})}{\
 <span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">ndimage</span>
 
 
-<span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
 </pre></div>
 
     </div>
@@ -869,7 +869,7 @@ $$\theta_{j} := \theta_{j} - (\alpha)\frac{\partial J(\theta_{0}, \theta_{1})}{\
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-python"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="k">def</span> <span class="nf">load_dataset</span><span class="p">(</span><span class="n">path_to_csv</span><span class="p">,</span> <span class="n">col_names</span><span class="o">=</span> <span class="p">[]):</span>
   <span class="sd">"""</span>
 <span class="sd">  Loads the dataset of our choice from the csv data format file</span>
