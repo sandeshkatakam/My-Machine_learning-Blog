@@ -6,8 +6,8 @@
 # https://learn-the-web.algonquindesign.ca/topics/markdown-yaml-cheat-sheet/#yaml
 # https://learnxinyminutes.com/docs/yaml/
 
-title: "Sandesh's Machine Learning Journal"
-description: Blog related to Machine learning and Deep learning.
+title: "Neural Networks and Differential Equations"
+description: Blog related to Neural Differential Equations and SciML.
 github_username: sandeshkatakam
 # you can comment the below line out if your repo name is not different than your baseurl
 github_repo: "My-Machine_learning-Blog"
@@ -34,7 +34,7 @@ url: "https://sandeshkatakam.github.io" # the base hostname & protocol for your 
 #
 # 3. You must replace the parameter `baseurl` in _action_files/settings.ini with the same value as you set here but WITHOUT QUOTES.
 #
-baseurl: "/My-Machine_learning-Blog" # the subpath of your site, e.g. "/blog".
+baseurl: "/blog" # the subpath of your site, e.g. "/blog".
 
 # networking
 twitter_username: sandeshkatakam
